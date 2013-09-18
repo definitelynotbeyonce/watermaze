@@ -35,10 +35,13 @@
 #include <omp.h>
 
 //Project Headers
-#include "../WaterMaze.h"
+
 #include "TrialSetup.h"
 #include "OutboundPacket.h"
 #include "StateUpdate.h"
+
+#include "../WaterMaze.h"
+
 
 
 using namespace std;
@@ -54,49 +57,48 @@ namespace WaterMaze
 			WMController(WaterMaze * wm);
 			~WMController();
 			
-			//inbound packet functions
+			// inbound packet functions
 			void getConnections();
 			void getData();
 			
-			//Outbound Packet Functions
-			void bCastOutboundPacketResults(OutboundPacket* obp);
-			void bCastOutboundPacketState(StateUpdate* su);	//these could be wrapped into one function but they broadcast over different channels
+			// Outbound Packet Functions
+			void bCastOutboundPacket(OutboundPacket* obp);
+			void singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp);
+			
 			
 		protected: 
-			//Process Input from sockets
+				//Methods
+			// Process Input from sockets
 			bool processSocketInput(cvr::CVRSocket * socket);
+			int processPacket(int stage, cvr::CVRSocket * socket, string &line);
+			string processData(cvr::CVRSocket * socket);
 			
-			//Input Handlers
-			void categorizeConnection(string type, CVRSocket* s);
-			void parseDataLine(string type, string dataLine);
-			void commandHandler(string dataLine);	//TODO
-			
-			//Response Functions
+			// Response Functions
 			void responseHandler(string type, string dataLine, CVRSocket* socket);
-			void stateRequestResponseHandler(CVRSocket* socket);
+			void takeAction(string type, string data, CVRSocket* socket);
+			void executeCommand(string command);
+			void sendState(cvr::CVRSocket * destination);
 			
-			//c++ to java util functions
+			// c++ to java util functions
 			tuple<char*, int> prepJavaString(char stage, string data);	
 						
-			//Debugging Methods
+			// Debugging Methods
 			void printBytes(char* c, int len);
 			
-			//Members
-			//MVC
+				// Members
+			// MVC
 			WaterMaze * _wm;
 			
-			//Connection Data
+			// Connection Data
 			int _portNo;
 			string _myIP;
 			string _controllerIP;
 			
-			//Inbound Sockets
+			// Inbound Socket Connection Handler
 			MultiListenSocket* _incoming;
-			vector<CVRSocket*> _socketList;	
 			
-			//Outbound Sockets
-			vector<CVRSocket*> _ALstateSockets;	
-			vector<CVRSocket*> _ALdataSockets;	
+			// I/O socket
+			vector<CVRSocket*> _socketList;	
 	};
 };
 

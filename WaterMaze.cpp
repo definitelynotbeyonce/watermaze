@@ -4,7 +4,7 @@
 using namespace cvr;
 using namespace osg;
 using namespace std;
-using namespace sc;
+//using namespace sc;
 
 namespace WaterMaze
 {
@@ -16,20 +16,7 @@ CVRPLUGIN(WaterMaze)
 WaterMaze::WaterMaze()
 {
     _myPtr = this;
-    _geoRoot = new osg::MatrixTransform();	
-
-    string name = "aserver";
-    //string synthdir = "/Users/demo/workspace/git/collider/synthdefs/mac"; //Octo
-    string synthdir = "/Users/administrator/git/collider/synthdefs/mac";
-
-   //_aserver = new SCServer(name, "132.239.235.169" , "57110", synthdir); //Octo
-   if (ConfigManager::getEntry("Plugin.WaterMaze.Sound") == "on")
-   {
-       _aserver = new SCServer(name, "127.0.0.1" , "57110", synthdir);
-       _regTileBuf = new Buffer(_aserver, _aserver->nextBufferNum());
-       _hiddenTileBuf = new Buffer(_aserver, _aserver->nextBufferNum());
-       _aserver->dumpOSC(1);
-   }
+    _geoRoot = new osg::MatrixTransform();
 
    _curTile=0;
 
@@ -63,17 +50,17 @@ WaterMaze::WaterMaze()
 			"h - help menu" << std::endl;
 	
 	_controller = new WMController(this);
+	
+	state = "experiment start";
 }
 
 WaterMaze::~WaterMaze()
 {
-
-    if(_regTileBuf)
-		delete _regTileBuf;
-    if(_hiddenTileBuf)
-		delete _hiddenTileBuf;
-    if(_aserver)
-		delete _aserver;
+	if(_controller != NULL)
+		delete _controller;
+	if(_currPath != NULL)
+		delete _currPath;
+	
 }
 
 WaterMaze * WaterMaze::instance()
@@ -83,16 +70,6 @@ WaterMaze * WaterMaze::instance()
 
 bool WaterMaze::init()
 {
-    if (ConfigManager::getEntry("Plugin.WaterMaze.Sound") == "on")
-    {
-        //_regTileBuf->allocRead("/Users/demo/workspace/svn/libSCresources/projects/watermaze/step.aiff");
-        _regTileBuf->allocRead("/Users/administrator/libSCresources/projects/watermaze/step.aiff");
-
-       // _hiddenTileBuf->allocRead("/Users/demo/workspace/svn/libSCresources/projects/watermaze/groove.aiff");
-          _hiddenTileBuf->allocRead("/Users/administrator/libSCresources/projects/watermaze/groove.aiff");
-    }
-
-
     // Setup menus
     _WaterMazeMenu = new SubMenu("Water Maze");
 
@@ -130,19 +107,10 @@ bool WaterMaze::init()
 		ComController::instance()->readMaster(&seed, sizeof(seed));
         srand(seed);
     }
-
-    // EEG device communication
-/*    if (ComController::instance()->isMaster())
-    {
-        int port = 12345;
-        init_SPP(port);
-    }
-*/
+    
     // Set up models
     widthTile = ConfigManager::getFloat("value", "Plugin.WaterMaze.WidthTile", 2000.0);
     heightTile = ConfigManager::getFloat("value", "Plugin.WaterMaze.HeightTile", 2000.0);
-    //numWidth = ConfigManager::getFloat("value", "Plugin.WaterMaze.NumWidth", 10.0);
-    //numHeight = ConfigManager::getFloat("value", "Plugin.WaterMaze.NumHeight", 10.0);
     depth = ConfigManager::getFloat("value", "Plugin.WaterMaze.Depth", 10.0);
     wallHeight = ConfigManager::getFloat("value", "Plugin.WaterMaze.WallHeight", 2500.0);
     gridWidth = ConfigManager::getFloat("value", "Plugin.WaterMaze.GridWidth", 5.0);
@@ -391,14 +359,7 @@ void WaterMaze::load()
     sd->setColor(osg::Vec4(.8, .8, 1, 1));
     geode = new osg::Geode();
     geode->addDrawable(sd);
-    _geoRoot->addChild(geode);
-    
-    if (ConfigManager::getEntry("Plugin.WaterMaze.Sound") == "on")
-    {
-        if (_aserver)
-            _aserver->dumpOSC(0);
-    }
-	
+    _geoRoot->addChild(geode);	
 
 	//starting location
 	osg::PositionAttitudeTransform * tilePat = new osg::PositionAttitudeTransform();
@@ -419,6 +380,7 @@ void WaterMaze::load()
 	PluginHelper::setObjectMatrix(mat);
 
 	_loaded = true;
+	changeState("geometry loaded");
 
 }
 
@@ -433,12 +395,6 @@ void WaterMaze::preFrame()
 	
     if (!_loaded || !_runningTrial)
         return;
-
-    if (ConfigManager::getEntry("Plugin.WaterMaze.Sound") == "on")
-    {
-        _regTileArgs["bufnum"] = _regTileBuf->getBufNum();
-        _hiddenTileArgs["bufnum"] = _hiddenTileBuf->getBufNum();
-    }
     
     //handle timeout
     if (_paradigms[_currentParadigm]->getTimeRemaining(PluginHelper::getProgramDuration() - _startTime) <= 0)
@@ -489,24 +445,6 @@ void WaterMaze::preFrame()
                 }
                 else
 					it->second->setSingleChildOn(2);
-            }
-
-            if (ConfigManager::getEntry("Plugin.WaterMaze.Sound") == "on")
-            {
-                if (i != _curTile)
-                {
-                    if (i == _paradigms[_currentParadigm]->getFinishPos() && _aserver)
-                    {
-                        _aserver->createSynth("SoundFile_Event_Stereo", 
-                        _aserver->nextNodeId(), _hiddenTileArgs);
-                    }
-                    else if (_aserver)
-                    {
-                        _aserver->createSynth("SoundFile_Event_Stereo", 
-                            _aserver->nextNodeId(), _regTileArgs);
-                        _curTile=i;	
-                    }
-                }
             }
         }
         // Unoccupied tile
@@ -571,7 +509,7 @@ bool WaterMaze::processEvent(InteractionEvent * event)
 					// pause/play
 					playPause();
 					break;
-				case 'r':
+				case 'r':	//TODO: deprecated control
 					//rerun trial (throw out previous data)
 					if (_runningTrial)
 						return true;
@@ -668,7 +606,7 @@ void WaterMaze::clear()
     PluginHelper::getObjectsRoot()->addChild(_geoRoot);
 }
 
-//TODO: use this instead of clear() load() for moving between trials
+//TODO: use this instead of clear() load() for moving between trials. just kidding
 void WaterMaze::resetPosition()
 {
 	
@@ -678,13 +616,13 @@ void WaterMaze::log(osg::Vec3* pos)
 {
 	//get all the data
 	float elapsedTime = PluginHelper::getProgramDuration() - _startTime;
-	PathData* pd = new PathData(pos);	//TODO pass in the other vectors for eye data.
+	PathData* pd = new PathData(pos, elapsedTime);	//TODO pass in the other vectors for eye data.
 	
 	//insert
 	_currPath->addStep(elapsedTime, pd);	
 	
 	//inform android
-	_controller->bCastOutboundPacketResults(pd);
+	_controller->bCastOutboundPacket(pd);
 }
 
 void WaterMaze::changeParadigm(int direction)
@@ -708,6 +646,8 @@ void WaterMaze::changeParadigm(int direction)
 		std::cout << "loading previous paradigm" << std::endl;
 	else
 		std::cout << "loading next paradigm" << std::endl;
+	
+	changeState("geometry loaded");
 	
 	clear();
 	load();
@@ -761,6 +701,9 @@ void WaterMaze::reachedDestination()
 	cout << "Congratulations you have reached the destination!\n"
 		 << "Press \"f\" to move to the next trial.\n" 
 		 << "Or Press \"r\" to rerun trial" << endl;
+	
+	changeState("trial end");
+	
 }
 
 //TODO
@@ -770,6 +713,8 @@ void WaterMaze::timeOut()
 	_runningTrial = false;
 	cout << "Congratulations you have reached the destination!\n"
 		 << "Press \"f\" to move to the next trial." << endl;
+		 
+	changeState("trial end");
 }
 
 void WaterMaze::writeToLog()
@@ -848,7 +793,6 @@ void WaterMaze::startStop()
 	else
 	{
 		cout << "Starting trial" << endl; 
-		_runningTrial = true;
 		_startTime = PluginHelper::getProgramDuration();
 		_fileTimer = PluginHelper::getProgramDuration();
 		createPath();
@@ -857,10 +801,17 @@ void WaterMaze::startStop()
 
 string WaterMaze::getState()
 {
-	if(_runningTrial)
-		return "running";
-	else
-		return "default state";
+	return state;
+}
+
+void WaterMaze::changeState(string state)
+{
+	//internal
+	this->state = state;
+	//inform devices
+	StateUpdate* update = new StateUpdate(state);
+	_controller->bCastOutboundPacket(update);
+	delete update;
 }
 
 TrialSetup* WaterMaze::getTrialSetup()
@@ -870,8 +821,8 @@ TrialSetup* WaterMaze::getTrialSetup()
 	ts->gridSize = widthTile;
 	ts->length = _paradigms[_currentParadigm]->getLength();
 	ts->width = _paradigms[_currentParadigm]->getWidth();
-	ts->zero_zeroX = zeroZeroX;
-	ts->zero_zeroX = zeroZeroY;
+	ts->zero_zeroX = -widthTile;
+	ts->zero_zeroY = -widthTile;
 	ts->startingPos = _paradigms[_currentParadigm]->getStartingPos();
 	ts->finishPos = _paradigms[_currentParadigm]->getFinishPos();
 	
@@ -889,7 +840,9 @@ void WaterMaze::playPause()
 	{
 		cout << "Play." << endl; 
 		_runningTrial = true;
-
+		
+		changeState("running trial");
+		
 		if (_resetTime)
 		{
 			_startTime = PluginHelper::getProgramDuration();
@@ -921,10 +874,17 @@ void WaterMaze::createPath()
 	_currPath = new Path();
 	
 	//inform android
+	changeState("running trial");
 	TrialSetup* ts = getTrialSetup();
-	_controller->bCastOutboundPacketResults(ts);
+	_controller->bCastOutboundPacket(ts);
 	delete ts;
+	
+	_runningTrial = true;
 }
 
+WMController* WaterMaze::getController()
+{
+	return _controller;
+}
 
 };

@@ -1,14 +1,17 @@
 #include "PathData.h"
 
-PathData::PathData(osg::Vec3* pos)
+PathData::PathData(osg::Vec3* pos, float elapsedTime)
 {
 	//position
 	_pos = new osg::Vec3(0,0,0);
 	_pos->set(pos->x(),  pos->y(),  pos->z());
 	
+	//DEBUG:
+	//cout << _pos->x() << " " << _pos->y() << " " << _pos->z() << endl;
+	
 	_eyeData = new EyeData();
-	_progress = 0;
-	_time = 0;	//TODO
+	progress = 0;
+	_time = elapsedTime;	//TODO
 	
 	_packetType = "Data Point";
 }
@@ -22,6 +25,9 @@ PathData::~PathData()
 void PathData::writeToLog(ofstream &outFile)
 {
 	outFile << _pos->x() << "_" << _pos->y() << "_" << _pos->z();
+	//DEBUG:
+	cout << _pos->x() << " " << _pos->y() << " " << _pos->z();
+	
 	//TODO: write eye data
 	outFile << endl;
 	outFile << flush;
@@ -29,32 +35,43 @@ void PathData::writeToLog(ofstream &outFile)
 
 string PathData::getLine()
 {
-	string returnVal = "b";
+	string returnVal = "";
 	bool canRun = true;
 	while(canRun)
 	{
 		char sBuf[256];
 		int n;
-		switch(_progress)
+		switch(progress)
 		{
-			case 0:	//pos
-				n = sprintf(sBuf, "Time:%i", time);
+			case 0:	//time
+				n = sprintf(sBuf, "Time:%i", _time);
 				break;
-			/* TODO: is this needed?	case 1: //Time
-				n = sprintf("Time:%f", _time);
-				break;*/
-			//TODO: implement eye data etc,
+			case 1:
+				n = sprintf(sBuf, "X:%f", _pos->x());
+				break;
+			case 2:
+				n = sprintf(sBuf, "Y:%f", _pos->y());
+				break;
 			default:
-				return "NULL";
+				canRun = false;
+				break;
 		}
 		if(returnVal.length() + n < 256)
 		{
+			if(returnVal != "")
+			{
+				returnVal.append("|");
+			}
 			returnVal.append(sBuf, n);
-			++_progress;
+			++progress;
 		}
 		else
 		{
 			canRun = false;
 		}
 	}
+	if(returnVal == "")
+		returnVal = "NULL";
+	cout << "going out: " << returnVal << endl;
+	return returnVal;
 }

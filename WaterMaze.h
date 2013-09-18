@@ -38,22 +38,23 @@
 
 #include <iostream>
 #include <stdio.h>
-#include <netdb.h>
-#include <sys/socket.h>
-#include <X11/Xlib.h>
+//#include <netdb.h>
+//#include <sys/socket.h>
+//#include <X11/Xlib.h>
 
-#include "SCServer.hpp"
-#include "Buffer.hpp"
+//#include "SCServer.hpp"
+//#include "Buffer.hpp"
 #include "Path.h"
 #include "Paradigm.h"
+
 #include "Controller/WMController.h"
 #include "Controller/TrialSetup.h"
 
 
+
 namespace WaterMaze
 {
-class WMController;
-
+	class WMController;
 class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 {
     public:
@@ -73,10 +74,10 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		void startStop();
 		void playPause();
 		void addTrial();
-		
 		//access methods
 		string getState();
 		TrialSetup* getTrialSetup();
+		WMController* getController();
 		
     protected:
 		//util functions
@@ -88,33 +89,11 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
         void timeOut();
         void writeToLog();
         void createPath();
+		void changeState(string state);
 
-        // USB to Serial communication
-        /*HANDLE hSerial;
-        FT_HANDLE ftHandle;
-        FT_STATUS ftStatus;
-        DWORD devIndex;
-        DWORD bytesWritten;
-        unsigned char buf[16];
-        bool _sppConnected;
-*/
-		sc::SCServer * _aserver;
-		sc::Buffer * _regTileBuf;
-		sc::Buffer * _hiddenTileBuf;
 		std::map<std::string, float> _regTileArgs;
 		std::map<std::string, float> _hiddenTileArgs;
 		int _curTile;
-
-		//TODO: is this used?
-		float randomFloat(float min, float max)
-		{
-			if (max < min) return 0;
-
-			float random = ((float) rand()) / (float) RAND_MAX;
-			float diff = max - min;
-			float r = random * diff;
-			return min + r;
-		};
 
 		static WaterMaze * _myPtr;
 
@@ -136,7 +115,8 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 
 		// Game logic
 		int _currentParadigm;
-		bool _runningTrial, _resetTime;
+		bool _runningTrial, _finished;
+		bool _resetTime;
 		float _startTime;
 		
 
@@ -151,6 +131,7 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		Path* _currPath;
 		
 		float zeroZeroX, zeroZeroY;
+		std::string state;
 		
 		//android controller
 		WMController* _controller;

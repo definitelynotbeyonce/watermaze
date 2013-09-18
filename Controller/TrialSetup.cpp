@@ -12,7 +12,8 @@ TrialSetup::~TrialSetup()
 
 string TrialSetup::getLine()
 {
-	string returnVal = "";	//the b will be done in the controller
+	char pipe = '|';
+	string returnVal = "";
 	bool canRun = true;
 	while(canRun)
 	{
@@ -36,7 +37,7 @@ string TrialSetup::getLine()
 				n = sprintf(sBuf, "Width:%i", width);
 				break;
 			case 5:	//zero zero
-				n = sprintf(sBuf, "ZeroZero:%f_%f", trialNo);
+				n = sprintf(sBuf, "ZeroZero:%f_%f", zero_zeroX, zero_zeroY);
 				break;
 			case 6: //StartingPos
 				n = sprintf(sBuf, "startingPos:%i", startingPos);
@@ -45,10 +46,15 @@ string TrialSetup::getLine()
 				n = sprintf(sBuf, "FinishPos:%i", finishPos);
 				break;
 			default:
-				return "NULL";
+				canRun = false;
+				break;
 		}
 		if(returnVal.length() + n < 256)
 		{
+			if(returnVal != "")
+			{
+				returnVal.append("|");
+			}
 			returnVal.append(sBuf, n);
 			++progress;
 		}
@@ -57,6 +63,9 @@ string TrialSetup::getLine()
 			canRun = false;
 		}
 	}
+	if(returnVal == "")
+		returnVal = "NULL";
+	return returnVal;
 
 }
 

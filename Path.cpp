@@ -2,7 +2,7 @@
 
 Path::Path()
 {
-	cout << "creating a new path" << endl;
+	//cout << "creating a new path" << endl;
 }
 
 Path::Path(int start, int finish)

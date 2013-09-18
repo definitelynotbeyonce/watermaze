@@ -29,7 +29,7 @@ using namespace std;
 class PathData: public OutboundPacket
 {
     public:
-        PathData(osg::Vec3* pos);	//TODO: refactor to implement EyeData
+        PathData(osg::Vec3* pos, float elapsedTime);	//TODO: refactor to implement EyeData
         virtual ~PathData();
         //data recording
         void writeToLog(ofstream &outFile);
@@ -39,7 +39,6 @@ class PathData: public OutboundPacket
 		float _time;
 		osg::Vec3* _pos;
 		EyeData* _eyeData;
-		int _progress;
 };
 
 

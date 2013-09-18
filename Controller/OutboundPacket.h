@@ -14,6 +14,7 @@ class OutboundPacket
         virtual string getLine() = 0;	//this is to be overriden
     protected:
         string _packetType;
+        int progress;
 };
 
 #endif

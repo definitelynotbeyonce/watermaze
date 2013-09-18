@@ -93,17 +93,16 @@ void WMController::getData()
 }
 
 //outbound packet functions
-void WMController::bCastOutboundPacketResults(OutboundPacket* obp)
+void WMController::bCastOutboundPacket(OutboundPacket* obp)
 {
-	cout << "broadcasting outbound packet" << endl;
-	int n = _ALdataSockets.size();	//LCV used for omp parallelization
+	int n = _socketList.size();	//LCV used for omp parallelization
 	
 	//1
 	tuple<char*, int> t1 = prepJavaString('a', obp->getType());
 	#pragma omp parallel for schedule(dynamic)
 	for(int i = 0; i < n; ++i)
 	{
-		_ALdataSockets[i]->send(get<0>(t1), get<1>(t1));
+		_socketList[i]->send(get<0>(t1), get<1>(t1));
 	}
 	
 	//2
@@ -114,7 +113,7 @@ void WMController::bCastOutboundPacketResults(OutboundPacket* obp)
 		#pragma omp parallel for schedule(dynamic)
 		for(int i = 0; i < n; ++i)
 		{
-			_ALdataSockets[i]->send(get<0>(t2), get<1>(t2));
+			_socketList[i]->send(get<0>(t2), get<1>(t2));
 		}
 	}
 	
@@ -125,214 +124,209 @@ void WMController::bCastOutboundPacketResults(OutboundPacket* obp)
 	#pragma omp parallel for schedule(dynamic)
 	for(int i = 0; i < n; ++i)
 	{
-		_ALdataSockets[i]->send(c3, 2);
+		_socketList[i]->send(c3, 2);
 	}
 }
 
-void WMController::bCastOutboundPacketState(StateUpdate* su)
+
+
+
+//process input
+bool WMController::processSocketInput(cvr::CVRSocket * socket)
 {
-	//1
-	tuple<char*, int> t1 = prepJavaString('a', su->getType());
-	#pragma omp parallel for schedule(dynamic)
-	for(int i = 0; i < _ALdataSockets.size(); ++i)
+	//InboundPacket* packet;
+	string type = "";
+	int result = processPacket(1, socket, type);
+	if(result < 0)
+		return false;
+	
+	string data = processData(socket);	
+	if(data == "ERROR")
+		return false;
+	
+	string last = processData(socket);
+	if(data == "ERROR")
+		return false;
+		
+	//process
+	takeAction(type, data, socket);
+	return true;
+}
+
+string WMController::processData(CVRSocket * socket)
+{
+	//read stage number
+	int num[2];
+    if(!socket->recv(num,sizeof(int) * 2))
 	{
-		_ALdataSockets[i]->send(get<0>(t1), get<1>(t1));
+		return "ERROR";
 	}
+	//get the packet
+	char buf[num[1]];
+    if(!socket->recv(buf,num[1]))
+    {
+        return "ERROR";
+	}
+	buf[num[1] - 1] = (char)0;
+	cout << num[0] << " echo: " << buf << endl;
+	
+	return string(buf);
+}
+
+int WMController::processPacket(int stage, CVRSocket * socket, string &data)
+{
+	//read stage number
+	int num[2];
+    if(!socket->recv(num,sizeof(int) * 2))
+	{
+		return -1;
+	}
+	//get the packet
+	char buf[num[1]];
+    if(!socket->recv(buf,num[1]))
+    {
+        return -1;
+	}
+    
+	//turn last line feed into a null terminator. convert to string
+	buf[num[1] - 1] = (char)0;
+	cout << num[0] << " echo: " << buf << endl;
+	
+	//process packet
+	switch(stage)
+	{
+		case 1:
+			if(num[0] == 1 && data == "")
+			{
+				//packet = processType(string(buf), socket);
+				data += string(buf);
+			}
+			break;
+		case 2:
+			if(num[0] == 2)
+			{
+				data += string(buf);
+			}
+			break;
+		default:
+			break;
+	}
+	
+	return num[0];	//return the stage as determined by the incoming packet used as an LCV	
+}
+/*
+InboundPacket* WMController::processType(string type, CVRSocket* socket)
+{
+	if(type == "Command"){
+		return (new Command());
+	}
+	else if(type == "State Request"){
+		return (new StateRequest(socket));
+	}
+	else{
+		//this shouldnt happen
+		cout << "error unknown packet type: " << type << endl;
+		return NULL;
+	}
+}*/
+
+/*
+void WMController::takeAction(InboundPacket* packet)
+{
+	if(packet->getType() == "Command")
+	{
+		executeCommand(dynamic_cast<Command*>(packet));
+	}
+	else if(packet->getType() == "StateRequest")
+	{
+		sendState(dynamic_cast<StateRequest*>(packet));
+	}
+}*/
+void WMController::takeAction(string type, string data, CVRSocket* socket)
+{
+	if(type == "Command")
+	{
+		executeCommand(data);
+	}
+	else if(type == "State Request")
+	{
+		sendState(socket);
+	}
+}
+
+void WMController::executeCommand(string command)
+{
+	if(command == "Load Geometry")
+	{
+		_wm->load();
+	}
+	else if(command == "Next Paradigm")
+	{
+		_wm->changeParadigm(1);
+	}
+	else if(command == "Previous Paradigm")
+	{
+		_wm->changeParadigm(-1);
+	}
+	else if(command == "Start")
+	{
+		_wm->startStop();
+	}
+	else if(command == "Stop")
+	{
+		_wm->startStop();
+	}
+	else if(command == "Play")
+	{
+		_wm->playPause();
+	}
+	else if(command == "Pause")
+	{
+		_wm->playPause();
+	}
+	else if(command == "Next Trial")
+	{
+		_wm->changeTrial(1);
+	}
+	else if(command == "Add Trial")
+	{
+		_wm->addTrial();
+	}
+	else {
+		cout << "error unknown command: " << command << endl;
+	}
+}
+
+void WMController::sendState(CVRSocket* destination)
+{
+	cout << "sending state" << endl;
+	StateUpdate* su = new StateUpdate(_wm->getState());
+	singleDeviceOutput(destination, su);
+	delete su;
+}
+
+// output
+void WMController::singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp)
+{
+	cout << "sending outbound packet to single device" << endl;
+	
+	//1
+	tuple<char*, int> t1 = prepJavaString('a', obp->getType());
+	socket->send(get<0>(t1), get<1>(t1));
 	
 	//2
 	string s2;
-	while((s2 = su->getLine()) != "NULL")
+	while((s2 = obp->getLine()) != "NULL")
 	{
 		tuple<char*, int> t2 = prepJavaString('b', s2);
-		#pragma omp parallel for schedule(dynamic)
-		for(int i = 0; i < _ALdataSockets.size(); ++i)
-		{
-			_ALdataSockets[i]->send(get<0>(t2), get<1>(t2));
-		}
+		socket->send(get<0>(t2), get<1>(t2));
 	}
 	
 	//3
 	char c3[2];
 	c3[0] = 'c';
 	c3[1] = '\n';	
-	#pragma omp parallel for schedule(dynamic)
-	for(int i = 0; i < _ALdataSockets.size(); ++i)
-	{
-		_ALdataSockets[i]->send(c3, 2);
-	}
-}
-
-//process input
-bool WMController::processSocketInput(cvr::CVRSocket * socket)
-{
-	//stage 1
-	int num[2];
-    if(!socket->recv(num,sizeof(int) * 2))
-	{
-		return false;
-	}
-	//get the packet
-	char typeBuf[num[1]];
-    if(!socket->recv(typeBuf,num[1]))
-        return false;
-    else
-    {
-		//turn last line feed into a null terminator. convert to string
-		typeBuf[num[1] - 1] = (char)0;
-		cout << "echo: " << typeBuf << endl;
-	}
-	
-	//stage 2
-	string dataLine;
-	if(!socket->recv(num,sizeof(int) * 2))
-	{
-		return false;
-	}
-	//get the packet
-	char dataBuf[num[1]];
-	if(!socket->recv(dataBuf,num[1]))
-		return false;
-	else
-	{
-		//turn last line feed into a null terminator. convert to string
-		dataBuf[num[1] - 1] = (char)0;
-		cout << "echo: " << dataBuf << endl;
-		parseDataLine(string(typeBuf), string(dataBuf));
-	}
-	
-	//stage 3
-	if(!socket->recv(num,sizeof(int) * 2))
-	{
-		return false;
-	}
-	//get the packet
-	char lastBuf[num[1]];
-	if(!socket->recv(lastBuf,num[1]))
-		return false;
-	else
-	{
-		//turn last line feed into a null terminator. convert to string
-		lastBuf[num[1] - 1] = (char)0;
-		cout << "echo: " << lastBuf << endl;
-		responseHandler(string(typeBuf), string(dataBuf), socket);
-	}
-	
-    return true;
-}
-
-//input handlers
-void WMController::categorizeConnection(string type, CVRSocket* s)
-{
-	cout << "categorizeConnection" << endl;
-	//place into proper list
-	if(type == "control")
-	{	// Control Socket
-		cout << "this is a control socket" << endl;
-	}else if(type == "active listen control")
-	{	// Broadcast state changes
-		cout << "this is an active listen control" << endl;
-		_ALstateSockets.push_back(s);
-	}else if(type == "active listen results")
-	{	// Data Point results broadcasting
-		cout << "this is an active listen results" << endl;
-		_ALdataSockets.push_back(s);
-	}
-	else{	//error?
-		cout << "This should not happen" << endl;
-	}
-}
-
-void WMController::parseDataLine(string type, string dataLine)
-{
-	if(type == "Command"){
-		commandHandler(dataLine);
-	}else if(type == "State Request"){
-		//do nothing yet.
-	}else if(type == "Initial Connect"){
-		//categorizeConnection(type, 
-	}else{
-		//this shouldnt happen
-		cout << "error unknown packet type: " << type << endl;
-	}
-}
-
-void WMController::commandHandler(string dataLine)
-{
-	if(dataLine == "Load Geometry")
-	{
-		_wm->load();
-	}
-	else if(dataLine == "Next Paradigm")
-	{
-		_wm->changeParadigm(1);
-	}
-	else if(dataLine == "Previous Paradigm")
-	{
-		_wm->changeParadigm(-1);
-	}
-	else if(dataLine == "Start")
-	{
-		_wm->startStop();
-	}
-	else if(dataLine == "Stop")
-	{
-		_wm->startStop();
-	}
-	else if(dataLine == "Play")
-	{
-		_wm->playPause();
-	}
-	else if(dataLine == "Pause")
-	{
-		_wm->playPause();
-	}
-	else if(dataLine == "Next Trial")
-	{
-		_wm->changeTrial(1);
-	}
-	else if(dataLine == "Add Trial")
-	{
-		_wm->addTrial();
-	}
-	else {
-		cout << "error unknown command: " << dataLine << endl;
-	}
-}
-
-//response functions
-void WMController::responseHandler(string type, string dataLine, CVRSocket* socket)
-{
-	if(type == "Command"){
-		StateUpdate* su = new StateUpdate(_wm->getState());
-		bCastOutboundPacketState(su);
-		delete su;
-	} else if(type =="State Request"){
-		stateRequestResponseHandler(socket);
-	} else if(type == "Initial Connect"){
-		categorizeConnection(dataLine, socket);
-	}
-	else{
-		cout << "unknown type.  not responding." << endl;
-	}
-}
-
-void WMController::stateRequestResponseHandler(CVRSocket* socket)
-{
-	//TODO: changed this to a state update
-	//1
-	tuple<char*, int> t1 = prepJavaString('a', "State Update");
-	socket->send(get<0>(t1), get<1>(t1));
-	
-	//2
-	tuple<char*, int> t2 = prepJavaString('a', _wm->getState());
-	socket->send(get<0>(t2), get<1>(t2));
-	
-	//3
-	char resp3[2];
-	resp3[0] = 'c';
-	resp3[1] = (char)10;	//java expects a newline	
-	socket->send(resp3, 2);
-
+	socket->send(c3, 2);
 }
 
 //c++ to java util functions

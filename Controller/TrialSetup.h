@@ -23,7 +23,7 @@ class TrialSetup: public OutboundPacket
 		int startingPos;
 		int finishPos;
 	protected:
-		int progress;
+		
 };
 
 #endif

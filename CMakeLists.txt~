@@ -11,6 +11,9 @@ SET(PLUGIN_HEADERS
 	Controller/OutboundPacket.h
 	Controller/TrialSetup.h
 	Controller/StateUpdate.h
+	Controller/InboundPacket.h
+	Controller/Command.h
+	Controller/StateRequest.h
 )
 
 ADD_LIBRARY(${LIB_NAME}
@@ -24,8 +27,12 @@ ADD_LIBRARY(${LIB_NAME}
 	Path.cpp
 	PathData.cpp
 	Controller/WMController.cpp
+	Controller/InboundPacket.cpp
 	Controller/OutboundPacket.cpp
 	Controller/TrialSetup.cpp
+	Controller/StateUpdate.cpp
+	Controller/Command.cpp
+	Controller/StateRequest.cpp
 )
 
 FIND_PACKAGE(Collider)
