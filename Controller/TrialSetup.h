@@ -22,6 +22,9 @@ class TrialSetup: public OutboundPacket
 		float zero_zeroY;
 		int startingPos;
 		int finishPos;
+		
+		//TODO: fields that need to be added to the network parsing.
+		float wallHeight;
 	protected:
 		
 };

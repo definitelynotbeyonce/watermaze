@@ -1,7 +1,6 @@
 SET(LIB_NAME WaterMaze)
 SET(PLUGIN_HEADERS
     WaterMaze.h
-	Cue.h
 	Experiment.h
 	EyeData.h
 	Paradigm.h
@@ -11,13 +10,17 @@ SET(PLUGIN_HEADERS
 	Controller/OutboundPacket.h
 	Controller/TrialSetup.h
 	Controller/StateUpdate.h
+	Controller/InboundPacket.h
+	Controller/StateRequest.h
+	Controller/Command.h
+	Controller/ControllerQueue.h
+	Controller/TrialSetupRequest.h
 )
 
 ADD_LIBRARY(${LIB_NAME}
     "SHARED"
     ${PLUGIN_HEADERS}
     WaterMaze.cpp
-	Cue.cpp
 	Experiment.cpp
 	EyeData.cpp
 	Paradigm.cpp
@@ -27,12 +30,14 @@ ADD_LIBRARY(${LIB_NAME}
 	Controller/OutboundPacket.cpp
 	Controller/TrialSetup.cpp
 	Controller/StateUpdate.cpp
+	Controller/InboundPacket.cpp
+	Controller/StateRequest.cpp
+	Controller/Command.cpp
+	Controller/ControllerQueue.cpp
+	Controller/TrialSetupRequest.cpp
+	WaterMazeTakeAction.cpp
+	Cues/WallCue.cpp
 )
-
-FIND_PACKAGE(Collider)
-
-INCLUDE_DIRECTORIES(${COLLIDER_DIR})
-TARGET_LINK_LIBRARIES(${LIB_NAME} ${COLLIDER_LIBRARY})
 
 INCLUDE_DIRECTORIES(${OSG_INCLUDE_DIR})
 TARGET_LINK_LIBRARIES(${LIB_NAME} ${OSG_LIBRARIES})

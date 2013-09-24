@@ -14,21 +14,23 @@
 
 #include <cvrKernel/PluginHelper.h>
 #include <cvrConfig/ConfigManager.h>
+#include <cvrConfig/XMLReader.h>
 
 #include <vector>
 
 #include <iostream>
 #include "Path.h"
-#include "Cue.h"
+//#include "Cue.h"
 
 using namespace std;
+using namespace cvr;
 
 enum PositionType { Constant = 0, Random };
 
 class Paradigm
 {
     public:
-        Paradigm();
+        Paradigm(string paradigmID, string file);
         virtual ~Paradigm();
         
         //modifier methods
@@ -47,7 +49,7 @@ class Paradigm
         int getTileSize();
         int getTrialNumber();
         float getTimeRemaining(float duration);
-        int getID();
+        string getID();
         
         //data recording methods
         void writeToLog(ofstream &outFile);
@@ -57,7 +59,7 @@ class Paradigm
         void newFinish();
 		
 		//paradigm identifier values
-		int _paradigmID;
+		string _paradigmID;
 		static int _numParadigms;
 		
 		//cotrol parameters
@@ -65,7 +67,7 @@ class Paradigm
 		int _width;
 		int _tileSize;				//not being implimented yet
 		int _wallHeight;			//not being implimented yet
-		std::vector<Cue*> _cues;	//not going to be implimented yet
+		//std::vector<Cue*> _cues;	//not going to be implimented yet
 		PositionType _startingPosType;
 		PositionType _finishPosType;
 		int _startingPos;

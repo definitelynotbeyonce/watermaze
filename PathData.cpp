@@ -12,6 +12,7 @@ PathData::PathData(osg::Vec3* pos, float elapsedTime)
 	_eyeData = new EyeData();
 	progress = 0;
 	_time = elapsedTime;	//TODO
+	cout << "elapsed time " << _time << endl;
 	
 	_packetType = "Data Point";
 }
@@ -44,12 +45,12 @@ string PathData::getLine()
 		switch(progress)
 		{
 			case 0:	//time
-				n = sprintf(sBuf, "Time:%i", _time);
+				n = sprintf(sBuf, "Time:%f", _time);
 				break;
-			case 1:
+			case 1:	//x pos
 				n = sprintf(sBuf, "X:%f", _pos->x());
 				break;
-			case 2:
+			case 2:	//y pos
 				n = sprintf(sBuf, "Y:%f", _pos->y());
 				break;
 			default:

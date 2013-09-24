@@ -1948,6 +1948,10 @@ vector
 
 /home/calvr/CalVR/include/cvrConfig/Export.h
 
+/home/calvr/CalVR/include/cvrConfig/XMLReader.h
+cvrConfig/ConfigFileReader.h
+-
+
 /home/calvr/CalVR/include/cvrInput/Export.h
 
 /home/calvr/CalVR/include/cvrInput/TrackerBase.h
@@ -2378,9 +2382,39 @@ Controller/WMController.h
 Controller/TrialSetup.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/TrialSetup.h
 
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/Command.h
+string
+-
+iostream
+-
+InboundPacket.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPacket.h
+
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/ControllerQueue.h
+queue
+-
+OpenThreads/Mutex
+-
+OpenThreads/ScopedLock
+-
+OpenThreads/Condition
+-
+
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPacket.h
+string
+-
+
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPacket.h
 string
 -
+
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/StateRequest.h
+cvrUtil/CVRSocket.h
+-
+string
+-
+InboundPacket.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPacket.h
 
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/StateUpdate.h
 string
@@ -2393,6 +2427,14 @@ string
 -
 OutboundPacket.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPacket.h
+
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/TrialSetupRequest.h
+cvrUtil/CVRSocket.h
+-
+string
+-
+InboundPacket.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPacket.h
 
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/WMController.h
 osg/Geode
@@ -2439,20 +2481,68 @@ tuple
 -
 string.h
 -
+OpenThreads/Thread
+-
+OpenThreads/Mutex
+-
 omp.h
 -
+../WaterMaze.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../WaterMaze.h
 TrialSetup.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/TrialSetup.h
 OutboundPacket.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPacket.h
 StateUpdate.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/StateUpdate.h
-../WaterMaze.h
-/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../WaterMaze.h
+InboundPacket.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPacket.h
+Command.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/Command.h
+StateRequest.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/StateRequest.h
+TrialSetupRequest.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/TrialSetupRequest.h
+ControllerQueue.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/ControllerQueue.h
 
-/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.h
-cvrKernel/PluginHelper.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Controller/TrialSetup.h
+string
 -
+OutboundPacket.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Controller/OutboundPacket.h
+
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.h
+osg/Geode
+-
+osg/Geometry
+-
+osg/Material
+-
+osg/MatrixTransform
+-
+osg/PositionAttitudeTransform
+-
+osg/ShapeDrawable
+-
+osg/Switch
+-
+osg/Texture2D
+-
+osgText/Text
+-
+osgDB/ReadFile
+-
+cvrConfig/XMLReader.h
+-
+vector
+-
+iostream
+-
+string
+-
+../Controller/TrialSetup.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Controller/TrialSetup.h
 
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
 osg/Geode
@@ -2503,14 +2593,14 @@ cvrKernel/PluginHelper.h
 -
 cvrConfig/ConfigManager.h
 -
+cvrConfig/XMLReader.h
+-
 vector
 -
 iostream
 -
 Path.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
-Cue.h
-/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.h
 
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
 osg/Geode
@@ -2589,6 +2679,8 @@ Controller/OutboundPacket.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.cpp
 WaterMaze.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.h
+Cues/WallCue.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.h
 string
 -
 

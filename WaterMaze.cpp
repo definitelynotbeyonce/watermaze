@@ -1,4 +1,5 @@
 #include "WaterMaze.h"
+#include "Cues/WallCue.h"
 #include <string>
 
 using namespace cvr;
@@ -22,7 +23,7 @@ WaterMaze::WaterMaze()
 
     float heightOffset = ConfigManager::getFloat("value", 
         "Plugin.WaterMaze.StartingHeight", 300.0);
-
+	cout << "height: " << heightOffset << endl;
     osg::Matrixd mat;
     mat.makeTranslate(0, -3000, -heightOffset);
     _geoRoot->setMatrix(mat);
@@ -119,10 +120,14 @@ bool WaterMaze::init()
 
 	//read in all the paradigms
 	std::vector<std::string> paradigmNames;
-    ConfigManager::getChildren("Plugin.WaterMaze.Trials", paradigmNames);
+    ConfigManager::getChildren("Plugin.WaterMaze.Paradigms", paradigmNames);
     for(int i = 0; i < paradigmNames.size(); ++i)
     {
-		Paradigm* p = new Paradigm();
+		cout << "get children : " << paradigmNames[i] << endl;
+		//
+		string path = _dataDir + ConfigManager::getEntry("path", "Plugin.WaterMaze.Paradigms." + paradigmNames[i], "");
+		string id = ConfigManager::getEntry("value", "Plugin.WaterMaze.Paradigms." + paradigmNames[i], "");
+		Paradigm* p = new Paradigm(id, path);
 		_paradigms.push_back(p);
 	}
 	
@@ -134,6 +139,7 @@ bool WaterMaze::init()
 
 void WaterMaze::load()
 {
+	cout << "loading" << endl;
     _loaded = false;
 	Paradigm* current = _paradigms[_currentParadigm];
 	int numWidth = current->getWidth();
@@ -235,96 +241,10 @@ void WaterMaze::load()
 
 
 
-    // far horizontal
-    pos = osg::Vec3(widthTile * (numWidth-2) * 0.5, 
-                   (numHeight-1) * heightTile , 
-                    wallHeight / 2);
-    box = new osg::Box(pos, widthTile * numWidth, 4, wallHeight);
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(1.0, 0.8, 0.8, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-     
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallColorSwitch->addChild(geode);
-
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(1.0, 1.0, 1.0, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallWhiteSwitch->addChild(geode);
-
-    // near horizontal
-    pos = osg::Vec3(widthTile * (numWidth-2) * 0.5, 
-                    (-1) * heightTile, 
-                    wallHeight / 2);
-    box = new osg::Box(pos, widthTile * numWidth, 4, wallHeight);
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(1.0, 1.0, 0.8, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallColorSwitch->addChild(geode);
-
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(1.0, 1.0, 1.0, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallWhiteSwitch->addChild(geode);
-
-    // left vertical
-    pos = osg::Vec3((numWidth-1) * widthTile, 
-                    heightTile * (numHeight-2) * .5, 
-                    wallHeight/2);
-    box = new osg::Box(pos, 4, heightTile * numHeight, wallHeight);
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(0.8, 1.0, 0.8, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallColorSwitch->addChild(geode);
-
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(1.0, 1.0, 1.0, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallWhiteSwitch->addChild(geode);
-
-    // right vertical
-    pos = osg::Vec3((-1) * widthTile, 
-                    heightTile * (numHeight-2) * .5, 
-                    wallHeight/2);
-    box = new osg::Box(pos, 4, heightTile * numHeight, wallHeight);
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(0.8, 0.8, 1.0, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallColorSwitch->addChild(geode);
-
-    sd = new osg::ShapeDrawable(box);
-    sd->setColor(osg::Vec4(1.0, 1.0, 1.0, 1));
-    geode = new osg::Geode();
-    geode->addDrawable(sd);
-    geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes(0,tex,osg::StateAttribute::ON);
-    _wallWhiteSwitch->addChild(geode);
-
-    _geoRoot->addChild(_wallColorSwitch);
-    _geoRoot->addChild(_wallWhiteSwitch);
-    
-    _wallColorSwitch->setAllChildrenOn();
-    _wallWhiteSwitch->setAllChildrenOff();
+    WallCue q;
+    TrialSetup* ts = getTrialSetup();
+    q.renderGeo(_geoRoot, _dataDir + "Cues/Wall Cues/4 Colored Walls boxes.xml", ts, tex);
+    delete ts;
 
 
     // ceiling
@@ -362,21 +282,16 @@ void WaterMaze::load()
     _geoRoot->addChild(geode);	
 
 	//starting location
-	osg::PositionAttitudeTransform * tilePat = new osg::PositionAttitudeTransform();
-            tilePat->setPosition(osg::Vec3((current->getStartingPos()/numWidth) * widthTile - (widthTile/2), 
-                                           (current->getStartingPos()%numWidth) * heightTile - (heightTile/2),
-                                            0));
+	float startingX = current->getStartingPos()/numWidth;
+	startingX = startingX * widthTile - (widthTile/2);
+	float startingY = current->getStartingPos()%numWidth;
+	startingY = startingY * heightTile - (heightTile/2);
+	
+	cout << current->getStartingPos()/numWidth << " " << current->getStartingPos()%numWidth << endl;
+	cout << "starting x: " << startingX << " y: " << startingY << endl;
+	
 	osg::Matrixd mat;
-	osg::Matrixd rotMat, transMat;
-
-	mat.makeTranslate(osg::Vec3(0,0,0));
-	rotMat.makeRotate(M_PI/4, osg::Vec3(0, 0, 1));
-	transMat.makeTranslate((-tilePat->getPosition() +
-	osg::Vec3(-widthTile, -heightTile, -_heightOffset)));
-
-	mat.preMult(rotMat);
-	mat.preMult(transMat);
-
+	mat.makeTranslate(osg::Vec3(-startingX, -startingY,0));
 	PluginHelper::setObjectMatrix(mat);
 
 	_loaded = true;
@@ -388,10 +303,12 @@ void WaterMaze::load()
 
 void WaterMaze::preFrame()
 {
-	//handle controls
-	_controller->getConnections();
-	//handle input and stuff
-	_controller->getData();
+	//controller handling
+	getData();
+	int data = syncData();
+	if(data != 0)
+		cout << "Command: " << data << endl;
+	takeAction(data);
 	
     if (!_loaded || !_runningTrial)
         return;
@@ -413,9 +330,11 @@ void WaterMaze::preFrame()
 	//used as bounding geometry for grid cells later
     float xmin, xmax, ymin, ymax;
     
+    bool logged = false;
     if (PluginHelper::getProgramDuration() - _fileTimer > _fileTick)
     {
 		//record data 
+		logged = true;
 		log(&pos);
 		_fileTimer = PluginHelper::getProgramDuration();
 	}
@@ -442,6 +361,12 @@ void WaterMaze::preFrame()
                 {
                     it->second->setSingleChildOn(1);
                     reachedDestination();
+                    //unless we just logged, log.
+                    if(!logged)
+                    {
+						log(&pos);
+					}
+                    
                 }
                 else
 					it->second->setSingleChildOn(2);
@@ -742,7 +667,7 @@ void WaterMaze::writeToLog()
 
         if (outFile) 
         {
-			outFile << "test42" << endl;
+			outFile << "test42" << endl;	//TODO: subject id is not "test42"
 			outFile << _currentParadigm + 1 << "-";
 			for (int i = 0; i < _paradigms.size(); ++i)
 			{
@@ -825,6 +750,7 @@ TrialSetup* WaterMaze::getTrialSetup()
 	ts->zero_zeroY = -widthTile;
 	ts->startingPos = _paradigms[_currentParadigm]->getStartingPos();
 	ts->finishPos = _paradigms[_currentParadigm]->getFinishPos();
+	ts->wallHeight = wallHeight;
 	
 	return ts;
 }
@@ -885,6 +811,50 @@ void WaterMaze::createPath()
 WMController* WaterMaze::getController()
 {
 	return _controller;
+}
+
+int WaterMaze::syncData()
+{
+	// Sync
+    if(ComController::instance()->isMaster())
+    {
+		//chack controller for data.
+		bool hasData = _controller->hasData();
+		ComController::instance()->sendSlaves(&hasData, sizeof(hasData));
+		
+		if(hasData)
+		{
+			//consume from controller
+			int data = _controller->getDataAsInt();
+			//broadcast
+			ComController::instance()->sendSlaves(&data, sizeof(data));
+			return data;
+		}
+    } 
+    else 
+    {
+        bool hasData;
+		ComController::instance()->readMaster(&hasData, sizeof(hasData));
+		
+		if(hasData)
+		{
+			int data = 0;
+			ComController::instance()->readMaster(&data, sizeof(data));
+			return data;
+		}
+    }
+    
+    return 0;
+}
+
+void WaterMaze::getData()
+{
+	if(ComController::instance()->isMaster())
+    {
+		//chack controller for data.
+		_controller->getConnections();
+		_controller->getData();
+    } 
 }
 
 };

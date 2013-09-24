@@ -31,23 +31,31 @@
 #include <tuple>
 #include <string.h>
 
+//Thread Headers
+#include <OpenThreads/Thread>
+#include <OpenThreads/Mutex>
+
 //Parallelization
 #include <omp.h>
 
 //Project Headers
-
+#include "../WaterMaze.h"
 #include "TrialSetup.h"
 #include "OutboundPacket.h"
 #include "StateUpdate.h"
 
-#include "../WaterMaze.h"
+#include "InboundPacket.h"
+#include "Command.h"
+#include "StateRequest.h"
+#include "TrialSetupRequest.h"
 
+#include "ControllerQueue.h"
 
 
 using namespace std;
 using namespace cvr;
 
-namespace WaterMaze
+namespace WaterMaze/*: public OpenThreads::Thread*/
 {
 	class WaterMaze;
 	class WMController
@@ -64,14 +72,16 @@ namespace WaterMaze
 			// Outbound Packet Functions
 			void bCastOutboundPacket(OutboundPacket* obp);
 			void singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp);
-			
+			bool hasData();
+			int getDataAsInt();
 			
 		protected: 
 				//Methods
 			// Process Input from sockets
 			bool processSocketInput(cvr::CVRSocket * socket);
-			int processPacket(int stage, cvr::CVRSocket * socket, string &line);
+			int processPacket(int stage, cvr::CVRSocket * socket, InboundPacket* &packet);
 			string processData(cvr::CVRSocket * socket);
+			InboundPacket* processType(string type, CVRSocket* socket);
 			
 			// Response Functions
 			void responseHandler(string type, string dataLine, CVRSocket* socket);
@@ -86,8 +96,7 @@ namespace WaterMaze
 			void printBytes(char* c, int len);
 			
 				// Members
-			// MVC
-			WaterMaze * _wm;
+			WaterMaze* _wm;	//TODO: remove the need for this reference.
 			
 			// Connection Data
 			int _portNo;
@@ -99,6 +108,16 @@ namespace WaterMaze
 			
 			// I/O socket
 			vector<CVRSocket*> _socketList;	
+			ControllerQueue<InboundPacket*> _packets;
+			
+		/*private:
+			bool _mKill;
+			virtual void run();
+			OpenThreads::Mutex _mutex;
+			
+			ControllerQueue<InboundPacket*> _packets;
+			void * _context;
+			void * _subscriber;*/
 	};
 };
 

@@ -3,57 +3,79 @@
 //initialize static variables
 int Paradigm::_numParadigms = 0;
 
-Paradigm::Paradigm()
+Paradigm::Paradigm(string paradigmID, string file)
 {
-	//TODO: Eventually the _paradigmID will be passed in from the constructor
-	_paradigmID = _numParadigms++;	
-	
-	char buf[50];
-	sprintf(buf, "Plugin.WaterMaze.Paradigms.%i", _paradigmID);
-	std::string path = std::string(buf);
-	
-	//read in primitive types
-	_width = cvr::ConfigManager::getInt("Width", path);
-	_length = cvr::ConfigManager::getInt("Length", path);
-	_numTrials = cvr::ConfigManager::getInt("NumTrials", path);
-	_timeOut = cvr::ConfigManager::getInt("Time", path);
-	_gridLines = cvr::ConfigManager::getBool("GridLines", path);
-	
-	//read in nonprimitives
-	int read = cvr::ConfigManager::getInt("StartingType", path);
-	switch(read)
+	//TODO: massive refactoring!!!
+	_paradigmID = paradigmID;
+	XMLReader reader;
+	if(reader.loadFile(file))
 	{
-		case 0:
-			_startingPosType = Constant;
-			break;
-		case 1:
-			_startingPosType = Random;
-			break;
-		default:
-			_startingPosType = Constant;
-			break;
+		//control parameters
+		_width = reader.getInt("Paradigm.Width");
+		_length = reader.getInt("Paradigm.Length");
+		_numTrials = reader.getInt("Paradigm.NumTrials");
+		_timeOut = reader.getInt("Paradigm.Time");
+		_gridLines = reader.getBool("Paradigm.GridLines");
+		int read = reader.getInt("Paradigm.StartingType");
+		switch(read)
+		{
+			case 0:
+				_startingPosType = Constant;
+				break;
+			case 1:
+				_startingPosType = Random;
+				break;
+			default:
+				_startingPosType = Constant;
+				break;
+		}
+		read = reader.getInt("Paradigm.FinishType");
+		switch(read)
+		{
+			case 0:
+				_finishPosType = Constant;
+				break;
+			case 1:
+				_finishPosType = Random;
+				break;
+			default:
+				_finishPosType = Constant;
+				break;
+		}
+		
+		//cues
+		//TODO
+		
+		//starting position
+		bool foundX, foundY;
+		int x = reader.getInt("x", "Paradigm.StartingPos", -1, &foundX);
+		int y = reader.getInt("y", "Paradigm.StartingPos", -1, &foundY);
+		
+		if(foundX && foundY)
+		{
+			_startingPos = x * _width + y;
+		}
+		else
+		{
+			_startingPos = -1;
+			newStart();
+		}
+		
+		//finish position
+		x = reader.getInt("x", "Paradigm.FinishPos", -1, &foundX);
+		y = reader.getInt("y", "Paradigm.FinishPos", -1, &foundY);
+		if(foundX && foundY)
+		{
+			cout << "finish x: " << x << " y: " << y << endl;
+			_finishPos = x * _width + y;
+		}
+		else
+		{
+			_finishPos = -1;
+			newFinish();
+		}
+		
 	}
-	//_startingPosType;
-	//_finishPosType
-	read = cvr::ConfigManager::getInt("FinishType", path);
-	switch(read)
-	{
-		case 0:
-			_finishPosType = Constant;
-			break;
-		case 1:
-			_finishPosType = Random;
-			break;
-		default:
-			_finishPosType = Constant;
-			break;
-	}
-	
-	//generated values
-	_startingPos = -1;
-	_finishPos = -1;
-	newStart();
-	newFinish();
 	//_staringLookAt;
 }
 
@@ -137,7 +159,7 @@ float Paradigm::getTimeRemaining(float duration)
 	return _timeOut - duration;
 }
 
-int Paradigm::getID()
+string Paradigm::getID()
 {
 	return _paradigmID;
 }

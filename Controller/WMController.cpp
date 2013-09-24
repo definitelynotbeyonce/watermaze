@@ -134,46 +134,36 @@ void WMController::bCastOutboundPacket(OutboundPacket* obp)
 //process input
 bool WMController::processSocketInput(cvr::CVRSocket * socket)
 {
-	//InboundPacket* packet;
-	string type = "";
-	int result = processPacket(1, socket, type);
+	InboundPacket* packet = NULL;
+	int result = processPacket(1, socket, packet);
 	if(result < 0)
 		return false;
 	
-	string data = processData(socket);	
-	if(data == "ERROR")
-		return false;
+	result = 2;
+	while(result == 2)
+	{
+		result = processPacket(2,socket, packet);
+		if(result < 0)
+		{
+			return false;
+		}
+	}
 	
-	string last = processData(socket);
-	if(data == "ERROR")
-		return false;
+	//respond
+	if(packet->getType() == "State Request")
+		sendState(socket);
+	else if(packet->getType() == "Trial Setup Request")
+		singleDeviceOutput(socket, _wm->getTrialSetup());
 		
-	//process
-	takeAction(type, data, socket);
+	//push the packet into the queue
+	_packets.add(packet);
+	
 	return true;
 }
 
-string WMController::processData(CVRSocket * socket)
-{
-	//read stage number
-	int num[2];
-    if(!socket->recv(num,sizeof(int) * 2))
-	{
-		return "ERROR";
-	}
-	//get the packet
-	char buf[num[1]];
-    if(!socket->recv(buf,num[1]))
-    {
-        return "ERROR";
-	}
-	buf[num[1] - 1] = (char)0;
-	cout << num[0] << " echo: " << buf << endl;
-	
-	return string(buf);
-}
 
-int WMController::processPacket(int stage, CVRSocket * socket, string &data)
+
+int WMController::processPacket(int stage, CVRSocket * socket, InboundPacket* &p)
 {
 	//read stage number
 	int num[2];
@@ -196,16 +186,12 @@ int WMController::processPacket(int stage, CVRSocket * socket, string &data)
 	switch(stage)
 	{
 		case 1:
-			if(num[0] == 1 && data == "")
-			{
-				//packet = processType(string(buf), socket);
-				data += string(buf);
-			}
+			p = processType(string(buf), socket);
 			break;
 		case 2:
 			if(num[0] == 2)
 			{
-				data += string(buf);
+				p->addLine(string(buf));
 			}
 			break;
 		default:
@@ -214,7 +200,7 @@ int WMController::processPacket(int stage, CVRSocket * socket, string &data)
 	
 	return num[0];	//return the stage as determined by the incoming packet used as an LCV	
 }
-/*
+
 InboundPacket* WMController::processType(string type, CVRSocket* socket)
 {
 	if(type == "Command"){
@@ -223,77 +209,14 @@ InboundPacket* WMController::processType(string type, CVRSocket* socket)
 	else if(type == "State Request"){
 		return (new StateRequest(socket));
 	}
+	else if(type == "Trial Setup Request")
+	{
+		return (new TrialSetupRequest());
+	}
 	else{
 		//this shouldnt happen
 		cout << "error unknown packet type: " << type << endl;
 		return NULL;
-	}
-}*/
-
-/*
-void WMController::takeAction(InboundPacket* packet)
-{
-	if(packet->getType() == "Command")
-	{
-		executeCommand(dynamic_cast<Command*>(packet));
-	}
-	else if(packet->getType() == "StateRequest")
-	{
-		sendState(dynamic_cast<StateRequest*>(packet));
-	}
-}*/
-void WMController::takeAction(string type, string data, CVRSocket* socket)
-{
-	if(type == "Command")
-	{
-		executeCommand(data);
-	}
-	else if(type == "State Request")
-	{
-		sendState(socket);
-	}
-}
-
-void WMController::executeCommand(string command)
-{
-	if(command == "Load Geometry")
-	{
-		_wm->load();
-	}
-	else if(command == "Next Paradigm")
-	{
-		_wm->changeParadigm(1);
-	}
-	else if(command == "Previous Paradigm")
-	{
-		_wm->changeParadigm(-1);
-	}
-	else if(command == "Start")
-	{
-		_wm->startStop();
-	}
-	else if(command == "Stop")
-	{
-		_wm->startStop();
-	}
-	else if(command == "Play")
-	{
-		_wm->playPause();
-	}
-	else if(command == "Pause")
-	{
-		_wm->playPause();
-	}
-	else if(command == "Next Trial")
-	{
-		_wm->changeTrial(1);
-	}
-	else if(command == "Add Trial")
-	{
-		_wm->addTrial();
-	}
-	else {
-		cout << "error unknown command: " << command << endl;
 	}
 }
 
@@ -353,4 +276,59 @@ void WMController::printBytes(char* c, int len)
 	cout << endl;
 }
 
+bool WMController::hasData()
+{
+	return true;	
+}
+
+int WMController::getDataAsInt()
+{
+	//pop off packet
+	InboundPacket* p;
+	bool hadData = _packets.get(p);
+	
+	if(hadData)
+	{
+		int data = p->toPluginHandlerInt();
+		delete p;
+		return data;
+	}
+	else
+		return 0;
+}
+
+
+
+//DEPRECATED
+/* TODO: add this to the queue instead instead of directly 
+void WMController::takeAction(InboundPacket* packet)
+{
+	if(packet->getType() == "Command")
+	{
+		executeCommand(dynamic_cast<Command*>(packet));
+	}
+	else if(packet->getType() == "StateRequest")
+	{
+		sendState(dynamic_cast<StateRequest*>(packet));
+	}
+}*/
+string WMController::processData(CVRSocket * socket)
+{
+	//read stage number
+	int num[2];
+    if(!socket->recv(num,sizeof(int) * 2))
+	{
+		return "ERROR";
+	}
+	//get the packet
+	char buf[num[1]];
+    if(!socket->recv(buf,num[1]))
+    {
+        return "ERROR";
+	}
+	buf[num[1] - 1] = (char)0;
+	cout << num[0] << " echo: " << buf << endl;
+	
+	return string(buf);
+}
 };

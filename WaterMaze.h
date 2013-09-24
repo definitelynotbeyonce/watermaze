@@ -79,6 +79,7 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		TrialSetup* getTrialSetup();
 		WMController* getController();
 		
+		void takeAction(int action);
     protected:
 		//util functions
         void clear();
@@ -90,6 +91,8 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
         void writeToLog();
         void createPath();
 		void changeState(string state);
+		int syncData();
+		void getData();
 
 		std::map<std::string, float> _regTileArgs;
 		std::map<std::string, float> _hiddenTileArgs;
