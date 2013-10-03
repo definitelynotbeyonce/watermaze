@@ -154,6 +154,8 @@ bool WMController::processSocketInput(cvr::CVRSocket * socket)
 		sendState(socket);
 	else if(packet->getType() == "Trial Setup Request")
 		singleDeviceOutput(socket, _wm->getTrialSetup());
+	else if(packet->getType() == "Cue List Request")
+		singleDeviceOutput(socket, _wm->getCueList());
 		
 	//push the packet into the queue
 	_packets.add(packet);
@@ -180,7 +182,7 @@ int WMController::processPacket(int stage, CVRSocket * socket, InboundPacket* &p
     
 	//turn last line feed into a null terminator. convert to string
 	buf[num[1] - 1] = (char)0;
-	cout << num[0] << " echo: " << buf << endl;
+	//cout << num[0] << " echo: " << buf << endl;
 	
 	//process packet
 	switch(stage)
@@ -213,6 +215,18 @@ InboundPacket* WMController::processType(string type, CVRSocket* socket)
 	{
 		return (new TrialSetupRequest());
 	}
+	else if(type == "Cue List Request")
+	{
+		return (new CueListRequest());
+	}
+	else if(type == "Cue Toggle")
+	{
+		return (new CueToggle());
+	}
+	else if(type == "New Subject")
+	{
+		return (new NewSubject());
+	}
 	else{
 		//this shouldnt happen
 		cout << "error unknown packet type: " << type << endl;
@@ -242,6 +256,7 @@ void WMController::singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp)
 	while((s2 = obp->getLine()) != "NULL")
 	{
 		tuple<char*, int> t2 = prepJavaString('b', s2);
+		
 		socket->send(get<0>(t2), get<1>(t2));
 	}
 	
@@ -256,14 +271,15 @@ void WMController::singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp)
 tuple<char*, int> WMController::prepJavaString(char stage, string data)
 {
 	char charArray[256];
-	int len = sprintf(charArray, "%c%s", stage, data.c_str());
-	
-	if(len != data.length() + 1)
+	int len = sprintf(charArray, "%c%s\n", stage, data.c_str());
+	cout << "prep java: " << charArray << len << '\t' << strlen(charArray) << endl;
+	if(len != data.length() + 2)
 		cout << "sprintf error" << endl;
-		
-	charArray[len] = '\n';	//java is expecting a newline not null terminator
-	
-	return make_tuple<char*, int>(charArray, len + 1);
+	/*cout << "last char " << (int)charArray[len - 1] << endl;
+	cout << "2nd to last " << (int)charArray[len - 2] << endl;
+	cout << "3rd to last " << (int)charArray[len - 3] << endl;
+	cout << "4th " << (int)charArray[len - 4] << endl;*/
+	return make_tuple<char*, int>(charArray, len);
 }
 
 //debug methods
@@ -278,7 +294,7 @@ void WMController::printBytes(char* c, int len)
 
 bool WMController::hasData()
 {
-	return true;	
+	return _packets.size() > 0;	
 }
 
 int WMController::getDataAsInt()
@@ -290,11 +306,46 @@ int WMController::getDataAsInt()
 	if(hadData)
 	{
 		int data = p->toPluginHandlerInt();
-		delete p;
+		if(p->getType() == "Cue Toggle" )
+			_toggles.add(dynamic_cast<CueToggle*>(p));
+		else if(p->getType() == "New Subject")
+			_newSubjects.add(dynamic_cast<NewSubject*>(p));
+		else
+			delete p;
 		return data;
 	}
 	else
 		return 0;
+}
+
+tuple<string, bool> WMController::getToggle()
+{
+	CueToggle* p;
+	bool hadData = _toggles.get(p);
+	
+	if(hadData)
+	{
+		tuple<string, bool> t = p->getAsTuple();
+		delete p;
+		return t;
+	}
+	else
+		return make_tuple<string, bool>("", false);
+}
+
+string WMController::getNewSubject()
+{
+	NewSubject* p;
+	bool hadData = _newSubjects.get(p);
+	
+	if(hadData)
+	{
+		string t = p->toString();
+		delete p;
+		return t;
+	}
+	else
+		return "";
 }
 
 
@@ -327,8 +378,19 @@ string WMController::processData(CVRSocket * socket)
         return "ERROR";
 	}
 	buf[num[1] - 1] = (char)0;
-	cout << num[0] << " echo: " << buf << endl;
+	//cout << num[0] << " echo: " << buf << endl;
 	
 	return string(buf);
 }
+
+bool WMController::hasToggles()
+{
+	return _toggles.size() > 0;
+}
+
+bool WMController::hasNewSubjects()
+{
+	return _newSubjects.size() > 0;
+}
+
 };

@@ -42,9 +42,18 @@ Paradigm::Paradigm(string paradigmID, string file)
 				_finishPosType = Constant;
 				break;
 		}
+		_autoLoad = reader.getBool("Paradigm.AutoLoad");
 		
 		//cues
-		//TODO
+		vector<string> cues;
+		reader.getChildren("Paradigm.Cues", cues);
+		
+		for(int i = 0; i < cues.size(); ++ i)
+		{
+			string type = reader.getEntry("type", "Paradigm.Cues." + cues[i], "");
+			string fileName = reader.getEntry("value", "Paradigm.Cues." + cues[i], "");
+			_cues.push_back(newCue(type, fileName));
+		}
 		
 		//starting position
 		bool foundX, foundY;
@@ -66,7 +75,7 @@ Paradigm::Paradigm(string paradigmID, string file)
 		y = reader.getInt("y", "Paradigm.FinishPos", -1, &foundY);
 		if(foundX && foundY)
 		{
-			cout << "finish x: " << x << " y: " << y << endl;
+			//cout << "finish x: " << x << " y: " << y << endl;
 			_finishPos = x * _width + y;
 		}
 		else
@@ -207,5 +216,102 @@ void Paradigm::newFinish()
 	_finishPos = newPos;
 }
 
+Cue* Paradigm::newCue(string type, string file)
+{
+	file = ConfigManager::getEntry("Plugin.WaterMaze.DataDir") + file;
+	if(type == "Wall")
+	{
+		return new WallCue(file);
+	}
+	else if(type == "Floor")
+	{
+		return new FloorCue(file);
+	}
+	else if(type == "End")
+	{
+		return new EndCue(file);
+	}
+	else
+	{
+		return NULL;
+	}
+}
+
+void Paradigm::renderCues(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts)
+{
+	for(int i = 0; i < _cues.size(); ++i)
+	{
+		if(_cues[i]->isRenderable())
+		{
+			_cues[i]->renderGeo(_geoRoot, ts);
+		}
+	}
+}
+
+vector<Cue*> Paradigm::getCues()
+{
+	return _cues;
+}
+
+void Paradigm::toggle(tuple<string, bool> t)
+{
+	cout << "Paradigm::toggle " << get<0>(t) << " " << get<1>(t) << endl;
+	Cue* c = NULL;
+	//get the cue
+	for(int i = 0; i < _cues.size(); ++i)
+	{
+		if(get<0>(t) == _cues[i]->getText())
+		{
+			c = _cues[i];
+			break;
+		}
+	}
+	
+	if(c != NULL)
+	{
+		c->toggle(get<1>(t));
+	}
+}
+
+bool Paradigm::isAutoLoad()
+{
+	return _autoLoad;
+}
+
+bool Paradigm::isColoredGrid()
+{
+	for(int i = 0; i < _cues.size(); ++i)
+	{
+		if(_cues[i]->getText() == "Grid Coloring")
+		{
+			return _cues[i]->getState();
+		}
+	}
+	
+	return true;
+}
+/*
+float Paradigm::getWidthGrid()
+{
+	return 
+}
+
+float Paradigm::getHeightGrid()
+{
+	
+}
+*/
+
+EndCue* Paradigm::getEnding()
+{
+	for(int i = 0; i < _cues.size(); ++i)
+	{
+		if(_cues[i]->getType() == "End")
+		{
+			return dynamic_cast<EndCue*>(_cues[i]);
+		}
+	}
+	return NULL;
+}
 
 

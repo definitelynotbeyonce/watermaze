@@ -22,7 +22,7 @@
 #include <stdio.h>
 
 #include "EyeData.h"
-#include "Controller/OutboundPacket.h"
+#include "Controller/OutboundPackets/OutboundPacket.h"
 
 using namespace std;
 

@@ -1,42 +1,40 @@
 SET(LIB_NAME WaterMaze)
 SET(PLUGIN_HEADERS
     WaterMaze.h
-	Experiment.h
-	EyeData.h
-	Paradigm.h
-	Path.h
-	PathData.h
-	Controller/WMController.h
-	Controller/OutboundPacket.h
-	Controller/TrialSetup.h
-	Controller/StateUpdate.h
-	Controller/InboundPacket.h
-	Controller/StateRequest.h
-	Controller/Command.h
-	Controller/ControllerQueue.h
-	Controller/TrialSetupRequest.h
+
 )
 
 ADD_LIBRARY(${LIB_NAME}
     "SHARED"
     ${PLUGIN_HEADERS}
     WaterMaze.cpp
+	WaterMazeTakeAction.cpp
 	Experiment.cpp
 	EyeData.cpp
 	Paradigm.cpp
 	Path.cpp
 	PathData.cpp
+
 	Controller/WMController.cpp
-	Controller/OutboundPacket.cpp
-	Controller/TrialSetup.cpp
-	Controller/StateUpdate.cpp
-	Controller/InboundPacket.cpp
-	Controller/StateRequest.cpp
-	Controller/Command.cpp
 	Controller/ControllerQueue.cpp
-	Controller/TrialSetupRequest.cpp
-	WaterMazeTakeAction.cpp
+
+	Controller/OutboundPackets/OutboundPacket.cpp
+	Controller/OutboundPackets/TrialSetup.cpp
+	Controller/OutboundPackets/StateUpdate.cpp
+	Controller/OutboundPackets/CueList.cpp
+
+	Controller/InboundPackets/InboundPacket.cpp
+	Controller/InboundPackets/StateRequest.cpp
+	Controller/InboundPackets/Command.cpp
+	Controller/InboundPackets/TrialSetupRequest.cpp
+	Controller/InboundPackets/CueListRequest.cpp
+	Controller/InboundPackets/CueToggle.cpp
+	Controller/InboundPackets/NewSubject.cpp
+
+	Cue.cpp
 	Cues/WallCue.cpp
+	Cues/FloorCue.cpp
+	Cues/EndCue.cpp
 )
 
 INCLUDE_DIRECTORIES(${OSG_INCLUDE_DIR})

@@ -51,8 +51,6 @@ WaterMaze::WaterMaze()
 			"h - help menu" << std::endl;
 	
 	_controller = new WMController(this);
-	
-	state = "experiment start";
 }
 
 WaterMaze::~WaterMaze()
@@ -123,8 +121,7 @@ bool WaterMaze::init()
     ConfigManager::getChildren("Plugin.WaterMaze.Paradigms", paradigmNames);
     for(int i = 0; i < paradigmNames.size(); ++i)
     {
-		cout << "get children : " << paradigmNames[i] << endl;
-		//
+		//cout << "get children : " << paradigmNames[i] << endl;
 		string path = _dataDir + ConfigManager::getEntry("path", "Plugin.WaterMaze.Paradigms." + paradigmNames[i], "");
 		string id = ConfigManager::getEntry("value", "Plugin.WaterMaze.Paradigms." + paradigmNames[i], "");
 		Paradigm* p = new Paradigm(id, path);
@@ -133,6 +130,8 @@ bool WaterMaze::init()
 	
 	//initialize current path
 	_currPath = NULL;
+	
+	state = "default state";
 
     return true;
 }
@@ -240,10 +239,9 @@ void WaterMaze::load()
     }
 
 
-
-    WallCue q;
+	
     TrialSetup* ts = getTrialSetup();
-    q.renderGeo(_geoRoot, _dataDir + "Cues/Wall Cues/4 Colored Walls boxes.xml", ts, tex);
+    current->renderCues(_geoRoot, ts);
     delete ts;
 
 
@@ -287,8 +285,9 @@ void WaterMaze::load()
 	float startingY = current->getStartingPos()%numWidth;
 	startingY = startingY * heightTile - (heightTile/2);
 	
+	/*
 	cout << current->getStartingPos()/numWidth << " " << current->getStartingPos()%numWidth << endl;
-	cout << "starting x: " << startingX << " y: " << startingY << endl;
+	cout << "starting x: " << startingX << " y: " << startingY << endl;*/
 	
 	osg::Matrixd mat;
 	mat.makeTranslate(osg::Vec3(-startingX, -startingY,0));
@@ -306,13 +305,16 @@ void WaterMaze::preFrame()
 	//controller handling
 	getData();
 	int data = syncData();
-	if(data != 0)
-		cout << "Command: " << data << endl;
+	
 	takeAction(data);
 	
-    if (!_loaded || !_runningTrial)
+    if (!_runningTrial)
         return;
     
+    checkMovement();
+    
+    if(!_loaded)
+		return;
     //handle timeout
     if (_paradigms[_currentParadigm]->getTimeRemaining(PluginHelper::getProgramDuration() - _startTime) <= 0)
 		timeOut();
@@ -369,7 +371,10 @@ void WaterMaze::preFrame()
                     
                 }
                 else
-					it->second->setSingleChildOn(2);
+                {
+					if(_paradigms[_currentParadigm]->isColoredGrid())
+						it->second->setSingleChildOn(2);
+				}
             }
         }
         // Unoccupied tile
@@ -572,10 +577,13 @@ void WaterMaze::changeParadigm(int direction)
 	else
 		std::cout << "loading next paradigm" << std::endl;
 	
-	changeState("geometry loaded");
+	
 	
 	clear();
-	load();
+	if(_paradigms[_currentParadigm]->isAutoLoad())
+		load();
+	else
+		changeState("experiment start");
 }
 
 void WaterMaze::changeTrial(int direction)
@@ -595,7 +603,10 @@ void WaterMaze::changeTrial(int direction)
 		_paradigms[_currentParadigm]->setStartingPos();
 		_paradigms[_currentParadigm]->setFinishPos();
 		clear();
-		load();
+		if(_paradigms[_currentParadigm]->isAutoLoad())
+			load();
+		else
+			changeState("experiment start");
 		
 	}
 	else if(_paradigms[_currentParadigm]->trialsRemaining() > 0)
@@ -611,7 +622,11 @@ void WaterMaze::changeTrial(int direction)
 		_paradigms[_currentParadigm]->setStartingPos();
 		_paradigms[_currentParadigm]->setFinishPos();
 		clear();
-		load();
+		if(_paradigms[_currentParadigm]->isAutoLoad())
+			load();
+		else
+			changeState("experiment start");
+			
 	}
 	else
 	{
@@ -622,12 +637,12 @@ void WaterMaze::changeTrial(int direction)
 //TODO
 void WaterMaze::reachedDestination()
 {
-	_runningTrial = false;
+	//disable movement.
 	cout << "Congratulations you have reached the destination!\n"
 		 << "Press \"f\" to move to the next trial.\n" 
 		 << "Or Press \"r\" to rerun trial" << endl;
 	
-	changeState("trial end");
+	trialEndStateChange();
 	
 }
 
@@ -635,11 +650,32 @@ void WaterMaze::reachedDestination()
 void WaterMaze::timeOut()
 {
 	//stop running trial
-	_runningTrial = false;
 	cout << "Congratulations you have reached the destination!\n"
 		 << "Press \"f\" to move to the next trial." << endl;
 		 
-	changeState("trial end");
+	trialEndStateChange();
+}
+
+void WaterMaze::trialEndStateChange()
+{
+	//get ending
+	_howToEnd = _paradigms[_currentParadigm]->getEnding();
+	_endingTimer = PluginHelper::getProgramDuration();
+	
+	if(_howToEnd == NULL)
+		_runningTrial = false;
+	if(_paradigms[_currentParadigm]->isContinuous())
+		changeState("trial end continuous");
+	else if(_paradigms[_currentParadigm]->trialsRemaining() > 0)
+		changeState("trial end");
+	else
+	{
+		if(_currentParadigm == _paradigms.size() - 1) 
+			changeState("experiment end");
+		else
+			changeState("paradigm end");
+	}
+			
 }
 
 void WaterMaze::writeToLog()
@@ -700,6 +736,8 @@ void WaterMaze::startStop()
 {
 	if (_runningTrial)
 	{
+		timeOut();
+		/*
 		std::cout << "Aborting trial" << std::endl; 
 		_runningTrial = false;
 		_resetTime = true;
@@ -714,6 +752,7 @@ void WaterMaze::startStop()
 		//reset environment
 		clear();
 		load();
+		* */
 	}
 	else
 	{
@@ -789,10 +828,14 @@ void WaterMaze::addTrial()
 	if(_paradigms[_currentParadigm]->trialsRemaining() > 0)
 		return;
 	_paradigms[_currentParadigm]->addTrial();
+	changeState("trial end");
 }
 
 void WaterMaze::createPath()
 {
+	//save starting position
+	_prevMat = PluginHelper::getObjectMatrix();
+	
 	if (_currPath)
 	{
 		delete _currPath;
@@ -855,6 +898,174 @@ void WaterMaze::getData()
 		_controller->getConnections();
 		_controller->getData();
     } 
+}
+
+CueList* WaterMaze::getCueList()
+{
+	//make a CueList
+	CueList* list = new CueList(_paradigms[_currentParadigm]->getCues());
+	return list;
+}
+
+void WaterMaze::syncToggle()
+{
+	// Sync
+    if(ComController::instance()->isMaster())
+    {
+		//chack controller for data.
+		bool hasToggles = _controller->hasToggles();
+		ComController::instance()->sendSlaves(&hasToggles, sizeof(hasToggles));
+		
+		if(hasToggles)
+		{
+			//consume from controller
+			tuple<string, bool> data = _controller->getToggle();
+			struct CueToggle cueToggle;
+			size_t t = min((size_t)200, get<0>(data).length() + 1);
+			memcpy(cueToggle.c, get<0>(data).c_str(), t);
+			cueToggle.on = get<1>(data);
+			
+			//broadcast
+			ComController::instance()->sendSlaves(&cueToggle, sizeof(cueToggle));
+			_paradigms[_currentParadigm]->toggle(data);
+			
+			CueList* cl = getCueList();
+			_controller->bCastOutboundPacket(cl);
+			delete cl;
+		}
+    } 
+    else 
+    {
+        bool hasToggles;
+		ComController::instance()->readMaster(&hasToggles, sizeof(hasToggles));
+		
+		if(hasToggles)
+		{
+			tuple<string, bool> data;
+			struct CueToggle cueToggle;
+			ComController::instance()->readMaster(&cueToggle, sizeof(cueToggle));
+			data = make_tuple<string, bool>(string(cueToggle.c), cueToggle.on);
+			_paradigms[_currentParadigm]->toggle(data);
+		}
+    }
+}
+
+void WaterMaze::syncNewSubject()
+{
+	if(ComController::instance()->isMaster())
+    {
+		//chack controller for data.
+		bool hasToggles = _controller->hasNewSubjects();
+		ComController::instance()->sendSlaves(&hasToggles, sizeof(hasToggles));
+		
+		if(hasToggles)
+		{
+			string s = _controller->getNewSubject();
+			int size = s.length() + 1;
+			char istia[size];
+			ComController::instance()->sendSlaves(&size, sizeof(size));
+			ComController::instance()->sendSlaves(&istia, sizeof(istia));
+			_currSubject = string(s);
+			changeState("experiment start");
+		}
+    } 
+    else 
+    {
+        bool hasToggles;
+		ComController::instance()->readMaster(&hasToggles, sizeof(hasToggles));
+		
+		if(hasToggles)
+		{
+			tuple<string, bool> data;
+			int size = 0;
+			ComController::instance()->readMaster(&size, sizeof(size));
+			char istia[size];
+			ComController::instance()->readMaster(&istia, sizeof(istia));
+			_currSubject = string(istia);
+			changeState("experiment start");
+		}
+    }
+}
+
+void WaterMaze::checkMovement()
+{
+	//movement disabled. 
+	if(_howToEnd != NULL)
+	{
+		osg::Matrixd mat = PluginHelper::getObjectMatrix();
+		if(PluginHelper::getProgramDuration() - _endingTimer >= _howToEnd->getDuration())
+		{
+			_runningTrial = false;
+			_howToEnd = NULL;
+		}
+		else
+		{
+			if(_loaded && !_howToEnd->isGeometryVisible())
+				clear();
+			else
+			{
+				if(!_howToEnd->isMotionAllowed())
+				{
+					PluginHelper::setObjectMatrix(_prevMat);
+				}
+				else
+				{
+					float boundSize = 100;
+					//check collisions.
+					//get position matrix
+					osg::Vec3 pos = osg::Vec3(0,0,0) * cvr::PluginHelper::getHeadMat() * 
+						PluginHelper::getWorldToObjectTransform() * _geoRoot->getInverseMatrix();
+					
+					osg::Vec3 origin = osg::Vec3(-widthTile, -heightTile, 0);
+					
+					Vec3 c = pos - origin;	
+					
+					
+					//check bounds of c
+					cout << "x: " << c.x() << " y: " << c.y() << endl;
+					if((c.x() > boundSize)
+						&& (c.x() < _paradigms[_currentParadigm]->getWidth() * widthTile - boundSize)
+						&& (c.y() > boundSize)
+						&& (c.y() <heightTile * _paradigms[_currentParadigm]->getLength()))	//this means it's inside
+					{
+						_prevMat = PluginHelper::getObjectMatrix();
+					}
+					else
+					{
+						PluginHelper::setObjectMatrix(_prevMat);
+					}
+				}
+			}
+		}
+		
+	}
+	else
+	{
+		float boundSize = 100;
+		//check collisions.
+		//get position matrix
+		osg::Vec3 pos = osg::Vec3(0,0,0) * cvr::PluginHelper::getHeadMat() * 
+			PluginHelper::getWorldToObjectTransform() * _geoRoot->getInverseMatrix();
+		
+		osg::Vec3 origin = osg::Vec3(-widthTile, -heightTile, 0);
+		
+		Vec3 c = pos - origin;	
+		
+		
+		//check bounds of c
+		cout << "x: " << c.x() << " y: " << c.y() << endl;
+		if((c.x() > boundSize)
+			&& (c.x() < _paradigms[_currentParadigm]->getWidth() * widthTile - boundSize)
+			&& (c.y() > boundSize)
+			&& (c.y() <heightTile * _paradigms[_currentParadigm]->getLength()))	//this means it's inside
+		{
+			_prevMat = PluginHelper::getObjectMatrix();
+		}
+		else
+		{
+			PluginHelper::setObjectMatrix(_prevMat);
+		}
+	}
 }
 
 };

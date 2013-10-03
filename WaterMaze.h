@@ -35,7 +35,8 @@
 #include <string.h>
 #include <vector>
 #include <map>
-
+#include <tuple>
+#include <algorithm>
 #include <iostream>
 #include <stdio.h>
 //#include <netdb.h>
@@ -48,7 +49,8 @@
 #include "Paradigm.h"
 
 #include "Controller/WMController.h"
-#include "Controller/TrialSetup.h"
+#include "Controller/OutboundPackets/TrialSetup.h"
+#include "Controller/OutboundPackets/CueList.h"
 
 
 
@@ -78,8 +80,11 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		string getState();
 		TrialSetup* getTrialSetup();
 		WMController* getController();
+		CueList* getCueList();
 		
 		void takeAction(int action);
+		void syncToggle();
+		void syncNewSubject();
     protected:
 		//util functions
         void clear();
@@ -93,6 +98,8 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		void changeState(string state);
 		int syncData();
 		void getData();
+		void trialEndStateChange();
+		void checkMovement();
 
 		std::map<std::string, float> _regTileArgs;
 		std::map<std::string, float> _hiddenTileArgs;
@@ -135,10 +142,19 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		
 		float zeroZeroX, zeroZeroY;
 		std::string state;
+		std::string _currSubject;
 		
 		//android controller
 		WMController* _controller;
 		
+		struct CueToggle{
+			char c[200];
+			bool on;
+		};
+		
+		osg::Matrixd _prevMat;
+		EndCue* _howToEnd;
+		float _endingTimer;
 
 };
 

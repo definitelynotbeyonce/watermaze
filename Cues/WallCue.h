@@ -13,6 +13,7 @@
 #include <osgText/Text>
 #include <osgDB/ReadFile>
 #include <cvrConfig/XMLReader.h>
+#include <cvrConfig/ConfigManager.h>
 
 //cvr includes
 
@@ -22,15 +23,15 @@
 #include <string>
 
 //user defined includes
-//#include "../Cue.h"
-#include "../Controller/TrialSetup.h"
+#include "../Cue.h"
 
-class WallCue
+
+class WallCue: public Cue
 {
 	public:
-		WallCue();
+		WallCue(string file);
 		virtual ~WallCue();
-		void renderGeo(osg::ref_ptr<osg::MatrixTransform> _geoRoot, std::string configFile, TrialSetup* ts, osg::Texture2D* tex);
+		void renderGeo(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts);
 	protected:
 		
 };

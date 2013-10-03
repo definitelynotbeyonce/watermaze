@@ -17,10 +17,14 @@
 #include <cvrConfig/XMLReader.h>
 
 #include <vector>
-
 #include <iostream>
+#include <tuple>
+
 #include "Path.h"
-//#include "Cue.h"
+#include "Cue.h"
+#include "Cues/WallCue.h"
+#include "Cues/FloorCue.h"
+#include "Cues/EndCue.h"
 
 using namespace std;
 using namespace cvr;
@@ -38,6 +42,7 @@ class Paradigm
         void addTrial();
         void setStartingPos();
         void setFinishPos();
+        void toggle(tuple<string, bool> t);
         
         //access methods
         int getStartingPos();
@@ -50,6 +55,15 @@ class Paradigm
         int getTrialNumber();
         float getTimeRemaining(float duration);
         string getID();
+        vector<Cue*> getCues();
+        bool isAutoLoad();
+        bool isColoredGrid();
+        //float getWidthGrid();
+        //float getHeightGrid();
+        EndCue* getEnding();
+        
+        //other
+        void renderCues(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts);
         
         //data recording methods
         void writeToLog(ofstream &outFile);
@@ -57,6 +71,7 @@ class Paradigm
 		//internal utilities
 		void newStart();
         void newFinish();
+        Cue* newCue(string type, string file);
 		
 		//paradigm identifier values
 		string _paradigmID;
@@ -67,7 +82,7 @@ class Paradigm
 		int _width;
 		int _tileSize;				//not being implimented yet
 		int _wallHeight;			//not being implimented yet
-		//std::vector<Cue*> _cues;	//not going to be implimented yet
+		std::vector<Cue*> _cues;	//not going to be implimented yet
 		PositionType _startingPosType;
 		PositionType _finishPosType;
 		int _startingPos;
@@ -79,6 +94,8 @@ class Paradigm
 		
 		//data recording values
 		std::vector<Path*> _trials;	//id, path
+		
+		bool _autoLoad;
 		
 };
 

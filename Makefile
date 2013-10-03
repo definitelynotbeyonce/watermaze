@@ -156,30 +156,6 @@ WaterMaze/fast:
 	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build
 .PHONY : WaterMaze/fast
 
-Controller/Command.o: Controller/Command.cpp.o
-.PHONY : Controller/Command.o
-
-# target to build an object file
-Controller/Command.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/Command.cpp.o
-.PHONY : Controller/Command.cpp.o
-
-Controller/Command.i: Controller/Command.cpp.i
-.PHONY : Controller/Command.i
-
-# target to preprocess a source file
-Controller/Command.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/Command.cpp.i
-.PHONY : Controller/Command.cpp.i
-
-Controller/Command.s: Controller/Command.cpp.s
-.PHONY : Controller/Command.s
-
-# target to generate assembly for a file
-Controller/Command.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/Command.cpp.s
-.PHONY : Controller/Command.cpp.s
-
 Controller/ControllerQueue.o: Controller/ControllerQueue.cpp.o
 .PHONY : Controller/ControllerQueue.o
 
@@ -204,149 +180,269 @@ Controller/ControllerQueue.cpp.s:
 	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.s
 .PHONY : Controller/ControllerQueue.cpp.s
 
-Controller/InboundPacket.o: Controller/InboundPacket.cpp.o
-.PHONY : Controller/InboundPacket.o
+Controller/InboundPackets/Command.o: Controller/InboundPackets/Command.cpp.o
+.PHONY : Controller/InboundPackets/Command.o
 
 # target to build an object file
-Controller/InboundPacket.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPacket.cpp.o
-.PHONY : Controller/InboundPacket.cpp.o
+Controller/InboundPackets/Command.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o
+.PHONY : Controller/InboundPackets/Command.cpp.o
 
-Controller/InboundPacket.i: Controller/InboundPacket.cpp.i
-.PHONY : Controller/InboundPacket.i
+Controller/InboundPackets/Command.i: Controller/InboundPackets/Command.cpp.i
+.PHONY : Controller/InboundPackets/Command.i
 
 # target to preprocess a source file
-Controller/InboundPacket.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPacket.cpp.i
-.PHONY : Controller/InboundPacket.cpp.i
+Controller/InboundPackets/Command.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.i
+.PHONY : Controller/InboundPackets/Command.cpp.i
 
-Controller/InboundPacket.s: Controller/InboundPacket.cpp.s
-.PHONY : Controller/InboundPacket.s
+Controller/InboundPackets/Command.s: Controller/InboundPackets/Command.cpp.s
+.PHONY : Controller/InboundPackets/Command.s
 
 # target to generate assembly for a file
-Controller/InboundPacket.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPacket.cpp.s
-.PHONY : Controller/InboundPacket.cpp.s
+Controller/InboundPackets/Command.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.s
+.PHONY : Controller/InboundPackets/Command.cpp.s
 
-Controller/OutboundPacket.o: Controller/OutboundPacket.cpp.o
-.PHONY : Controller/OutboundPacket.o
+Controller/InboundPackets/CueListRequest.o: Controller/InboundPackets/CueListRequest.cpp.o
+.PHONY : Controller/InboundPackets/CueListRequest.o
 
 # target to build an object file
-Controller/OutboundPacket.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPacket.cpp.o
-.PHONY : Controller/OutboundPacket.cpp.o
+Controller/InboundPackets/CueListRequest.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o
+.PHONY : Controller/InboundPackets/CueListRequest.cpp.o
 
-Controller/OutboundPacket.i: Controller/OutboundPacket.cpp.i
-.PHONY : Controller/OutboundPacket.i
+Controller/InboundPackets/CueListRequest.i: Controller/InboundPackets/CueListRequest.cpp.i
+.PHONY : Controller/InboundPackets/CueListRequest.i
 
 # target to preprocess a source file
-Controller/OutboundPacket.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPacket.cpp.i
-.PHONY : Controller/OutboundPacket.cpp.i
+Controller/InboundPackets/CueListRequest.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.i
+.PHONY : Controller/InboundPackets/CueListRequest.cpp.i
 
-Controller/OutboundPacket.s: Controller/OutboundPacket.cpp.s
-.PHONY : Controller/OutboundPacket.s
+Controller/InboundPackets/CueListRequest.s: Controller/InboundPackets/CueListRequest.cpp.s
+.PHONY : Controller/InboundPackets/CueListRequest.s
 
 # target to generate assembly for a file
-Controller/OutboundPacket.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPacket.cpp.s
-.PHONY : Controller/OutboundPacket.cpp.s
+Controller/InboundPackets/CueListRequest.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.s
+.PHONY : Controller/InboundPackets/CueListRequest.cpp.s
 
-Controller/StateRequest.o: Controller/StateRequest.cpp.o
-.PHONY : Controller/StateRequest.o
+Controller/InboundPackets/CueToggle.o: Controller/InboundPackets/CueToggle.cpp.o
+.PHONY : Controller/InboundPackets/CueToggle.o
 
 # target to build an object file
-Controller/StateRequest.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/StateRequest.cpp.o
-.PHONY : Controller/StateRequest.cpp.o
+Controller/InboundPackets/CueToggle.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o
+.PHONY : Controller/InboundPackets/CueToggle.cpp.o
 
-Controller/StateRequest.i: Controller/StateRequest.cpp.i
-.PHONY : Controller/StateRequest.i
+Controller/InboundPackets/CueToggle.i: Controller/InboundPackets/CueToggle.cpp.i
+.PHONY : Controller/InboundPackets/CueToggle.i
 
 # target to preprocess a source file
-Controller/StateRequest.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/StateRequest.cpp.i
-.PHONY : Controller/StateRequest.cpp.i
+Controller/InboundPackets/CueToggle.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.i
+.PHONY : Controller/InboundPackets/CueToggle.cpp.i
 
-Controller/StateRequest.s: Controller/StateRequest.cpp.s
-.PHONY : Controller/StateRequest.s
+Controller/InboundPackets/CueToggle.s: Controller/InboundPackets/CueToggle.cpp.s
+.PHONY : Controller/InboundPackets/CueToggle.s
 
 # target to generate assembly for a file
-Controller/StateRequest.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/StateRequest.cpp.s
-.PHONY : Controller/StateRequest.cpp.s
+Controller/InboundPackets/CueToggle.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.s
+.PHONY : Controller/InboundPackets/CueToggle.cpp.s
 
-Controller/StateUpdate.o: Controller/StateUpdate.cpp.o
-.PHONY : Controller/StateUpdate.o
+Controller/InboundPackets/InboundPacket.o: Controller/InboundPackets/InboundPacket.cpp.o
+.PHONY : Controller/InboundPackets/InboundPacket.o
 
 # target to build an object file
-Controller/StateUpdate.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/StateUpdate.cpp.o
-.PHONY : Controller/StateUpdate.cpp.o
+Controller/InboundPackets/InboundPacket.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o
+.PHONY : Controller/InboundPackets/InboundPacket.cpp.o
 
-Controller/StateUpdate.i: Controller/StateUpdate.cpp.i
-.PHONY : Controller/StateUpdate.i
+Controller/InboundPackets/InboundPacket.i: Controller/InboundPackets/InboundPacket.cpp.i
+.PHONY : Controller/InboundPackets/InboundPacket.i
 
 # target to preprocess a source file
-Controller/StateUpdate.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/StateUpdate.cpp.i
-.PHONY : Controller/StateUpdate.cpp.i
+Controller/InboundPackets/InboundPacket.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.i
+.PHONY : Controller/InboundPackets/InboundPacket.cpp.i
 
-Controller/StateUpdate.s: Controller/StateUpdate.cpp.s
-.PHONY : Controller/StateUpdate.s
+Controller/InboundPackets/InboundPacket.s: Controller/InboundPackets/InboundPacket.cpp.s
+.PHONY : Controller/InboundPackets/InboundPacket.s
 
 # target to generate assembly for a file
-Controller/StateUpdate.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/StateUpdate.cpp.s
-.PHONY : Controller/StateUpdate.cpp.s
+Controller/InboundPackets/InboundPacket.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.s
+.PHONY : Controller/InboundPackets/InboundPacket.cpp.s
 
-Controller/TrialSetup.o: Controller/TrialSetup.cpp.o
-.PHONY : Controller/TrialSetup.o
+Controller/InboundPackets/NewSubject.o: Controller/InboundPackets/NewSubject.cpp.o
+.PHONY : Controller/InboundPackets/NewSubject.o
 
 # target to build an object file
-Controller/TrialSetup.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/TrialSetup.cpp.o
-.PHONY : Controller/TrialSetup.cpp.o
+Controller/InboundPackets/NewSubject.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o
+.PHONY : Controller/InboundPackets/NewSubject.cpp.o
 
-Controller/TrialSetup.i: Controller/TrialSetup.cpp.i
-.PHONY : Controller/TrialSetup.i
+Controller/InboundPackets/NewSubject.i: Controller/InboundPackets/NewSubject.cpp.i
+.PHONY : Controller/InboundPackets/NewSubject.i
 
 # target to preprocess a source file
-Controller/TrialSetup.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/TrialSetup.cpp.i
-.PHONY : Controller/TrialSetup.cpp.i
+Controller/InboundPackets/NewSubject.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.i
+.PHONY : Controller/InboundPackets/NewSubject.cpp.i
 
-Controller/TrialSetup.s: Controller/TrialSetup.cpp.s
-.PHONY : Controller/TrialSetup.s
+Controller/InboundPackets/NewSubject.s: Controller/InboundPackets/NewSubject.cpp.s
+.PHONY : Controller/InboundPackets/NewSubject.s
 
 # target to generate assembly for a file
-Controller/TrialSetup.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/TrialSetup.cpp.s
-.PHONY : Controller/TrialSetup.cpp.s
+Controller/InboundPackets/NewSubject.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.s
+.PHONY : Controller/InboundPackets/NewSubject.cpp.s
 
-Controller/TrialSetupRequest.o: Controller/TrialSetupRequest.cpp.o
-.PHONY : Controller/TrialSetupRequest.o
+Controller/InboundPackets/StateRequest.o: Controller/InboundPackets/StateRequest.cpp.o
+.PHONY : Controller/InboundPackets/StateRequest.o
 
 # target to build an object file
-Controller/TrialSetupRequest.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/TrialSetupRequest.cpp.o
-.PHONY : Controller/TrialSetupRequest.cpp.o
+Controller/InboundPackets/StateRequest.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o
+.PHONY : Controller/InboundPackets/StateRequest.cpp.o
 
-Controller/TrialSetupRequest.i: Controller/TrialSetupRequest.cpp.i
-.PHONY : Controller/TrialSetupRequest.i
+Controller/InboundPackets/StateRequest.i: Controller/InboundPackets/StateRequest.cpp.i
+.PHONY : Controller/InboundPackets/StateRequest.i
 
 # target to preprocess a source file
-Controller/TrialSetupRequest.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/TrialSetupRequest.cpp.i
-.PHONY : Controller/TrialSetupRequest.cpp.i
+Controller/InboundPackets/StateRequest.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.i
+.PHONY : Controller/InboundPackets/StateRequest.cpp.i
 
-Controller/TrialSetupRequest.s: Controller/TrialSetupRequest.cpp.s
-.PHONY : Controller/TrialSetupRequest.s
+Controller/InboundPackets/StateRequest.s: Controller/InboundPackets/StateRequest.cpp.s
+.PHONY : Controller/InboundPackets/StateRequest.s
 
 # target to generate assembly for a file
-Controller/TrialSetupRequest.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/TrialSetupRequest.cpp.s
-.PHONY : Controller/TrialSetupRequest.cpp.s
+Controller/InboundPackets/StateRequest.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.s
+.PHONY : Controller/InboundPackets/StateRequest.cpp.s
+
+Controller/InboundPackets/TrialSetupRequest.o: Controller/InboundPackets/TrialSetupRequest.cpp.o
+.PHONY : Controller/InboundPackets/TrialSetupRequest.o
+
+# target to build an object file
+Controller/InboundPackets/TrialSetupRequest.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o
+.PHONY : Controller/InboundPackets/TrialSetupRequest.cpp.o
+
+Controller/InboundPackets/TrialSetupRequest.i: Controller/InboundPackets/TrialSetupRequest.cpp.i
+.PHONY : Controller/InboundPackets/TrialSetupRequest.i
+
+# target to preprocess a source file
+Controller/InboundPackets/TrialSetupRequest.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.i
+.PHONY : Controller/InboundPackets/TrialSetupRequest.cpp.i
+
+Controller/InboundPackets/TrialSetupRequest.s: Controller/InboundPackets/TrialSetupRequest.cpp.s
+.PHONY : Controller/InboundPackets/TrialSetupRequest.s
+
+# target to generate assembly for a file
+Controller/InboundPackets/TrialSetupRequest.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.s
+.PHONY : Controller/InboundPackets/TrialSetupRequest.cpp.s
+
+Controller/OutboundPackets/CueList.o: Controller/OutboundPackets/CueList.cpp.o
+.PHONY : Controller/OutboundPackets/CueList.o
+
+# target to build an object file
+Controller/OutboundPackets/CueList.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o
+.PHONY : Controller/OutboundPackets/CueList.cpp.o
+
+Controller/OutboundPackets/CueList.i: Controller/OutboundPackets/CueList.cpp.i
+.PHONY : Controller/OutboundPackets/CueList.i
+
+# target to preprocess a source file
+Controller/OutboundPackets/CueList.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.i
+.PHONY : Controller/OutboundPackets/CueList.cpp.i
+
+Controller/OutboundPackets/CueList.s: Controller/OutboundPackets/CueList.cpp.s
+.PHONY : Controller/OutboundPackets/CueList.s
+
+# target to generate assembly for a file
+Controller/OutboundPackets/CueList.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.s
+.PHONY : Controller/OutboundPackets/CueList.cpp.s
+
+Controller/OutboundPackets/OutboundPacket.o: Controller/OutboundPackets/OutboundPacket.cpp.o
+.PHONY : Controller/OutboundPackets/OutboundPacket.o
+
+# target to build an object file
+Controller/OutboundPackets/OutboundPacket.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o
+.PHONY : Controller/OutboundPackets/OutboundPacket.cpp.o
+
+Controller/OutboundPackets/OutboundPacket.i: Controller/OutboundPackets/OutboundPacket.cpp.i
+.PHONY : Controller/OutboundPackets/OutboundPacket.i
+
+# target to preprocess a source file
+Controller/OutboundPackets/OutboundPacket.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.i
+.PHONY : Controller/OutboundPackets/OutboundPacket.cpp.i
+
+Controller/OutboundPackets/OutboundPacket.s: Controller/OutboundPackets/OutboundPacket.cpp.s
+.PHONY : Controller/OutboundPackets/OutboundPacket.s
+
+# target to generate assembly for a file
+Controller/OutboundPackets/OutboundPacket.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.s
+.PHONY : Controller/OutboundPackets/OutboundPacket.cpp.s
+
+Controller/OutboundPackets/StateUpdate.o: Controller/OutboundPackets/StateUpdate.cpp.o
+.PHONY : Controller/OutboundPackets/StateUpdate.o
+
+# target to build an object file
+Controller/OutboundPackets/StateUpdate.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o
+.PHONY : Controller/OutboundPackets/StateUpdate.cpp.o
+
+Controller/OutboundPackets/StateUpdate.i: Controller/OutboundPackets/StateUpdate.cpp.i
+.PHONY : Controller/OutboundPackets/StateUpdate.i
+
+# target to preprocess a source file
+Controller/OutboundPackets/StateUpdate.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.i
+.PHONY : Controller/OutboundPackets/StateUpdate.cpp.i
+
+Controller/OutboundPackets/StateUpdate.s: Controller/OutboundPackets/StateUpdate.cpp.s
+.PHONY : Controller/OutboundPackets/StateUpdate.s
+
+# target to generate assembly for a file
+Controller/OutboundPackets/StateUpdate.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.s
+.PHONY : Controller/OutboundPackets/StateUpdate.cpp.s
+
+Controller/OutboundPackets/TrialSetup.o: Controller/OutboundPackets/TrialSetup.cpp.o
+.PHONY : Controller/OutboundPackets/TrialSetup.o
+
+# target to build an object file
+Controller/OutboundPackets/TrialSetup.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o
+.PHONY : Controller/OutboundPackets/TrialSetup.cpp.o
+
+Controller/OutboundPackets/TrialSetup.i: Controller/OutboundPackets/TrialSetup.cpp.i
+.PHONY : Controller/OutboundPackets/TrialSetup.i
+
+# target to preprocess a source file
+Controller/OutboundPackets/TrialSetup.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.i
+.PHONY : Controller/OutboundPackets/TrialSetup.cpp.i
+
+Controller/OutboundPackets/TrialSetup.s: Controller/OutboundPackets/TrialSetup.cpp.s
+.PHONY : Controller/OutboundPackets/TrialSetup.s
+
+# target to generate assembly for a file
+Controller/OutboundPackets/TrialSetup.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.s
+.PHONY : Controller/OutboundPackets/TrialSetup.cpp.s
 
 Controller/WMController.o: Controller/WMController.cpp.o
 .PHONY : Controller/WMController.o
@@ -371,6 +467,78 @@ Controller/WMController.s: Controller/WMController.cpp.s
 Controller/WMController.cpp.s:
 	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.s
 .PHONY : Controller/WMController.cpp.s
+
+Cue.o: Cue.cpp.o
+.PHONY : Cue.o
+
+# target to build an object file
+Cue.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o
+.PHONY : Cue.cpp.o
+
+Cue.i: Cue.cpp.i
+.PHONY : Cue.i
+
+# target to preprocess a source file
+Cue.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.i
+.PHONY : Cue.cpp.i
+
+Cue.s: Cue.cpp.s
+.PHONY : Cue.s
+
+# target to generate assembly for a file
+Cue.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.s
+.PHONY : Cue.cpp.s
+
+Cues/EndCue.o: Cues/EndCue.cpp.o
+.PHONY : Cues/EndCue.o
+
+# target to build an object file
+Cues/EndCue.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o
+.PHONY : Cues/EndCue.cpp.o
+
+Cues/EndCue.i: Cues/EndCue.cpp.i
+.PHONY : Cues/EndCue.i
+
+# target to preprocess a source file
+Cues/EndCue.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.i
+.PHONY : Cues/EndCue.cpp.i
+
+Cues/EndCue.s: Cues/EndCue.cpp.s
+.PHONY : Cues/EndCue.s
+
+# target to generate assembly for a file
+Cues/EndCue.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.s
+.PHONY : Cues/EndCue.cpp.s
+
+Cues/FloorCue.o: Cues/FloorCue.cpp.o
+.PHONY : Cues/FloorCue.o
+
+# target to build an object file
+Cues/FloorCue.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o
+.PHONY : Cues/FloorCue.cpp.o
+
+Cues/FloorCue.i: Cues/FloorCue.cpp.i
+.PHONY : Cues/FloorCue.i
+
+# target to preprocess a source file
+Cues/FloorCue.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.i
+.PHONY : Cues/FloorCue.cpp.i
+
+Cues/FloorCue.s: Cues/FloorCue.cpp.s
+.PHONY : Cues/FloorCue.s
+
+# target to generate assembly for a file
+Cues/FloorCue.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.s
+.PHONY : Cues/FloorCue.cpp.s
 
 Cues/WallCue.o: Cues/WallCue.cpp.o
 .PHONY : Cues/WallCue.o
@@ -577,33 +745,54 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Controller/Command.o"
-	@echo "... Controller/Command.i"
-	@echo "... Controller/Command.s"
 	@echo "... Controller/ControllerQueue.o"
 	@echo "... Controller/ControllerQueue.i"
 	@echo "... Controller/ControllerQueue.s"
-	@echo "... Controller/InboundPacket.o"
-	@echo "... Controller/InboundPacket.i"
-	@echo "... Controller/InboundPacket.s"
-	@echo "... Controller/OutboundPacket.o"
-	@echo "... Controller/OutboundPacket.i"
-	@echo "... Controller/OutboundPacket.s"
-	@echo "... Controller/StateRequest.o"
-	@echo "... Controller/StateRequest.i"
-	@echo "... Controller/StateRequest.s"
-	@echo "... Controller/StateUpdate.o"
-	@echo "... Controller/StateUpdate.i"
-	@echo "... Controller/StateUpdate.s"
-	@echo "... Controller/TrialSetup.o"
-	@echo "... Controller/TrialSetup.i"
-	@echo "... Controller/TrialSetup.s"
-	@echo "... Controller/TrialSetupRequest.o"
-	@echo "... Controller/TrialSetupRequest.i"
-	@echo "... Controller/TrialSetupRequest.s"
+	@echo "... Controller/InboundPackets/Command.o"
+	@echo "... Controller/InboundPackets/Command.i"
+	@echo "... Controller/InboundPackets/Command.s"
+	@echo "... Controller/InboundPackets/CueListRequest.o"
+	@echo "... Controller/InboundPackets/CueListRequest.i"
+	@echo "... Controller/InboundPackets/CueListRequest.s"
+	@echo "... Controller/InboundPackets/CueToggle.o"
+	@echo "... Controller/InboundPackets/CueToggle.i"
+	@echo "... Controller/InboundPackets/CueToggle.s"
+	@echo "... Controller/InboundPackets/InboundPacket.o"
+	@echo "... Controller/InboundPackets/InboundPacket.i"
+	@echo "... Controller/InboundPackets/InboundPacket.s"
+	@echo "... Controller/InboundPackets/NewSubject.o"
+	@echo "... Controller/InboundPackets/NewSubject.i"
+	@echo "... Controller/InboundPackets/NewSubject.s"
+	@echo "... Controller/InboundPackets/StateRequest.o"
+	@echo "... Controller/InboundPackets/StateRequest.i"
+	@echo "... Controller/InboundPackets/StateRequest.s"
+	@echo "... Controller/InboundPackets/TrialSetupRequest.o"
+	@echo "... Controller/InboundPackets/TrialSetupRequest.i"
+	@echo "... Controller/InboundPackets/TrialSetupRequest.s"
+	@echo "... Controller/OutboundPackets/CueList.o"
+	@echo "... Controller/OutboundPackets/CueList.i"
+	@echo "... Controller/OutboundPackets/CueList.s"
+	@echo "... Controller/OutboundPackets/OutboundPacket.o"
+	@echo "... Controller/OutboundPackets/OutboundPacket.i"
+	@echo "... Controller/OutboundPackets/OutboundPacket.s"
+	@echo "... Controller/OutboundPackets/StateUpdate.o"
+	@echo "... Controller/OutboundPackets/StateUpdate.i"
+	@echo "... Controller/OutboundPackets/StateUpdate.s"
+	@echo "... Controller/OutboundPackets/TrialSetup.o"
+	@echo "... Controller/OutboundPackets/TrialSetup.i"
+	@echo "... Controller/OutboundPackets/TrialSetup.s"
 	@echo "... Controller/WMController.o"
 	@echo "... Controller/WMController.i"
 	@echo "... Controller/WMController.s"
+	@echo "... Cue.o"
+	@echo "... Cue.i"
+	@echo "... Cue.s"
+	@echo "... Cues/EndCue.o"
+	@echo "... Cues/EndCue.i"
+	@echo "... Cues/EndCue.s"
+	@echo "... Cues/FloorCue.o"
+	@echo "... Cues/FloorCue.i"
+	@echo "... Cues/FloorCue.s"
 	@echo "... Cues/WallCue.o"
 	@echo "... Cues/WallCue.i"
 	@echo "... Cues/WallCue.s"

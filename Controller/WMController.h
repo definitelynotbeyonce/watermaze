@@ -40,14 +40,17 @@
 
 //Project Headers
 #include "../WaterMaze.h"
-#include "TrialSetup.h"
-#include "OutboundPacket.h"
-#include "StateUpdate.h"
+#include "OutboundPackets/TrialSetup.h"
+#include "OutboundPackets/OutboundPacket.h"
+#include "OutboundPackets/StateUpdate.h"
 
-#include "InboundPacket.h"
-#include "Command.h"
-#include "StateRequest.h"
-#include "TrialSetupRequest.h"
+#include "InboundPackets/InboundPacket.h"
+#include "InboundPackets/Command.h"
+#include "InboundPackets/StateRequest.h"
+#include "InboundPackets/TrialSetupRequest.h"
+#include "InboundPackets/CueListRequest.h"
+#include "InboundPackets/CueToggle.h"
+#include "InboundPackets/NewSubject.h"
 
 #include "ControllerQueue.h"
 
@@ -73,8 +76,11 @@ namespace WaterMaze/*: public OpenThreads::Thread*/
 			void bCastOutboundPacket(OutboundPacket* obp);
 			void singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp);
 			bool hasData();
+			bool hasToggles();
+			bool hasNewSubjects();
 			int getDataAsInt();
-			
+			tuple<string, bool> getToggle();
+			string getNewSubject();
 		protected: 
 				//Methods
 			// Process Input from sockets
@@ -109,6 +115,8 @@ namespace WaterMaze/*: public OpenThreads::Thread*/
 			// I/O socket
 			vector<CVRSocket*> _socketList;	
 			ControllerQueue<InboundPacket*> _packets;
+			ControllerQueue<CueToggle*> _toggles;
+			ControllerQueue<NewSubject*> _newSubjects;
 			
 		/*private:
 			bool _mKill;
