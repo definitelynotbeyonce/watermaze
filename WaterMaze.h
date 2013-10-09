@@ -51,7 +51,7 @@
 #include "Controller/WMController.h"
 #include "Controller/OutboundPackets/TrialSetup.h"
 #include "Controller/OutboundPackets/CueList.h"
-
+#include "Controller/OutboundPackets/GeneralComm.h"
 
 
 namespace WaterMaze
@@ -74,8 +74,8 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		void changeParadigm(int direction);
 		void changeTrial(int direction);
 		void startStop();
-		void playPause();
 		void addTrial();
+		
 		//access methods
 		string getState();
 		TrialSetup* getTrialSetup();
@@ -85,6 +85,8 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		void takeAction(int action);
 		void syncToggle();
 		void syncNewSubject();
+		void handleEnding();
+		void changeState(string state);
     protected:
 		//util functions
         void clear();
@@ -95,7 +97,8 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
         void timeOut();
         void writeToLog();
         void createPath();
-		void changeState(string state);
+        void endExperiment();
+		
 		int syncData();
 		void getData();
 		void trialEndStateChange();
@@ -155,6 +158,7 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		osg::Matrixd _prevMat;
 		EndCue* _howToEnd;
 		float _endingTimer;
+		bool _finishing;
 
 };
 

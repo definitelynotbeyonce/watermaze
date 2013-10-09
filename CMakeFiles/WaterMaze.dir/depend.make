@@ -297,6 +297,10 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/CueList.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
 
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.cpp
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
+
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.cpp
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
 
@@ -525,6 +529,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/c
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/include/cvrUtil/MultiListenSocket.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Controller/OutboundPackets/../../Cue.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Controller/OutboundPackets/CueList.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Controller/OutboundPackets/GeneralComm.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Controller/OutboundPackets/OutboundPacket.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Controller/OutboundPackets/TrialSetup.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Controller/WMController.h
@@ -2463,6 +2468,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Cont
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Controller/InboundPackets/TrialSetupRequest.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/../../Cue.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/CueList.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/StateUpdate.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h
@@ -2705,6 +2711,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/Wate
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Controller/InboundPackets/TrialSetupRequest.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/../../Cue.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/CueList.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/StateUpdate.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h

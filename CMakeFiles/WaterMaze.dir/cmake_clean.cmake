@@ -12,6 +12,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o"
   "CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o"
   "CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o"
+  "CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o"
   "CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o"
   "CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o"
   "CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o"

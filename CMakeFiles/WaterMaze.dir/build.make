@@ -351,9 +351,32 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o
 
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_14)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o"
+	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.cpp
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.i"
+	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.cpp > CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.i
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.s"
+	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.cpp -o CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.s
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.requires:
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.requires
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.provides: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.requires
+	$(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.provides.build
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.provides
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o
+
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o: calit2/WaterMaze/Controller/InboundPackets/InboundPacket.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/InboundPacket.cpp
 
@@ -376,7 +399,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacke
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o: calit2/WaterMaze/Controller/InboundPackets/StateRequest.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/StateRequest.cpp
 
@@ -399,7 +422,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o: calit2/WaterMaze/Controller/InboundPackets/Command.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/Command.cpp
 
@@ -422,7 +445,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o: calit2/WaterMaze/Controller/InboundPackets/TrialSetupRequest.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/TrialSetupRequest.cpp
 
@@ -445,7 +468,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRe
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o: calit2/WaterMaze/Controller/InboundPackets/CueListRequest.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/CueListRequest.cpp
 
@@ -468,7 +491,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListReque
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o: calit2/WaterMaze/Controller/InboundPackets/CueToggle.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/CueToggle.cpp
 
@@ -491,7 +514,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cp
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o: calit2/WaterMaze/Controller/InboundPackets/NewSubject.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_21)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/NewSubject.cpp
 
@@ -514,7 +537,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.c
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o: calit2/WaterMaze/Cue.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_22)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Cue.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.cpp
 
@@ -537,7 +560,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o.provides.build: calit2/Water
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: calit2/WaterMaze/Cues/WallCue.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_23)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.cpp
 
@@ -560,7 +583,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o.provides.build: cal
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o: calit2/WaterMaze/Cues/FloorCue.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_24)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.cpp
 
@@ -583,7 +606,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o.provides.build: ca
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o: calit2/WaterMaze/Cues/EndCue.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_24)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_25)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/EndCue.cpp
 
@@ -619,6 +642,7 @@ WaterMaze_OBJECTS = \
 "CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o" \
 "CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o" \
 "CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o" \
+"CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o" \
 "CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o" \
 "CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o" \
 "CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o" \
@@ -647,6 +671,7 @@ WaterMaze_EXTERNAL_OBJECTS =
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o
+/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o
@@ -697,6 +722,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o.requires
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o.requires
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o.requires
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.requires
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o.requires
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o.requires
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o.requires

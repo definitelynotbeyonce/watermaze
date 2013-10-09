@@ -12,7 +12,7 @@ PathData::PathData(osg::Vec3* pos, float elapsedTime)
 	_eyeData = new EyeData();
 	progress = 0;
 	_time = elapsedTime;	//TODO
-	cout << "elapsed time " << _time << endl;
+	//cout << "elapsed time " << _time << endl;
 	
 	_packetType = "Data Point";
 }
@@ -57,7 +57,7 @@ string PathData::getLine()
 				canRun = false;
 				break;
 		}
-		if(returnVal.length() + n < 256)
+		if(returnVal.length() + n < 256 && canRun)
 		{
 			if(returnVal != "")
 			{
@@ -73,6 +73,6 @@ string PathData::getLine()
 	}
 	if(returnVal == "")
 		returnVal = "NULL";
-	cout << "going out: " << returnVal << endl;
+	//cout << "going out: " << returnVal << endl;
 	return returnVal;
 }

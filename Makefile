@@ -372,6 +372,30 @@ Controller/OutboundPackets/CueList.cpp.s:
 	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.s
 .PHONY : Controller/OutboundPackets/CueList.cpp.s
 
+Controller/OutboundPackets/GeneralComm.o: Controller/OutboundPackets/GeneralComm.cpp.o
+.PHONY : Controller/OutboundPackets/GeneralComm.o
+
+# target to build an object file
+Controller/OutboundPackets/GeneralComm.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o
+.PHONY : Controller/OutboundPackets/GeneralComm.cpp.o
+
+Controller/OutboundPackets/GeneralComm.i: Controller/OutboundPackets/GeneralComm.cpp.i
+.PHONY : Controller/OutboundPackets/GeneralComm.i
+
+# target to preprocess a source file
+Controller/OutboundPackets/GeneralComm.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.i
+.PHONY : Controller/OutboundPackets/GeneralComm.cpp.i
+
+Controller/OutboundPackets/GeneralComm.s: Controller/OutboundPackets/GeneralComm.cpp.s
+.PHONY : Controller/OutboundPackets/GeneralComm.s
+
+# target to generate assembly for a file
+Controller/OutboundPackets/GeneralComm.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.s
+.PHONY : Controller/OutboundPackets/GeneralComm.cpp.s
+
 Controller/OutboundPackets/OutboundPacket.o: Controller/OutboundPackets/OutboundPacket.cpp.o
 .PHONY : Controller/OutboundPackets/OutboundPacket.o
 
@@ -772,6 +796,9 @@ help:
 	@echo "... Controller/OutboundPackets/CueList.o"
 	@echo "... Controller/OutboundPackets/CueList.i"
 	@echo "... Controller/OutboundPackets/CueList.s"
+	@echo "... Controller/OutboundPackets/GeneralComm.o"
+	@echo "... Controller/OutboundPackets/GeneralComm.i"
+	@echo "... Controller/OutboundPackets/GeneralComm.s"
 	@echo "... Controller/OutboundPackets/OutboundPacket.o"
 	@echo "... Controller/OutboundPackets/OutboundPacket.i"
 	@echo "... Controller/OutboundPackets/OutboundPacket.s"

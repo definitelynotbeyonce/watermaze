@@ -86,7 +86,6 @@ namespace WaterMaze/*: public OpenThreads::Thread*/
 			// Process Input from sockets
 			bool processSocketInput(cvr::CVRSocket * socket);
 			int processPacket(int stage, cvr::CVRSocket * socket, InboundPacket* &packet);
-			string processData(cvr::CVRSocket * socket);
 			InboundPacket* processType(string type, CVRSocket* socket);
 			
 			// Response Functions
@@ -96,7 +95,7 @@ namespace WaterMaze/*: public OpenThreads::Thread*/
 			void sendState(cvr::CVRSocket * destination);
 			
 			// c++ to java util functions
-			tuple<char*, int> prepJavaString(char stage, string data);	
+			string prepJavaString(char stage, string data);	
 						
 			// Debugging Methods
 			void printBytes(char* c, int len);

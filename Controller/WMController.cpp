@@ -37,6 +37,8 @@ void WMController::getConnections()
 	CVRSocket* s = _incoming->accept();
 	if(s != NULL)
 	{
+		if(_wm->getState() == "disconnected")
+			_wm->changeState("connected");
 		cout << "New socket" << endl;
 		s->setNoDelay(true);
 		_socketList.push_back(s);
@@ -95,36 +97,36 @@ void WMController::getData()
 //outbound packet functions
 void WMController::bCastOutboundPacket(OutboundPacket* obp)
 {
+	cout << "BCasting " << obp->getType() << endl;
 	int n = _socketList.size();	//LCV used for omp parallelization
 	
 	//1
-	tuple<char*, int> t1 = prepJavaString('a', obp->getType());
+	string t1 = prepJavaString('a', obp->getType());
 	#pragma omp parallel for schedule(dynamic)
 	for(int i = 0; i < n; ++i)
 	{
-		_socketList[i]->send(get<0>(t1), get<1>(t1));
+		char* c = (char*)t1.c_str();
+		_socketList[i]->send(c, t1.length());
 	}
 	
 	//2
 	string s2;
 	while((s2 = obp->getLine()) != "NULL")
 	{
-		tuple<char*, int> t2 = prepJavaString('b', s2);
+		string t2 = prepJavaString('b', s2);
 		#pragma omp parallel for schedule(dynamic)
 		for(int i = 0; i < n; ++i)
 		{
-			_socketList[i]->send(get<0>(t2), get<1>(t2));
+			_socketList[i]->send((char*)t2.c_str(), t2.length());
 		}
 	}
 	
 	//3
-	char c3[2];
-	c3[0] = 'c';
-	c3[1] = '\n';	
+	string t3 = prepJavaString('c', "");
 	#pragma omp parallel for schedule(dynamic)
 	for(int i = 0; i < n; ++i)
 	{
-		_socketList[i]->send(c3, 2);
+		_socketList[i]->send((char*)t3.c_str(), t3.length());
 	}
 }
 
@@ -148,7 +150,9 @@ bool WMController::processSocketInput(cvr::CVRSocket * socket)
 			return false;
 		}
 	}
-	
+	if(packet == NULL){
+		cout << "encountered unknown packet type" << endl;
+	}
 	//respond
 	if(packet->getType() == "State Request")
 		sendState(socket);
@@ -181,8 +185,8 @@ int WMController::processPacket(int stage, CVRSocket * socket, InboundPacket* &p
 	}
     
 	//turn last line feed into a null terminator. convert to string
-	buf[num[1] - 1] = (char)0;
-	//cout << num[0] << " echo: " << buf << endl;
+	buf[num[1] - 1] = '\0';
+	cout << num[0] << " echo: " << buf << endl;
 	
 	//process packet
 	switch(stage)
@@ -236,7 +240,7 @@ InboundPacket* WMController::processType(string type, CVRSocket* socket)
 
 void WMController::sendState(CVRSocket* destination)
 {
-	cout << "sending state" << endl;
+	//cout << "sending state" << endl;
 	StateUpdate* su = new StateUpdate(_wm->getState());
 	singleDeviceOutput(destination, su);
 	delete su;
@@ -248,38 +252,30 @@ void WMController::singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp)
 	cout << "sending outbound packet to single device" << endl;
 	
 	//1
-	tuple<char*, int> t1 = prepJavaString('a', obp->getType());
-	socket->send(get<0>(t1), get<1>(t1));
+	string t1 = prepJavaString('a', obp->getType());
+	char* c = (char*)t1.c_str();
+	socket->send((char*)t1.c_str(), t1.length());
 	
 	//2
 	string s2;
 	while((s2 = obp->getLine()) != "NULL")
 	{
-		tuple<char*, int> t2 = prepJavaString('b', s2);
-		
-		socket->send(get<0>(t2), get<1>(t2));
+		string t2 = prepJavaString('b', s2);
+		char* c2 = (char*)t2.c_str();
+		socket->send((char*)t2.c_str(), t2.length());
 	}
 	
 	//3
-	char c3[2];
-	c3[0] = 'c';
-	c3[1] = '\n';	
-	socket->send(c3, 2);
+	string t3 = prepJavaString('c', "");
+	char* c3 = (char*)t3.c_str();
+	socket->send((char*)t3.c_str(), t3.length());
 }
 
 //c++ to java util functions
-tuple<char*, int> WMController::prepJavaString(char stage, string data)
+string WMController::prepJavaString(char stage, string data)
 {
-	char charArray[256];
-	int len = sprintf(charArray, "%c%s\n", stage, data.c_str());
-	cout << "prep java: " << charArray << len << '\t' << strlen(charArray) << endl;
-	if(len != data.length() + 2)
-		cout << "sprintf error" << endl;
-	/*cout << "last char " << (int)charArray[len - 1] << endl;
-	cout << "2nd to last " << (int)charArray[len - 2] << endl;
-	cout << "3rd to last " << (int)charArray[len - 3] << endl;
-	cout << "4th " << (int)charArray[len - 4] << endl;*/
-	return make_tuple<char*, int>(charArray, len);
+	data.insert(0, 1, stage).append("\n");
+	return data;
 }
 
 //debug methods
@@ -346,41 +342,6 @@ string WMController::getNewSubject()
 	}
 	else
 		return "";
-}
-
-
-
-//DEPRECATED
-/* TODO: add this to the queue instead instead of directly 
-void WMController::takeAction(InboundPacket* packet)
-{
-	if(packet->getType() == "Command")
-	{
-		executeCommand(dynamic_cast<Command*>(packet));
-	}
-	else if(packet->getType() == "StateRequest")
-	{
-		sendState(dynamic_cast<StateRequest*>(packet));
-	}
-}*/
-string WMController::processData(CVRSocket * socket)
-{
-	//read stage number
-	int num[2];
-    if(!socket->recv(num,sizeof(int) * 2))
-	{
-		return "ERROR";
-	}
-	//get the packet
-	char buf[num[1]];
-    if(!socket->recv(buf,num[1]))
-    {
-        return "ERROR";
-	}
-	buf[num[1] - 1] = (char)0;
-	//cout << num[0] << " echo: " << buf << endl;
-	
-	return string(buf);
 }
 
 bool WMController::hasToggles()

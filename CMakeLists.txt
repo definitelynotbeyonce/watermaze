@@ -22,6 +22,7 @@ ADD_LIBRARY(${LIB_NAME}
 	Controller/OutboundPackets/TrialSetup.cpp
 	Controller/OutboundPackets/StateUpdate.cpp
 	Controller/OutboundPackets/CueList.cpp
+	Controller/OutboundPackets/GeneralComm.cpp
 
 	Controller/InboundPackets/InboundPacket.cpp
 	Controller/InboundPackets/StateRequest.cpp
@@ -45,5 +46,5 @@ ADD_CALVR_LIBRARIES(${LIB_NAME})
 INSTALL(TARGETS ${LIB_NAME} DESTINATION lib/plugins)
 
 if(UNIX)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++0x")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++0x -fopenmp -w")
 endif()

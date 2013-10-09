@@ -297,6 +297,10 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/CueList.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/CueList.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.cpp
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
@@ -526,6 +530,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
  /home/calvr/CalVR/include/cvrUtil/MultiListenSocket.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/../../Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/CueList.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/GeneralComm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/OutboundPacket.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/TrialSetup.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/WMController.h
@@ -2464,6 +2469,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/TrialSetupRequest.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/../../Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/CueList.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/StateUpdate.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h
@@ -2706,6 +2712,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/TrialSetupRequest.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/../../Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/CueList.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/StateUpdate.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h

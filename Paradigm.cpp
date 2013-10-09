@@ -62,7 +62,7 @@ Paradigm::Paradigm(string paradigmID, string file)
 		
 		if(foundX && foundY)
 		{
-			_startingPos = x * _width + y;
+			_startingPos = x * _length + y;
 		}
 		else
 		{
@@ -76,7 +76,7 @@ Paradigm::Paradigm(string paradigmID, string file)
 		if(foundX && foundY)
 		{
 			//cout << "finish x: " << x << " y: " << y << endl;
-			_finishPos = x * _width + y;
+			_finishPos = x * _length + y;
 		}
 		else
 		{
