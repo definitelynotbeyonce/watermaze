@@ -46,8 +46,6 @@ WaterMaze::WaterMaze()
 			"o - output results to log file\n" <<
 			"i - info\n" <<
 			"h - help menu" << std::endl;
-	
-	_controller = new WMController(this);
 }
 
 WaterMaze::~WaterMaze()
@@ -128,6 +126,11 @@ bool WaterMaze::init()
 	
 	//initialize current path
 	_currPath = NULL;
+	
+	if(ComController::instance()->isMaster())
+		_controller = new WMController(this);
+	else
+		_controller = NULL;
 	
 	state = "disconnected";
 
@@ -537,7 +540,8 @@ void WaterMaze::log(osg::Vec3* pos)
 	_currPath->addStep(elapsedTime, pd);	
 	
 	//inform android
-	_controller->bCastOutboundPacket(pd);
+	if(ComController::instance()->isMaster())
+		_controller->bCastOutboundPacket(pd);
 }
 
 void WaterMaze::changeParadigm(int direction)
@@ -565,9 +569,12 @@ void WaterMaze::changeParadigm(int direction)
 	
 	
 	clear();
-	GeneralComm* gc = new GeneralComm("New Paradigm");
-	_controller->bCastOutboundPacket(gc);
-	delete gc;
+	if(ComController::instance()->isMaster())
+	{
+		GeneralComm* gc = new GeneralComm("New Paradigm");
+		_controller->bCastOutboundPacket(gc);
+		delete gc;
+	}
 	
 	if(_paradigms[_currentParadigm]->isAutoLoad())
 		load();
@@ -735,9 +742,12 @@ void WaterMaze::changeState(string state)
 	//internal
 	this->state = state;
 	//inform devices
-	StateUpdate* update = new StateUpdate(state);
-	_controller->bCastOutboundPacket(update);
-	delete update;
+	if(ComController::instance()->isMaster())
+	{
+		StateUpdate* update = new StateUpdate(state);
+		_controller->bCastOutboundPacket(update);
+		delete update;
+	}
 }
 
 TrialSetup* WaterMaze::getTrialSetup()
@@ -778,10 +788,14 @@ void WaterMaze::createPath()
 	_currPath = new Path();
 	
 	//inform android
+	if(ComController::instance()->isMaster())
+	{
+		TrialSetup* ts = getTrialSetup();
+		_controller->bCastOutboundPacket(ts);
+		delete ts;
+	}
 	changeState("running trial");
-	TrialSetup* ts = getTrialSetup();
-	_controller->bCastOutboundPacket(ts);
-	delete ts;
+	
 	
 	_runningTrial = true;
 }
