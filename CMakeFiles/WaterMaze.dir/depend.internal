@@ -329,6 +329,8 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/Array
  /home/calvr/CalVR/extern_libs/include/osg/ArrayDispatchers
  /home/calvr/CalVR/extern_libs/include/osg/Billboard
+ /home/calvr/CalVR/extern_libs/include/osg/BlendColor
+ /home/calvr/CalVR/extern_libs/include/osg/BlendFunc
  /home/calvr/CalVR/extern_libs/include/osg/BoundingBox
  /home/calvr/CalVR/extern_libs/include/osg/BoundingSphere
  /home/calvr/CalVR/extern_libs/include/osg/BufferObject
@@ -528,6 +530,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
  /home/calvr/CalVR/include/cvrUtil/Export.h
  /home/calvr/CalVR/include/cvrUtil/Intersection.h
  /home/calvr/CalVR/include/cvrUtil/MultiListenSocket.h
+ /home/calvr/CalVR/include/cvrUtil/OsgPrint.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/../../Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/CueList.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/GeneralComm.h
@@ -536,8 +539,10 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/WMController.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/../Cue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/AuditoryCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/EndCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/FloorCue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/StartCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/WallCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../EyeData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Paradigm.h
@@ -557,6 +562,13 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/WMController.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/WMController.h
+ /usr/local/include/OAS/ClientInterface.h
+ /usr/local/include/OAS/Listener.h
+ /usr/local/include/OAS/OASClient.h
+ /usr/local/include/OAS/Sound.h
+ /usr/local/include/OAS/SoundUpdateCallback.h
+ /usr/local/include/OAS/Time.h
+ /usr/local/include/OAS/config.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
@@ -765,6 +777,224 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Block
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Condition
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Config
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Exports
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Mutex
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/ReentrantMutex
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/ScopedLock
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Thread
+ /home/calvr/CalVR/extern_libs/include/osg/AnimationPath
+ /home/calvr/CalVR/extern_libs/include/osg/ApplicationUsage
+ /home/calvr/CalVR/extern_libs/include/osg/ArgumentParser
+ /home/calvr/CalVR/extern_libs/include/osg/Array
+ /home/calvr/CalVR/extern_libs/include/osg/ArrayDispatchers
+ /home/calvr/CalVR/extern_libs/include/osg/Billboard
+ /home/calvr/CalVR/extern_libs/include/osg/BoundingBox
+ /home/calvr/CalVR/extern_libs/include/osg/BoundingSphere
+ /home/calvr/CalVR/extern_libs/include/osg/BufferObject
+ /home/calvr/CalVR/extern_libs/include/osg/Camera
+ /home/calvr/CalVR/extern_libs/include/osg/ClearNode
+ /home/calvr/CalVR/extern_libs/include/osg/ClipNode
+ /home/calvr/CalVR/extern_libs/include/osg/ClipPlane
+ /home/calvr/CalVR/extern_libs/include/osg/CollectOccludersVisitor
+ /home/calvr/CalVR/extern_libs/include/osg/ColorMask
+ /home/calvr/CalVR/extern_libs/include/osg/Config
+ /home/calvr/CalVR/extern_libs/include/osg/ConvexPlanarOccluder
+ /home/calvr/CalVR/extern_libs/include/osg/ConvexPlanarPolygon
+ /home/calvr/CalVR/extern_libs/include/osg/CoordinateSystemNode
+ /home/calvr/CalVR/extern_libs/include/osg/CopyOp
+ /home/calvr/CalVR/extern_libs/include/osg/CullSettings
+ /home/calvr/CalVR/extern_libs/include/osg/CullStack
+ /home/calvr/CalVR/extern_libs/include/osg/CullingSet
+ /home/calvr/CalVR/extern_libs/include/osg/DisplaySettings
+ /home/calvr/CalVR/extern_libs/include/osg/Drawable
+ /home/calvr/CalVR/extern_libs/include/osg/Endian
+ /home/calvr/CalVR/extern_libs/include/osg/Export
+ /home/calvr/CalVR/extern_libs/include/osg/FrameBufferObject
+ /home/calvr/CalVR/extern_libs/include/osg/FrameStamp
+ /home/calvr/CalVR/extern_libs/include/osg/GL
+ /home/calvr/CalVR/extern_libs/include/osg/GL2Extensions
+ /home/calvr/CalVR/extern_libs/include/osg/GLBeginEndAdapter
+ /home/calvr/CalVR/extern_libs/include/osg/Geode
+ /home/calvr/CalVR/extern_libs/include/osg/Geometry
+ /home/calvr/CalVR/extern_libs/include/osg/GraphicsContext
+ /home/calvr/CalVR/extern_libs/include/osg/GraphicsCostEstimator
+ /home/calvr/CalVR/extern_libs/include/osg/GraphicsThread
+ /home/calvr/CalVR/extern_libs/include/osg/Group
+ /home/calvr/CalVR/extern_libs/include/osg/Image
+ /home/calvr/CalVR/extern_libs/include/osg/KdTree
+ /home/calvr/CalVR/extern_libs/include/osg/LOD
+ /home/calvr/CalVR/extern_libs/include/osg/Light
+ /home/calvr/CalVR/extern_libs/include/osg/LightSource
+ /home/calvr/CalVR/extern_libs/include/osg/LineSegment
+ /home/calvr/CalVR/extern_libs/include/osg/Material
+ /home/calvr/CalVR/extern_libs/include/osg/Math
+ /home/calvr/CalVR/extern_libs/include/osg/Matrix
+ /home/calvr/CalVR/extern_libs/include/osg/MatrixTransform
+ /home/calvr/CalVR/extern_libs/include/osg/Matrixd
+ /home/calvr/CalVR/extern_libs/include/osg/Matrixf
+ /home/calvr/CalVR/extern_libs/include/osg/MixinVector
+ /home/calvr/CalVR/extern_libs/include/osg/Node
+ /home/calvr/CalVR/extern_libs/include/osg/NodeCallback
+ /home/calvr/CalVR/extern_libs/include/osg/NodeVisitor
+ /home/calvr/CalVR/extern_libs/include/osg/Notify
+ /home/calvr/CalVR/extern_libs/include/osg/Object
+ /home/calvr/CalVR/extern_libs/include/osg/Observer
+ /home/calvr/CalVR/extern_libs/include/osg/ObserverNodePath
+ /home/calvr/CalVR/extern_libs/include/osg/OccluderNode
+ /home/calvr/CalVR/extern_libs/include/osg/OperationThread
+ /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
+ /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/Polytope
+ /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
+ /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
+ /home/calvr/CalVR/extern_libs/include/osg/Program
+ /home/calvr/CalVR/extern_libs/include/osg/Projection
+ /home/calvr/CalVR/extern_libs/include/osg/Quat
+ /home/calvr/CalVR/extern_libs/include/osg/Referenced
+ /home/calvr/CalVR/extern_libs/include/osg/RenderInfo
+ /home/calvr/CalVR/extern_libs/include/osg/Shader
+ /home/calvr/CalVR/extern_libs/include/osg/ShaderComposer
+ /home/calvr/CalVR/extern_libs/include/osg/ShadowVolumeOccluder
+ /home/calvr/CalVR/extern_libs/include/osg/Shape
+ /home/calvr/CalVR/extern_libs/include/osg/ShapeDrawable
+ /home/calvr/CalVR/extern_libs/include/osg/State
+ /home/calvr/CalVR/extern_libs/include/osg/StateAttribute
+ /home/calvr/CalVR/extern_libs/include/osg/StateAttributeCallback
+ /home/calvr/CalVR/extern_libs/include/osg/StateSet
+ /home/calvr/CalVR/extern_libs/include/osg/Stats
+ /home/calvr/CalVR/extern_libs/include/osg/Switch
+ /home/calvr/CalVR/extern_libs/include/osg/TexEnv
+ /home/calvr/CalVR/extern_libs/include/osg/Texture
+ /home/calvr/CalVR/extern_libs/include/osg/Texture2D
+ /home/calvr/CalVR/extern_libs/include/osg/Timer
+ /home/calvr/CalVR/extern_libs/include/osg/Transform
+ /home/calvr/CalVR/extern_libs/include/osg/Uniform
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2b
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2d
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2f
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2s
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3b
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3d
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3f
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3s
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4b
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4d
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4f
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4s
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4ub
+ /home/calvr/CalVR/extern_libs/include/osg/View
+ /home/calvr/CalVR/extern_libs/include/osg/Viewport
+ /home/calvr/CalVR/extern_libs/include/osg/buffered_value
+ /home/calvr/CalVR/extern_libs/include/osg/fast_back_stack
+ /home/calvr/CalVR/extern_libs/include/osg/observer_ptr
+ /home/calvr/CalVR/extern_libs/include/osg/ref_ptr
+ /home/calvr/CalVR/extern_libs/include/osgDB/AuthenticationMap
+ /home/calvr/CalVR/extern_libs/include/osgDB/Callbacks
+ /home/calvr/CalVR/extern_libs/include/osgDB/DataTypes
+ /home/calvr/CalVR/extern_libs/include/osgDB/DatabasePager
+ /home/calvr/CalVR/extern_libs/include/osgDB/DatabaseRevisions
+ /home/calvr/CalVR/extern_libs/include/osgDB/DotOsgWrapper
+ /home/calvr/CalVR/extern_libs/include/osgDB/DynamicLibrary
+ /home/calvr/CalVR/extern_libs/include/osgDB/Export
+ /home/calvr/CalVR/extern_libs/include/osgDB/FileCache
+ /home/calvr/CalVR/extern_libs/include/osgDB/ImagePager
+ /home/calvr/CalVR/extern_libs/include/osgDB/ImageProcessor
+ /home/calvr/CalVR/extern_libs/include/osgDB/Input
+ /home/calvr/CalVR/extern_libs/include/osgDB/InputStream
+ /home/calvr/CalVR/extern_libs/include/osgDB/ObjectWrapper
+ /home/calvr/CalVR/extern_libs/include/osgDB/Options
+ /home/calvr/CalVR/extern_libs/include/osgDB/Output
+ /home/calvr/CalVR/extern_libs/include/osgDB/OutputStream
+ /home/calvr/CalVR/extern_libs/include/osgDB/ReadFile
+ /home/calvr/CalVR/extern_libs/include/osgDB/ReaderWriter
+ /home/calvr/CalVR/extern_libs/include/osgDB/Registry
+ /home/calvr/CalVR/extern_libs/include/osgDB/Serializer
+ /home/calvr/CalVR/extern_libs/include/osgDB/SharedStateManager
+ /home/calvr/CalVR/extern_libs/include/osgDB/StreamOperator
+ /home/calvr/CalVR/extern_libs/include/osgDB/fstream
+ /home/calvr/CalVR/extern_libs/include/osgGA/CameraManipulator
+ /home/calvr/CalVR/extern_libs/include/osgGA/EventQueue
+ /home/calvr/CalVR/extern_libs/include/osgGA/EventVisitor
+ /home/calvr/CalVR/extern_libs/include/osgGA/Export
+ /home/calvr/CalVR/extern_libs/include/osgGA/GUIActionAdapter
+ /home/calvr/CalVR/extern_libs/include/osgGA/GUIEventAdapter
+ /home/calvr/CalVR/extern_libs/include/osgGA/GUIEventHandler
+ /home/calvr/CalVR/extern_libs/include/osgText/Export
+ /home/calvr/CalVR/extern_libs/include/osgText/Font
+ /home/calvr/CalVR/extern_libs/include/osgText/Glyph
+ /home/calvr/CalVR/extern_libs/include/osgText/KerningType
+ /home/calvr/CalVR/extern_libs/include/osgText/String
+ /home/calvr/CalVR/extern_libs/include/osgText/Style
+ /home/calvr/CalVR/extern_libs/include/osgText/Text
+ /home/calvr/CalVR/extern_libs/include/osgText/TextBase
+ /home/calvr/CalVR/extern_libs/include/osgUtil/CullVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/Export
+ /home/calvr/CalVR/extern_libs/include/osgUtil/GLObjectsVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/IncrementalCompileOperation
+ /home/calvr/CalVR/extern_libs/include/osgUtil/IntersectVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/IntersectionVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/LineSegmentIntersector
+ /home/calvr/CalVR/extern_libs/include/osgUtil/PolytopeIntersector
+ /home/calvr/CalVR/extern_libs/include/osgUtil/PositionalStateContainer
+ /home/calvr/CalVR/extern_libs/include/osgUtil/RenderBin
+ /home/calvr/CalVR/extern_libs/include/osgUtil/RenderLeaf
+ /home/calvr/CalVR/extern_libs/include/osgUtil/RenderStage
+ /home/calvr/CalVR/extern_libs/include/osgUtil/SceneView
+ /home/calvr/CalVR/extern_libs/include/osgUtil/StateGraph
+ /home/calvr/CalVR/extern_libs/include/osgUtil/UpdateVisitor
+ /home/calvr/CalVR/extern_libs/include/osgViewer/Export
+ /home/calvr/CalVR/extern_libs/include/osgViewer/GraphicsWindow
+ /home/calvr/CalVR/extern_libs/include/osgViewer/Scene
+ /home/calvr/CalVR/extern_libs/include/osgViewer/View
+ /home/calvr/CalVR/extern_libs/include/osgViewer/Viewer
+ /home/calvr/CalVR/extern_libs/include/osgViewer/ViewerBase
+ /home/calvr/CalVR/include/cvrConfig/ConfigFileReader.h
+ /home/calvr/CalVR/include/cvrConfig/ConfigManager.h
+ /home/calvr/CalVR/include/cvrConfig/Export.h
+ /home/calvr/CalVR/include/cvrConfig/XMLReader.h
+ /home/calvr/CalVR/include/cvrInput/Export.h
+ /home/calvr/CalVR/include/cvrInput/TrackerBase.h
+ /home/calvr/CalVR/include/cvrInput/TrackingManager.h
+ /home/calvr/CalVR/include/cvrKernel/CVRViewer.h
+ /home/calvr/CalVR/include/cvrKernel/CalVR.h
+ /home/calvr/CalVR/include/cvrKernel/ComController.h
+ /home/calvr/CalVR/include/cvrKernel/Export.h
+ /home/calvr/CalVR/include/cvrKernel/InteractionEvent.h
+ /home/calvr/CalVR/include/cvrKernel/InteractionManager.h
+ /home/calvr/CalVR/include/cvrKernel/Navigation.h
+ /home/calvr/CalVR/include/cvrKernel/PluginHelper.h
+ /home/calvr/CalVR/include/cvrKernel/SceneManager.h
+ /home/calvr/CalVR/include/cvrKernel/ScreenConfig.h
+ /home/calvr/CalVR/include/cvrMenu/Export.h
+ /home/calvr/CalVR/include/cvrMenu/MenuItem.h
+ /home/calvr/CalVR/include/cvrMenu/MenuSystem.h
+ /home/calvr/CalVR/include/cvrMenu/MenuSystemBase.h
+ /home/calvr/CalVR/include/cvrMenu/SubMenu.h
+ /home/calvr/CalVR/include/cvrUtil/DepthPartitionNode.h
+ /home/calvr/CalVR/include/cvrUtil/DistanceAccumulator.h
+ /home/calvr/CalVR/include/cvrUtil/Export.h
+ /home/calvr/CalVR/include/cvrUtil/Intersection.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Controller/OutboundPackets/OutboundPacket.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Controller/OutboundPackets/TrialSetup.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/AuditoryCue.cpp
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/AuditoryCue.h
+ /usr/local/include/OAS/ClientInterface.h
+ /usr/local/include/OAS/Listener.h
+ /usr/local/include/OAS/OASClient.h
+ /usr/local/include/OAS/Sound.h
+ /usr/local/include/OAS/SoundUpdateCallback.h
+ /usr/local/include/OAS/Time.h
+ /usr/local/include/OAS/config.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
@@ -1155,6 +1385,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o
  /home/calvr/CalVR/extern_libs/include/osgViewer/Viewer
  /home/calvr/CalVR/extern_libs/include/osgViewer/ViewerBase
  /home/calvr/CalVR/include/cvrConfig/ConfigFileReader.h
+ /home/calvr/CalVR/include/cvrConfig/ConfigManager.h
  /home/calvr/CalVR/include/cvrConfig/Export.h
  /home/calvr/CalVR/include/cvrConfig/XMLReader.h
  /home/calvr/CalVR/include/cvrInput/Export.h
@@ -1183,6 +1414,215 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Block
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Condition
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Config
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Exports
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Mutex
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/ReentrantMutex
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/ScopedLock
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Thread
+ /home/calvr/CalVR/extern_libs/include/osg/AnimationPath
+ /home/calvr/CalVR/extern_libs/include/osg/ApplicationUsage
+ /home/calvr/CalVR/extern_libs/include/osg/ArgumentParser
+ /home/calvr/CalVR/extern_libs/include/osg/Array
+ /home/calvr/CalVR/extern_libs/include/osg/ArrayDispatchers
+ /home/calvr/CalVR/extern_libs/include/osg/Billboard
+ /home/calvr/CalVR/extern_libs/include/osg/BoundingBox
+ /home/calvr/CalVR/extern_libs/include/osg/BoundingSphere
+ /home/calvr/CalVR/extern_libs/include/osg/BufferObject
+ /home/calvr/CalVR/extern_libs/include/osg/Camera
+ /home/calvr/CalVR/extern_libs/include/osg/ClearNode
+ /home/calvr/CalVR/extern_libs/include/osg/ClipNode
+ /home/calvr/CalVR/extern_libs/include/osg/ClipPlane
+ /home/calvr/CalVR/extern_libs/include/osg/CollectOccludersVisitor
+ /home/calvr/CalVR/extern_libs/include/osg/ColorMask
+ /home/calvr/CalVR/extern_libs/include/osg/Config
+ /home/calvr/CalVR/extern_libs/include/osg/ConvexPlanarOccluder
+ /home/calvr/CalVR/extern_libs/include/osg/ConvexPlanarPolygon
+ /home/calvr/CalVR/extern_libs/include/osg/CoordinateSystemNode
+ /home/calvr/CalVR/extern_libs/include/osg/CopyOp
+ /home/calvr/CalVR/extern_libs/include/osg/CullSettings
+ /home/calvr/CalVR/extern_libs/include/osg/CullStack
+ /home/calvr/CalVR/extern_libs/include/osg/CullingSet
+ /home/calvr/CalVR/extern_libs/include/osg/DisplaySettings
+ /home/calvr/CalVR/extern_libs/include/osg/Drawable
+ /home/calvr/CalVR/extern_libs/include/osg/Endian
+ /home/calvr/CalVR/extern_libs/include/osg/Export
+ /home/calvr/CalVR/extern_libs/include/osg/FrameBufferObject
+ /home/calvr/CalVR/extern_libs/include/osg/FrameStamp
+ /home/calvr/CalVR/extern_libs/include/osg/GL
+ /home/calvr/CalVR/extern_libs/include/osg/GL2Extensions
+ /home/calvr/CalVR/extern_libs/include/osg/GLBeginEndAdapter
+ /home/calvr/CalVR/extern_libs/include/osg/Geode
+ /home/calvr/CalVR/extern_libs/include/osg/Geometry
+ /home/calvr/CalVR/extern_libs/include/osg/GraphicsContext
+ /home/calvr/CalVR/extern_libs/include/osg/GraphicsCostEstimator
+ /home/calvr/CalVR/extern_libs/include/osg/GraphicsThread
+ /home/calvr/CalVR/extern_libs/include/osg/Group
+ /home/calvr/CalVR/extern_libs/include/osg/Image
+ /home/calvr/CalVR/extern_libs/include/osg/KdTree
+ /home/calvr/CalVR/extern_libs/include/osg/LOD
+ /home/calvr/CalVR/extern_libs/include/osg/Light
+ /home/calvr/CalVR/extern_libs/include/osg/LightSource
+ /home/calvr/CalVR/extern_libs/include/osg/LineSegment
+ /home/calvr/CalVR/extern_libs/include/osg/Material
+ /home/calvr/CalVR/extern_libs/include/osg/Math
+ /home/calvr/CalVR/extern_libs/include/osg/Matrix
+ /home/calvr/CalVR/extern_libs/include/osg/MatrixTransform
+ /home/calvr/CalVR/extern_libs/include/osg/Matrixd
+ /home/calvr/CalVR/extern_libs/include/osg/Matrixf
+ /home/calvr/CalVR/extern_libs/include/osg/MixinVector
+ /home/calvr/CalVR/extern_libs/include/osg/Node
+ /home/calvr/CalVR/extern_libs/include/osg/NodeCallback
+ /home/calvr/CalVR/extern_libs/include/osg/NodeVisitor
+ /home/calvr/CalVR/extern_libs/include/osg/Notify
+ /home/calvr/CalVR/extern_libs/include/osg/Object
+ /home/calvr/CalVR/extern_libs/include/osg/Observer
+ /home/calvr/CalVR/extern_libs/include/osg/ObserverNodePath
+ /home/calvr/CalVR/extern_libs/include/osg/OccluderNode
+ /home/calvr/CalVR/extern_libs/include/osg/OperationThread
+ /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
+ /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/Polytope
+ /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
+ /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
+ /home/calvr/CalVR/extern_libs/include/osg/Program
+ /home/calvr/CalVR/extern_libs/include/osg/Projection
+ /home/calvr/CalVR/extern_libs/include/osg/Quat
+ /home/calvr/CalVR/extern_libs/include/osg/Referenced
+ /home/calvr/CalVR/extern_libs/include/osg/RenderInfo
+ /home/calvr/CalVR/extern_libs/include/osg/Shader
+ /home/calvr/CalVR/extern_libs/include/osg/ShaderComposer
+ /home/calvr/CalVR/extern_libs/include/osg/ShadowVolumeOccluder
+ /home/calvr/CalVR/extern_libs/include/osg/Shape
+ /home/calvr/CalVR/extern_libs/include/osg/ShapeDrawable
+ /home/calvr/CalVR/extern_libs/include/osg/State
+ /home/calvr/CalVR/extern_libs/include/osg/StateAttribute
+ /home/calvr/CalVR/extern_libs/include/osg/StateAttributeCallback
+ /home/calvr/CalVR/extern_libs/include/osg/StateSet
+ /home/calvr/CalVR/extern_libs/include/osg/Stats
+ /home/calvr/CalVR/extern_libs/include/osg/Switch
+ /home/calvr/CalVR/extern_libs/include/osg/TexEnv
+ /home/calvr/CalVR/extern_libs/include/osg/Texture
+ /home/calvr/CalVR/extern_libs/include/osg/Texture2D
+ /home/calvr/CalVR/extern_libs/include/osg/Timer
+ /home/calvr/CalVR/extern_libs/include/osg/Transform
+ /home/calvr/CalVR/extern_libs/include/osg/Uniform
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2b
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2d
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2f
+ /home/calvr/CalVR/extern_libs/include/osg/Vec2s
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3b
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3d
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3f
+ /home/calvr/CalVR/extern_libs/include/osg/Vec3s
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4b
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4d
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4f
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4s
+ /home/calvr/CalVR/extern_libs/include/osg/Vec4ub
+ /home/calvr/CalVR/extern_libs/include/osg/View
+ /home/calvr/CalVR/extern_libs/include/osg/Viewport
+ /home/calvr/CalVR/extern_libs/include/osg/buffered_value
+ /home/calvr/CalVR/extern_libs/include/osg/fast_back_stack
+ /home/calvr/CalVR/extern_libs/include/osg/observer_ptr
+ /home/calvr/CalVR/extern_libs/include/osg/ref_ptr
+ /home/calvr/CalVR/extern_libs/include/osgDB/AuthenticationMap
+ /home/calvr/CalVR/extern_libs/include/osgDB/Callbacks
+ /home/calvr/CalVR/extern_libs/include/osgDB/DataTypes
+ /home/calvr/CalVR/extern_libs/include/osgDB/DatabasePager
+ /home/calvr/CalVR/extern_libs/include/osgDB/DatabaseRevisions
+ /home/calvr/CalVR/extern_libs/include/osgDB/DotOsgWrapper
+ /home/calvr/CalVR/extern_libs/include/osgDB/DynamicLibrary
+ /home/calvr/CalVR/extern_libs/include/osgDB/Export
+ /home/calvr/CalVR/extern_libs/include/osgDB/FileCache
+ /home/calvr/CalVR/extern_libs/include/osgDB/ImagePager
+ /home/calvr/CalVR/extern_libs/include/osgDB/ImageProcessor
+ /home/calvr/CalVR/extern_libs/include/osgDB/Input
+ /home/calvr/CalVR/extern_libs/include/osgDB/InputStream
+ /home/calvr/CalVR/extern_libs/include/osgDB/ObjectWrapper
+ /home/calvr/CalVR/extern_libs/include/osgDB/Options
+ /home/calvr/CalVR/extern_libs/include/osgDB/Output
+ /home/calvr/CalVR/extern_libs/include/osgDB/OutputStream
+ /home/calvr/CalVR/extern_libs/include/osgDB/ReadFile
+ /home/calvr/CalVR/extern_libs/include/osgDB/ReaderWriter
+ /home/calvr/CalVR/extern_libs/include/osgDB/Registry
+ /home/calvr/CalVR/extern_libs/include/osgDB/Serializer
+ /home/calvr/CalVR/extern_libs/include/osgDB/SharedStateManager
+ /home/calvr/CalVR/extern_libs/include/osgDB/StreamOperator
+ /home/calvr/CalVR/extern_libs/include/osgDB/fstream
+ /home/calvr/CalVR/extern_libs/include/osgGA/CameraManipulator
+ /home/calvr/CalVR/extern_libs/include/osgGA/EventQueue
+ /home/calvr/CalVR/extern_libs/include/osgGA/EventVisitor
+ /home/calvr/CalVR/extern_libs/include/osgGA/Export
+ /home/calvr/CalVR/extern_libs/include/osgGA/GUIActionAdapter
+ /home/calvr/CalVR/extern_libs/include/osgGA/GUIEventAdapter
+ /home/calvr/CalVR/extern_libs/include/osgGA/GUIEventHandler
+ /home/calvr/CalVR/extern_libs/include/osgText/Export
+ /home/calvr/CalVR/extern_libs/include/osgText/Font
+ /home/calvr/CalVR/extern_libs/include/osgText/Glyph
+ /home/calvr/CalVR/extern_libs/include/osgText/KerningType
+ /home/calvr/CalVR/extern_libs/include/osgText/String
+ /home/calvr/CalVR/extern_libs/include/osgText/Style
+ /home/calvr/CalVR/extern_libs/include/osgText/Text
+ /home/calvr/CalVR/extern_libs/include/osgText/TextBase
+ /home/calvr/CalVR/extern_libs/include/osgUtil/CullVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/Export
+ /home/calvr/CalVR/extern_libs/include/osgUtil/GLObjectsVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/IncrementalCompileOperation
+ /home/calvr/CalVR/extern_libs/include/osgUtil/IntersectVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/IntersectionVisitor
+ /home/calvr/CalVR/extern_libs/include/osgUtil/LineSegmentIntersector
+ /home/calvr/CalVR/extern_libs/include/osgUtil/PolytopeIntersector
+ /home/calvr/CalVR/extern_libs/include/osgUtil/PositionalStateContainer
+ /home/calvr/CalVR/extern_libs/include/osgUtil/RenderBin
+ /home/calvr/CalVR/extern_libs/include/osgUtil/RenderLeaf
+ /home/calvr/CalVR/extern_libs/include/osgUtil/RenderStage
+ /home/calvr/CalVR/extern_libs/include/osgUtil/SceneView
+ /home/calvr/CalVR/extern_libs/include/osgUtil/StateGraph
+ /home/calvr/CalVR/extern_libs/include/osgUtil/UpdateVisitor
+ /home/calvr/CalVR/extern_libs/include/osgViewer/Export
+ /home/calvr/CalVR/extern_libs/include/osgViewer/GraphicsWindow
+ /home/calvr/CalVR/extern_libs/include/osgViewer/Scene
+ /home/calvr/CalVR/extern_libs/include/osgViewer/View
+ /home/calvr/CalVR/extern_libs/include/osgViewer/Viewer
+ /home/calvr/CalVR/extern_libs/include/osgViewer/ViewerBase
+ /home/calvr/CalVR/include/cvrConfig/ConfigFileReader.h
+ /home/calvr/CalVR/include/cvrConfig/Export.h
+ /home/calvr/CalVR/include/cvrConfig/XMLReader.h
+ /home/calvr/CalVR/include/cvrInput/Export.h
+ /home/calvr/CalVR/include/cvrInput/TrackerBase.h
+ /home/calvr/CalVR/include/cvrInput/TrackingManager.h
+ /home/calvr/CalVR/include/cvrKernel/CVRViewer.h
+ /home/calvr/CalVR/include/cvrKernel/CalVR.h
+ /home/calvr/CalVR/include/cvrKernel/Export.h
+ /home/calvr/CalVR/include/cvrKernel/InteractionEvent.h
+ /home/calvr/CalVR/include/cvrKernel/InteractionManager.h
+ /home/calvr/CalVR/include/cvrKernel/Navigation.h
+ /home/calvr/CalVR/include/cvrKernel/PluginHelper.h
+ /home/calvr/CalVR/include/cvrKernel/SceneManager.h
+ /home/calvr/CalVR/include/cvrKernel/ScreenConfig.h
+ /home/calvr/CalVR/include/cvrMenu/Export.h
+ /home/calvr/CalVR/include/cvrMenu/MenuItem.h
+ /home/calvr/CalVR/include/cvrMenu/MenuSystem.h
+ /home/calvr/CalVR/include/cvrMenu/MenuSystemBase.h
+ /home/calvr/CalVR/include/cvrMenu/SubMenu.h
+ /home/calvr/CalVR/include/cvrUtil/DepthPartitionNode.h
+ /home/calvr/CalVR/include/cvrUtil/DistanceAccumulator.h
+ /home/calvr/CalVR/include/cvrUtil/Export.h
+ /home/calvr/CalVR/include/cvrUtil/Intersection.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Controller/OutboundPackets/OutboundPacket.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Controller/OutboundPackets/TrialSetup.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/StartCue.cpp
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/StartCue.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
@@ -1393,7 +1833,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.h
-calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Block
@@ -1409,29 +1849,19 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/ArgumentParser
  /home/calvr/CalVR/extern_libs/include/osg/Array
  /home/calvr/CalVR/extern_libs/include/osg/ArrayDispatchers
- /home/calvr/CalVR/extern_libs/include/osg/Billboard
  /home/calvr/CalVR/extern_libs/include/osg/BoundingBox
  /home/calvr/CalVR/extern_libs/include/osg/BoundingSphere
  /home/calvr/CalVR/extern_libs/include/osg/BufferObject
  /home/calvr/CalVR/extern_libs/include/osg/Camera
  /home/calvr/CalVR/extern_libs/include/osg/ClearNode
- /home/calvr/CalVR/extern_libs/include/osg/ClipNode
- /home/calvr/CalVR/extern_libs/include/osg/ClipPlane
- /home/calvr/CalVR/extern_libs/include/osg/CollectOccludersVisitor
  /home/calvr/CalVR/extern_libs/include/osg/ColorMask
  /home/calvr/CalVR/extern_libs/include/osg/Config
- /home/calvr/CalVR/extern_libs/include/osg/ConvexPlanarOccluder
- /home/calvr/CalVR/extern_libs/include/osg/ConvexPlanarPolygon
- /home/calvr/CalVR/extern_libs/include/osg/CoordinateSystemNode
  /home/calvr/CalVR/extern_libs/include/osg/CopyOp
  /home/calvr/CalVR/extern_libs/include/osg/CullSettings
- /home/calvr/CalVR/extern_libs/include/osg/CullStack
- /home/calvr/CalVR/extern_libs/include/osg/CullingSet
  /home/calvr/CalVR/extern_libs/include/osg/DisplaySettings
  /home/calvr/CalVR/extern_libs/include/osg/Drawable
  /home/calvr/CalVR/extern_libs/include/osg/Endian
  /home/calvr/CalVR/extern_libs/include/osg/Export
- /home/calvr/CalVR/extern_libs/include/osg/FrameBufferObject
  /home/calvr/CalVR/extern_libs/include/osg/FrameStamp
  /home/calvr/CalVR/extern_libs/include/osg/GL
  /home/calvr/CalVR/extern_libs/include/osg/GL2Extensions
@@ -1444,10 +1874,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/Group
  /home/calvr/CalVR/extern_libs/include/osg/Image
  /home/calvr/CalVR/extern_libs/include/osg/KdTree
- /home/calvr/CalVR/extern_libs/include/osg/LOD
  /home/calvr/CalVR/extern_libs/include/osg/Light
- /home/calvr/CalVR/extern_libs/include/osg/LightSource
- /home/calvr/CalVR/extern_libs/include/osg/LineSegment
  /home/calvr/CalVR/extern_libs/include/osg/Material
  /home/calvr/CalVR/extern_libs/include/osg/Math
  /home/calvr/CalVR/extern_libs/include/osg/Matrix
@@ -1462,21 +1889,17 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/Object
  /home/calvr/CalVR/extern_libs/include/osg/Observer
  /home/calvr/CalVR/extern_libs/include/osg/ObserverNodePath
- /home/calvr/CalVR/extern_libs/include/osg/OccluderNode
  /home/calvr/CalVR/extern_libs/include/osg/OperationThread
- /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
  /home/calvr/CalVR/extern_libs/include/osg/Plane
  /home/calvr/CalVR/extern_libs/include/osg/Polytope
  /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
  /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
  /home/calvr/CalVR/extern_libs/include/osg/Program
- /home/calvr/CalVR/extern_libs/include/osg/Projection
  /home/calvr/CalVR/extern_libs/include/osg/Quat
  /home/calvr/CalVR/extern_libs/include/osg/Referenced
  /home/calvr/CalVR/extern_libs/include/osg/RenderInfo
  /home/calvr/CalVR/extern_libs/include/osg/Shader
  /home/calvr/CalVR/extern_libs/include/osg/ShaderComposer
- /home/calvr/CalVR/extern_libs/include/osg/ShadowVolumeOccluder
  /home/calvr/CalVR/extern_libs/include/osg/Shape
  /home/calvr/CalVR/extern_libs/include/osg/ShapeDrawable
  /home/calvr/CalVR/extern_libs/include/osg/State
@@ -1516,13 +1939,11 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
  /home/calvr/CalVR/extern_libs/include/osgDB/AuthenticationMap
  /home/calvr/CalVR/extern_libs/include/osgDB/Callbacks
  /home/calvr/CalVR/extern_libs/include/osgDB/DataTypes
- /home/calvr/CalVR/extern_libs/include/osgDB/DatabasePager
  /home/calvr/CalVR/extern_libs/include/osgDB/DatabaseRevisions
  /home/calvr/CalVR/extern_libs/include/osgDB/DotOsgWrapper
  /home/calvr/CalVR/extern_libs/include/osgDB/DynamicLibrary
  /home/calvr/CalVR/extern_libs/include/osgDB/Export
  /home/calvr/CalVR/extern_libs/include/osgDB/FileCache
- /home/calvr/CalVR/extern_libs/include/osgDB/ImagePager
  /home/calvr/CalVR/extern_libs/include/osgDB/ImageProcessor
  /home/calvr/CalVR/extern_libs/include/osgDB/Input
  /home/calvr/CalVR/extern_libs/include/osgDB/InputStream
@@ -1537,13 +1958,6 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
  /home/calvr/CalVR/extern_libs/include/osgDB/SharedStateManager
  /home/calvr/CalVR/extern_libs/include/osgDB/StreamOperator
  /home/calvr/CalVR/extern_libs/include/osgDB/fstream
- /home/calvr/CalVR/extern_libs/include/osgGA/CameraManipulator
- /home/calvr/CalVR/extern_libs/include/osgGA/EventQueue
- /home/calvr/CalVR/extern_libs/include/osgGA/EventVisitor
- /home/calvr/CalVR/extern_libs/include/osgGA/Export
- /home/calvr/CalVR/extern_libs/include/osgGA/GUIActionAdapter
- /home/calvr/CalVR/extern_libs/include/osgGA/GUIEventAdapter
- /home/calvr/CalVR/extern_libs/include/osgGA/GUIEventHandler
  /home/calvr/CalVR/extern_libs/include/osgText/Export
  /home/calvr/CalVR/extern_libs/include/osgText/Font
  /home/calvr/CalVR/extern_libs/include/osgText/Glyph
@@ -1552,66 +1966,6 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
  /home/calvr/CalVR/extern_libs/include/osgText/Style
  /home/calvr/CalVR/extern_libs/include/osgText/Text
  /home/calvr/CalVR/extern_libs/include/osgText/TextBase
- /home/calvr/CalVR/extern_libs/include/osgUtil/CullVisitor
- /home/calvr/CalVR/extern_libs/include/osgUtil/Export
- /home/calvr/CalVR/extern_libs/include/osgUtil/GLObjectsVisitor
- /home/calvr/CalVR/extern_libs/include/osgUtil/IncrementalCompileOperation
- /home/calvr/CalVR/extern_libs/include/osgUtil/IntersectVisitor
- /home/calvr/CalVR/extern_libs/include/osgUtil/IntersectionVisitor
- /home/calvr/CalVR/extern_libs/include/osgUtil/LineSegmentIntersector
- /home/calvr/CalVR/extern_libs/include/osgUtil/PolytopeIntersector
- /home/calvr/CalVR/extern_libs/include/osgUtil/PositionalStateContainer
- /home/calvr/CalVR/extern_libs/include/osgUtil/RenderBin
- /home/calvr/CalVR/extern_libs/include/osgUtil/RenderLeaf
- /home/calvr/CalVR/extern_libs/include/osgUtil/RenderStage
- /home/calvr/CalVR/extern_libs/include/osgUtil/SceneView
- /home/calvr/CalVR/extern_libs/include/osgUtil/StateGraph
- /home/calvr/CalVR/extern_libs/include/osgUtil/UpdateVisitor
- /home/calvr/CalVR/extern_libs/include/osgViewer/Export
- /home/calvr/CalVR/extern_libs/include/osgViewer/GraphicsWindow
- /home/calvr/CalVR/extern_libs/include/osgViewer/Scene
- /home/calvr/CalVR/extern_libs/include/osgViewer/View
- /home/calvr/CalVR/extern_libs/include/osgViewer/Viewer
- /home/calvr/CalVR/extern_libs/include/osgViewer/ViewerBase
- /home/calvr/CalVR/include/cvrConfig/ConfigFileReader.h
- /home/calvr/CalVR/include/cvrConfig/ConfigManager.h
- /home/calvr/CalVR/include/cvrConfig/Export.h
- /home/calvr/CalVR/include/cvrConfig/XMLReader.h
- /home/calvr/CalVR/include/cvrInput/Export.h
- /home/calvr/CalVR/include/cvrInput/TrackerBase.h
- /home/calvr/CalVR/include/cvrInput/TrackingManager.h
- /home/calvr/CalVR/include/cvrKernel/CVRViewer.h
- /home/calvr/CalVR/include/cvrKernel/CalVR.h
- /home/calvr/CalVR/include/cvrKernel/Export.h
- /home/calvr/CalVR/include/cvrKernel/InteractionEvent.h
- /home/calvr/CalVR/include/cvrKernel/InteractionManager.h
- /home/calvr/CalVR/include/cvrKernel/Navigation.h
- /home/calvr/CalVR/include/cvrKernel/PluginHelper.h
- /home/calvr/CalVR/include/cvrKernel/SceneManager.h
- /home/calvr/CalVR/include/cvrKernel/ScreenConfig.h
- /home/calvr/CalVR/include/cvrMenu/Export.h
- /home/calvr/CalVR/include/cvrMenu/MenuItem.h
- /home/calvr/CalVR/include/cvrMenu/MenuSystem.h
- /home/calvr/CalVR/include/cvrMenu/MenuSystemBase.h
- /home/calvr/CalVR/include/cvrMenu/SubMenu.h
- /home/calvr/CalVR/include/cvrUtil/DepthPartitionNode.h
- /home/calvr/CalVR/include/cvrUtil/DistanceAccumulator.h
- /home/calvr/CalVR/include/cvrUtil/Export.h
- /home/calvr/CalVR/include/cvrUtil/Intersection.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/EndCue.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Experiment.cpp
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Experiment.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
- /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
-calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o
@@ -1803,6 +2157,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o
  /home/calvr/CalVR/include/cvrInput/TrackingManager.h
  /home/calvr/CalVR/include/cvrKernel/CVRViewer.h
  /home/calvr/CalVR/include/cvrKernel/CalVR.h
+ /home/calvr/CalVR/include/cvrKernel/ComController.h
  /home/calvr/CalVR/include/cvrKernel/Export.h
  /home/calvr/CalVR/include/cvrKernel/InteractionEvent.h
  /home/calvr/CalVR/include/cvrKernel/InteractionManager.h
@@ -1823,14 +2178,23 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/AuditoryCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/EndCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/StartCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
+ /usr/local/include/OAS/ClientInterface.h
+ /usr/local/include/OAS/Listener.h
+ /usr/local/include/OAS/OASClient.h
+ /usr/local/include/OAS/Sound.h
+ /usr/local/include/OAS/SoundUpdateCallback.h
+ /usr/local/include/OAS/Time.h
+ /usr/local/include/OAS/config.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
@@ -2011,6 +2375,9 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o
  /home/calvr/CalVR/extern_libs/include/osgViewer/View
  /home/calvr/CalVR/extern_libs/include/osgViewer/Viewer
  /home/calvr/CalVR/extern_libs/include/osgViewer/ViewerBase
+ /home/calvr/CalVR/include/cvrConfig/ConfigFileReader.h
+ /home/calvr/CalVR/include/cvrConfig/ConfigManager.h
+ /home/calvr/CalVR/include/cvrConfig/Export.h
  /home/calvr/CalVR/include/cvrInput/Export.h
  /home/calvr/CalVR/include/cvrInput/TrackerBase.h
  /home/calvr/CalVR/include/cvrInput/TrackingManager.h
@@ -2033,6 +2400,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o
  /home/calvr/CalVR/include/cvrUtil/Export.h
  /home/calvr/CalVR/include/cvrUtil/Intersection.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
@@ -2259,6 +2627,8 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/Array
  /home/calvr/CalVR/extern_libs/include/osg/ArrayDispatchers
  /home/calvr/CalVR/extern_libs/include/osg/Billboard
+ /home/calvr/CalVR/extern_libs/include/osg/BlendColor
+ /home/calvr/CalVR/extern_libs/include/osg/BlendFunc
  /home/calvr/CalVR/extern_libs/include/osg/BoundingBox
  /home/calvr/CalVR/extern_libs/include/osg/BoundingSphere
  /home/calvr/CalVR/extern_libs/include/osg/BufferObject
@@ -2458,6 +2828,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/calvr/CalVR/include/cvrUtil/Export.h
  /home/calvr/CalVR/include/cvrUtil/Intersection.h
  /home/calvr/CalVR/include/cvrUtil/MultiListenSocket.h
+ /home/calvr/CalVR/include/cvrUtil/OsgPrint.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../WaterMaze.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/ControllerQueue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/Command.h
@@ -2476,8 +2847,10 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/WMController.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/AuditoryCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/EndCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/StartCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.h
@@ -2485,6 +2858,13 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.h
+ /usr/local/include/OAS/ClientInterface.h
+ /usr/local/include/OAS/Listener.h
+ /usr/local/include/OAS/OASClient.h
+ /usr/local/include/OAS/Sound.h
+ /usr/local/include/OAS/SoundUpdateCallback.h
+ /usr/local/include/OAS/Time.h
+ /usr/local/include/OAS/config.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
@@ -2502,6 +2882,8 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/Array
  /home/calvr/CalVR/extern_libs/include/osg/ArrayDispatchers
  /home/calvr/CalVR/extern_libs/include/osg/Billboard
+ /home/calvr/CalVR/extern_libs/include/osg/BlendColor
+ /home/calvr/CalVR/extern_libs/include/osg/BlendFunc
  /home/calvr/CalVR/extern_libs/include/osg/BoundingBox
  /home/calvr/CalVR/extern_libs/include/osg/BoundingSphere
  /home/calvr/CalVR/extern_libs/include/osg/BufferObject
@@ -2701,6 +3083,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/calvr/CalVR/include/cvrUtil/Export.h
  /home/calvr/CalVR/include/cvrUtil/Intersection.h
  /home/calvr/CalVR/include/cvrUtil/MultiListenSocket.h
+ /home/calvr/CalVR/include/cvrUtil/OsgPrint.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../WaterMaze.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/ControllerQueue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/Command.h
@@ -2719,8 +3102,10 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/WMController.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/../Cue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/AuditoryCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/EndCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/StartCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.h
@@ -2728,3 +3113,10 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMazeTakeAction.cpp
+ /usr/local/include/OAS/ClientInterface.h
+ /usr/local/include/OAS/Listener.h
+ /usr/local/include/OAS/OASClient.h
+ /usr/local/include/OAS/Sound.h
+ /usr/local/include/OAS/SoundUpdateCallback.h
+ /usr/local/include/OAS/Time.h
+ /usr/local/include/OAS/config.h

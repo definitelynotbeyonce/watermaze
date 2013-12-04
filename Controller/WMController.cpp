@@ -5,7 +5,9 @@ using namespace cvr;
 
 namespace WaterMaze
 {
-//Constructor / Destructor
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		Constructor / Destructor				
+ * * * * * * * * * * * * * * * * * * * * * * * */
 WMController::WMController()
 {
 	_portNo = 12012;
@@ -31,7 +33,9 @@ WMController::~WMController()
 	delete _incoming;
 }
 
-//inbound packet functions
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ *		Inbound packet functions
+ * * * * * * * * * * * * * * * * * * * * * * * */
 void WMController::getConnections()
 {
 	CVRSocket* s = _incoming->accept();
@@ -47,6 +51,9 @@ void WMController::getConnections()
 
 void WMController::getData()	
 {
+	//NOTE: code taken from FuturePatient Plugin.
+	
+	//Are there any packets?
 	if(!_socketList.size())
     {
         return;
@@ -57,6 +64,7 @@ void WMController::getData()
     fd_set socketsetR;
     FD_ZERO(&socketsetR);
 
+	//Prep sockets for input.
     for(int i = 0; i < _socketList.size(); i++)
     {
         FD_SET((unsigned int)_socketList[i]->getSocketFD(),&socketsetR);
@@ -72,35 +80,39 @@ void WMController::getData()
 
     select(maxfd+1,&socketsetR,NULL,NULL,&tv);
 
+	// Check every socket for data.  NOTE: not parallelizing this code ensures in order arrival
     for(std::vector<CVRSocket*>::iterator it = _socketList.begin(); it != _socketList.end(); )
     {
         if(FD_ISSET((*it)->getSocketFD(),&socketsetR))
         {
             if(!processSocketInput(*it))
             {
+				// Controller was disconnected.
                 cout << "Removing Control socket." << std::endl;
                 delete *it;
                 it = _socketList.erase(it);
             }
             else
             {
-                it++;
+                ++it;
             }
         }
         else
         {
-            it++;
+			// Socket had no data.
+            ++it;
         }
     }
 }
 
-//outbound packet functions
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		Outbound packet functions
+ * * * * * * * * * * * * * * * * * * * * * * * */
 void WMController::bCastOutboundPacket(OutboundPacket* obp)
 {
-	cout << "BCasting " << obp->getType() << endl;
 	int n = _socketList.size();	//LCV used for omp parallelization
 	
-	//1
+	// Stage 1
 	string t1 = prepJavaString('a', obp->getType());
 	#pragma omp parallel for schedule(dynamic)
 	for(int i = 0; i < n; ++i)
@@ -109,7 +121,7 @@ void WMController::bCastOutboundPacket(OutboundPacket* obp)
 		_socketList[i]->send(c, t1.length());
 	}
 	
-	//2
+	// Stage 2
 	string s2;
 	while((s2 = obp->getLine()) != "NULL")
 	{
@@ -121,7 +133,7 @@ void WMController::bCastOutboundPacket(OutboundPacket* obp)
 		}
 	}
 	
-	//3
+	// Stage 3
 	string t3 = prepJavaString('c', "");
 	#pragma omp parallel for schedule(dynamic)
 	for(int i = 0; i < n; ++i)
@@ -130,29 +142,155 @@ void WMController::bCastOutboundPacket(OutboundPacket* obp)
 	}
 }
 
+void WMController::singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp)
+{	
+	// Stage 1
+	string t1 = prepJavaString('a', obp->getType());
+	char* c = (char*)t1.c_str();
+	socket->send((char*)t1.c_str(), t1.length());
+	
+	// Stage 2
+	string s2;
+	while((s2 = obp->getLine()) != "NULL")
+	{
+		string t2 = prepJavaString('b', s2);
+		char* c2 = (char*)t2.c_str();
+		socket->send((char*)t2.c_str(), t2.length());
+	}
+	
+	// Stage 3
+	string t3 = prepJavaString('c', "");
+	char* c3 = (char*)t3.c_str();
+	socket->send((char*)t3.c_str(), t3.length());
+}
 
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		Data packet access methods
+ * * * * * * * * * * * * * * * * * * * * * * * */
+	//Data
+bool WMController::hasData()
+{
+	return _packets.size() > 0;	
+}
 
+int WMController::getDataAsInt()
+{
+	// Pop off oldest packet
+	InboundPacket* p;
+	bool hadData = _packets.get(p);
+	
+	if(hadData)
+	{
+		// Get data as integer.  Will be returned later (after memory from packet is reclaimed).
+		int data = p->toPluginHandlerInt();
+		
+		// Place packet into appropriate queue if it requires further processing.
+		if(p->getType() == "Cue Toggle" )
+			_toggles.add(dynamic_cast<CueToggle*>(p));
+		else if(p->getType() == "New Subject")
+			_newSubjects.add(dynamic_cast<NewSubject*>(p));
+		else
+			delete p;
+		
+		// Return data as integer.	
+		return data;
+	}
+	else
+	{
+		return 0;	// Return value of 0 indicates no data.
+	}
+}
 
-//process input
+	//Toggles
+bool WMController::hasToggles()
+{
+	return _toggles.size() > 0;
+}
+
+tuple<string, bool> WMController::getToggle()
+{
+	// Get oldest CueToggle from the packet queue.
+	CueToggle* p;
+	bool hadData = _toggles.get(p);
+	
+	// Pass this CueToggle to WaterMaze.
+	if(hadData)
+	{
+		tuple<string, bool> toggle = p->getAsTuple();
+		delete p;
+		return toggle;
+	}
+	else
+	{
+		return make_tuple<string, bool>("", false);	// No cue was toggled.
+	}
+}
+
+	//New Subject
+bool WMController::hasNewSubjects()
+{
+	return _newSubjects.size() > 0;
+}
+
+string WMController::getNewSubject()
+{
+	// Pop off NewSubject packet from the queue.
+	NewSubject* p;
+	bool hadData = _newSubjects.get(p);
+	
+	// Was there a NewSubject packet? 
+	if(hadData)
+	{
+		// Get the subjectID from the packet and return that value to WaterMaze.
+		string subjectID = p->toString();
+		delete p;
+		return subjectID;
+	}
+	else
+	{
+		return "";
+	}
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		General Access Methods
+ * * * * * * * * * * * * * * * * * * * * * * * */
+int WMController::getNumControllers()
+{
+	return _socketList.size();
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		Socket input functions
+ * * * * * * * * * * * * * * * * * * * * * * * */
 bool WMController::processSocketInput(cvr::CVRSocket * socket)
 {
+	//take in packet type byte
 	InboundPacket* packet = NULL;
-	int result = processPacket(1, socket, packet);
-	if(result < 0)
+	int type = processPacket(1, socket, packet);
+	if(type < 0)
 		return false;
 	
-	result = 2;
-	while(result == 2)
+	//take in all stage 2 packets.
+	int twoCount = 0;
+	do
 	{
-		result = processPacket(2,socket, packet);
-		if(result < 0)
+		type = processPacket(2,socket, packet);
+		if(type < 0)
 		{
 			return false;
 		}
+		twoCount += (type == 2)?1:0;
+	}while(type == 2);
+	
+	//check to make sure packets were not received out of order.
+	if(twoCount < 1)
+	{
+		cerr << "Packets out of order.  Stage 3 Packet recieved before a Stage 2 Packet." << endl;
 	}
-	if(packet == NULL){
-		cout << "encountered unknown packet type" << endl;
-	}
+	
+	//stage 3 packet has already been read in do-while loop.
+	
 	//respond
 	if(packet->getType() == "State Request")
 		sendState(socket);
@@ -164,6 +302,7 @@ bool WMController::processSocketInput(cvr::CVRSocket * socket)
 	//push the packet into the queue
 	_packets.add(packet);
 	
+	//indicate that everything was read just fine.
 	return true;
 }
 
@@ -173,10 +312,12 @@ int WMController::processPacket(int stage, CVRSocket * socket, InboundPacket* &p
 {
 	//read stage number
 	int num[2];
-    if(!socket->recv(num,sizeof(int) * 2))
+	int javaIntSize = ConfigManager::getInt("Plugin.WaterMaze.AndroidController.JavaIntSize", 4);
+    if(!socket->recv(num, javaIntSize * 2))	//take in stage integer and packet size.
 	{
 		return -1;
 	}
+	
 	//get the packet
 	char buf[num[1]];
     if(!socket->recv(buf,num[1]))
@@ -184,27 +325,27 @@ int WMController::processPacket(int stage, CVRSocket * socket, InboundPacket* &p
         return -1;
 	}
     
-	//turn last line feed into a null terminator. convert to string
+	// Turn last LF CR (how the Java string is terminated) into a null terminator. Convert to string.
 	buf[num[1] - 1] = '\0';
-	cout << num[0] << " echo: " << buf << endl;
+	string dataLine = string(buf);
 	
 	//process packet
 	switch(stage)
 	{
 		case 1:
-			p = processType(string(buf), socket);
+			p = processType(dataLine, socket);
 			break;
 		case 2:
 			if(num[0] == 2)
 			{
-				p->addLine(string(buf));
+				p->addLine(dataLine);
 			}
 			break;
 		default:
 			break;
 	}
 	
-	return num[0];	//return the stage as determined by the incoming packet used as an LCV	
+	return num[0];	//return the stage as determined by the incoming packet used as an LCV inside processSocketInput
 }
 
 InboundPacket* WMController::processType(string type, CVRSocket* socket)
@@ -231,54 +372,38 @@ InboundPacket* WMController::processType(string type, CVRSocket* socket)
 	{
 		return (new NewSubject());
 	}
-	else{
-		//this shouldnt happen
-		cout << "error unknown packet type: " << type << endl;
+	else
+	{
+		//This packet type has not been coded for yet.
+		cerr << "error unknown packet type: " << type << endl;
 		return NULL;
 	}
 }
 
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		Packet response functions
+ * * * * * * * * * * * * * * * * * * * * * * * */
 void WMController::sendState(CVRSocket* destination)
 {
-	//cout << "sending state" << endl;
 	StateUpdate* su = new StateUpdate(_wm->getState());
 	singleDeviceOutput(destination, su);
 	delete su;
 }
 
-// output
-void WMController::singleDeviceOutput(CVRSocket* socket, OutboundPacket* obp)
-{
-	cout << "sending outbound packet to single device" << endl;
-	
-	//1
-	string t1 = prepJavaString('a', obp->getType());
-	char* c = (char*)t1.c_str();
-	socket->send((char*)t1.c_str(), t1.length());
-	
-	//2
-	string s2;
-	while((s2 = obp->getLine()) != "NULL")
-	{
-		string t2 = prepJavaString('b', s2);
-		char* c2 = (char*)t2.c_str();
-		socket->send((char*)t2.c_str(), t2.length());
-	}
-	
-	//3
-	string t3 = prepJavaString('c', "");
-	char* c3 = (char*)t3.c_str();
-	socket->send((char*)t3.c_str(), t3.length());
-}
-
-//c++ to java util functions
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		C++ to Java util functions
+ * * * * * * * * * * * * * * * * * * * * * * * */
 string WMController::prepJavaString(char stage, string data)
 {
 	data.insert(0, 1, stage).append("\n");
 	return data;
 }
 
-//debug methods
+/* * * * * * * * * * * * * * * * * * * * * * * * 
+ * 		Debug functions
+ * * * * * * * * * * * * * * * * * * * * * * * */
 void WMController::printBytes(char* c, int len)
 {
 	for(int i = 0; i < len; ++i)
@@ -286,72 +411,6 @@ void WMController::printBytes(char* c, int len)
 		cout << (int)c[i] << " ";
 	}
 	cout << endl;
-}
-
-bool WMController::hasData()
-{
-	return _packets.size() > 0;	
-}
-
-int WMController::getDataAsInt()
-{
-	//pop off packet
-	InboundPacket* p;
-	bool hadData = _packets.get(p);
-	
-	if(hadData)
-	{
-		int data = p->toPluginHandlerInt();
-		if(p->getType() == "Cue Toggle" )
-			_toggles.add(dynamic_cast<CueToggle*>(p));
-		else if(p->getType() == "New Subject")
-			_newSubjects.add(dynamic_cast<NewSubject*>(p));
-		else
-			delete p;
-		return data;
-	}
-	else
-		return 0;
-}
-
-tuple<string, bool> WMController::getToggle()
-{
-	CueToggle* p;
-	bool hadData = _toggles.get(p);
-	
-	if(hadData)
-	{
-		tuple<string, bool> t = p->getAsTuple();
-		delete p;
-		return t;
-	}
-	else
-		return make_tuple<string, bool>("", false);
-}
-
-string WMController::getNewSubject()
-{
-	NewSubject* p;
-	bool hadData = _newSubjects.get(p);
-	
-	if(hadData)
-	{
-		string t = p->toString();
-		delete p;
-		return t;
-	}
-	else
-		return "";
-}
-
-bool WMController::hasToggles()
-{
-	return _toggles.size() > 0;
-}
-
-bool WMController::hasNewSubjects()
-{
-	return _newSubjects.size() > 0;
 }
 
 };

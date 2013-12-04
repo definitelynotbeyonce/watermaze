@@ -19,10 +19,11 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/WMController.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cue.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o"
+  "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/AuditoryCue.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/EndCue.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/FloorCue.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o"
+  "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/StartCue.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/WallCue.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o"
-  "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Experiment.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o"
@@ -41,6 +42,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/calvr/CalVR/include"
   "common"
   "/home/calvr/CalVR/extern_libs/include"
+  "/usr/local/include/OAS"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

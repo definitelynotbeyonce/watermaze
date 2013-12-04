@@ -1,7 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o"
   "CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o"
-  "CMakeFiles/WaterMaze.dir/Experiment.cpp.o"
   "CMakeFiles/WaterMaze.dir/EyeData.cpp.o"
   "CMakeFiles/WaterMaze.dir/Paradigm.cpp.o"
   "CMakeFiles/WaterMaze.dir/Path.cpp.o"
@@ -24,6 +23,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o"
   "CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o"
   "CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o"
+  "CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o"
+  "CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o"
   "/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.pdb"
   "/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so"
 )

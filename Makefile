@@ -516,6 +516,30 @@ Cue.cpp.s:
 	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.s
 .PHONY : Cue.cpp.s
 
+Cues/AuditoryCue.o: Cues/AuditoryCue.cpp.o
+.PHONY : Cues/AuditoryCue.o
+
+# target to build an object file
+Cues/AuditoryCue.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o
+.PHONY : Cues/AuditoryCue.cpp.o
+
+Cues/AuditoryCue.i: Cues/AuditoryCue.cpp.i
+.PHONY : Cues/AuditoryCue.i
+
+# target to preprocess a source file
+Cues/AuditoryCue.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.i
+.PHONY : Cues/AuditoryCue.cpp.i
+
+Cues/AuditoryCue.s: Cues/AuditoryCue.cpp.s
+.PHONY : Cues/AuditoryCue.s
+
+# target to generate assembly for a file
+Cues/AuditoryCue.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.s
+.PHONY : Cues/AuditoryCue.cpp.s
+
 Cues/EndCue.o: Cues/EndCue.cpp.o
 .PHONY : Cues/EndCue.o
 
@@ -564,6 +588,30 @@ Cues/FloorCue.cpp.s:
 	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.s
 .PHONY : Cues/FloorCue.cpp.s
 
+Cues/StartCue.o: Cues/StartCue.cpp.o
+.PHONY : Cues/StartCue.o
+
+# target to build an object file
+Cues/StartCue.cpp.o:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o
+.PHONY : Cues/StartCue.cpp.o
+
+Cues/StartCue.i: Cues/StartCue.cpp.i
+.PHONY : Cues/StartCue.i
+
+# target to preprocess a source file
+Cues/StartCue.cpp.i:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.i
+.PHONY : Cues/StartCue.cpp.i
+
+Cues/StartCue.s: Cues/StartCue.cpp.s
+.PHONY : Cues/StartCue.s
+
+# target to generate assembly for a file
+Cues/StartCue.cpp.s:
+	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.s
+.PHONY : Cues/StartCue.cpp.s
+
 Cues/WallCue.o: Cues/WallCue.cpp.o
 .PHONY : Cues/WallCue.o
 
@@ -587,30 +635,6 @@ Cues/WallCue.s: Cues/WallCue.cpp.s
 Cues/WallCue.cpp.s:
 	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.s
 .PHONY : Cues/WallCue.cpp.s
-
-Experiment.o: Experiment.cpp.o
-.PHONY : Experiment.o
-
-# target to build an object file
-Experiment.cpp.o:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.o
-.PHONY : Experiment.cpp.o
-
-Experiment.i: Experiment.cpp.i
-.PHONY : Experiment.i
-
-# target to preprocess a source file
-Experiment.cpp.i:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.i
-.PHONY : Experiment.cpp.i
-
-Experiment.s: Experiment.cpp.s
-.PHONY : Experiment.s
-
-# target to generate assembly for a file
-Experiment.cpp.s:
-	cd /home/srunyon/workStuff/CVRPlugins && $(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Experiment.cpp.s
-.PHONY : Experiment.cpp.s
 
 EyeData.o: EyeData.cpp.o
 .PHONY : EyeData.o
@@ -814,18 +838,21 @@ help:
 	@echo "... Cue.o"
 	@echo "... Cue.i"
 	@echo "... Cue.s"
+	@echo "... Cues/AuditoryCue.o"
+	@echo "... Cues/AuditoryCue.i"
+	@echo "... Cues/AuditoryCue.s"
 	@echo "... Cues/EndCue.o"
 	@echo "... Cues/EndCue.i"
 	@echo "... Cues/EndCue.s"
 	@echo "... Cues/FloorCue.o"
 	@echo "... Cues/FloorCue.i"
 	@echo "... Cues/FloorCue.s"
+	@echo "... Cues/StartCue.o"
+	@echo "... Cues/StartCue.i"
+	@echo "... Cues/StartCue.s"
 	@echo "... Cues/WallCue.o"
 	@echo "... Cues/WallCue.i"
 	@echo "... Cues/WallCue.s"
-	@echo "... Experiment.o"
-	@echo "... Experiment.i"
-	@echo "... Experiment.s"
 	@echo "... EyeData.o"
 	@echo "... EyeData.i"
 	@echo "... EyeData.s"

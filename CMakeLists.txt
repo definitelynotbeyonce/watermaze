@@ -9,7 +9,6 @@ ADD_LIBRARY(${LIB_NAME}
     ${PLUGIN_HEADERS}
     WaterMaze.cpp
 	WaterMazeTakeAction.cpp
-	Experiment.cpp
 	EyeData.cpp
 	Paradigm.cpp
 	Path.cpp
@@ -36,10 +35,16 @@ ADD_LIBRARY(${LIB_NAME}
 	Cues/WallCue.cpp
 	Cues/FloorCue.cpp
 	Cues/EndCue.cpp
+	Cues/StartCue.cpp
+	Cues/AuditoryCue.cpp
 )
 
 INCLUDE_DIRECTORIES(${OSG_INCLUDE_DIR})
 TARGET_LINK_LIBRARIES(${LIB_NAME} ${OSG_LIBRARIES})
+
+FIND_PACKAGE(OASCLIENT)
+INCLUDE_DIRECTORIES(${OASCLIENT_DIR})
+TARGET_LINK_LIBRARIES(${LIB_NAME} ${OASCLIENT_LIBRARY})
 
 ADD_CALVR_LIBRARIES(${LIB_NAME})
 
@@ -48,3 +53,13 @@ INSTALL(TARGETS ${LIB_NAME} DESTINATION lib/plugins)
 if(UNIX)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++0x -fopenmp -w")
 endif()
+
+OPTION(MAKE_WATERMAZE_DOCUMENTATION "Create Doxygen documentation" OFF)
+
+IF(MAKE_WATERMAZE_DOCUMENTATION)
+    FIND_PACKAGE(Doxygen REQUIRED)
+
+    CONFIGURE_FILE(doc/Doxyfile.cmake doc/Doxyfile.txt)
+
+    ADD_CUSTOM_TARGET(documentation ALL ${DOXYGEN_EXECUTABLE} doc/Doxyfile.txt)
+ENDIF(MAKE_WATERMAZE_DOCUMENTATION)

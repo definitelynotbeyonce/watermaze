@@ -1,11 +1,7 @@
 #include "Paradigm.h"
 
-//initialize static variables
-int Paradigm::_numParadigms = 0;
-
 Paradigm::Paradigm(string paradigmID, string file)
 {
-	//TODO: massive refactoring!!!
 	_paradigmID = paradigmID;
 	XMLReader reader;
 	if(reader.loadFile(file))
@@ -14,6 +10,7 @@ Paradigm::Paradigm(string paradigmID, string file)
 		_width = reader.getInt("Paradigm.Width");
 		_length = reader.getInt("Paradigm.Length");
 		_numTrials = reader.getInt("Paradigm.NumTrials");
+		_minTrials = reader.getInt("Paradigm.MinTrials");
 		_timeOut = reader.getInt("Paradigm.Time");
 		_gridLines = reader.getBool("Paradigm.GridLines");
 		int read = reader.getInt("Paradigm.StartingType");
@@ -52,7 +49,11 @@ Paradigm::Paradigm(string paradigmID, string file)
 		{
 			string type = reader.getEntry("type", "Paradigm.Cues." + cues[i], "");
 			string fileName = reader.getEntry("value", "Paradigm.Cues." + cues[i], "");
-			_cues.push_back(newCue(type, fileName));
+			Cue* cue = newCue(type, fileName);
+			if(cue != NULL)
+			{
+				_cues.push_back(cue);
+			}
 		}
 		
 		//starting position
@@ -69,13 +70,12 @@ Paradigm::Paradigm(string paradigmID, string file)
 			_startingPos = -1;
 			newStart();
 		}
-		
+
 		//finish position
 		x = reader.getInt("x", "Paradigm.FinishPos", -1, &foundX);
 		y = reader.getInt("y", "Paradigm.FinishPos", -1, &foundY);
 		if(foundX && foundY)
 		{
-			//cout << "finish x: " << x << " y: " << y << endl;
 			_finishPos = x * _length + y;
 		}
 		else
@@ -85,7 +85,6 @@ Paradigm::Paradigm(string paradigmID, string file)
 		}
 		
 	}
-	//_staringLookAt;
 }
 
 Paradigm::~Paradigm()
@@ -99,7 +98,6 @@ Paradigm::~Paradigm()
 //modifier methods
 void Paradigm::addPath(Path* p)
 {
-	cout << "adding path" << endl;
 	_trials.push_back(p);
 }
 void Paradigm::addTrial()
@@ -173,45 +171,72 @@ string Paradigm::getID()
 	return _paradigmID;
 }
 
-//data recording
-void Paradigm::writeToLog(ofstream &outFile)
-{
-	//TODO:
-	outFile << "<" << _paradigmID << ">" << endl;
-	outFile << _trials.size() << endl;
-	
-	for(int i = 0; i < _trials.size(); ++i)
-	{
-		outFile << "<Trial" << i << ">" << endl;
-		_trials[i]->writeToLog(outFile);
-		outFile << "</Trial" << i << ">" << endl;
-	}
-	
-	outFile << "</" << _paradigmID << ">" << endl;
-	outFile << flush;
-}
-
 //internal utilities
 void Paradigm::newStart()
-{
-	//make sure the new start is different from the old one
-	int newPos;
+{	
+	//these variables are used to determine validity of new start position
+	int newPos, nX, nY;
+	int sX = _startingPos / _length;
+	int sY = _startingPos % _length;
+	int fX = _finishPos / _length;
+	int fY = _finishPos % _length;
+	
+	bool valid = false;
 	do
 	{
+		//use random number generator to get a new position
 		newPos = rand() % (_width * _length);
-	}while(newPos == _startingPos || newPos == _finishPos);
+		nX = newPos / _length;
+		nY = newPos % _length;
+		
+		//it is far enough away from the finish position?
+		valid = abs(nX - fX) > 1 && abs(nY - fY) > 1 && (abs(nX - fX) + abs(nY - fY)) > (_width / 3);
+		if(_finishPos == -1)	//allow for any starting position from the start.
+			valid = true;
+			
+		if(valid)
+		{
+			//and far enough away from the previous start?
+			valid = abs(nX - sX) > 1 && abs(nY - sY) > 1 && (abs(nX - sX) + abs(nY - sY)) > (_width / 3);
+			if(_startingPos == -1)	//if we didnt have a starting position before anything is valid
+				valid = true;
+		}
+		
+		
+	}while(!valid);
 	
 	_startingPos = newPos;
 }
 
 void Paradigm::newFinish()
 {
-	//make sure the new start is different from the old one
-	int newPos;
+	//used for validity testing
+	int newPos, nX, nY;
+	int sX = _startingPos / _length;
+	int sY = _startingPos % _length;
+	int fX = _finishPos / _length;
+	int fY = _finishPos % _length;
+	
+	bool valid = false;
 	do
 	{
 		newPos = rand() % (_width * _length);
-	}while(newPos == _startingPos || newPos == _finishPos);
+		nX = newPos / _length;
+		nY = newPos % _length;
+		
+		//it is far enough away from the starting position?
+		valid = abs(nX - sX) > 1 && abs(nY - sY) > 1 && (abs(nX - sX) + abs(nY - sY)) > (_width / 3);
+		if(_startingPos == -1)
+			valid = true;
+				
+		if(valid)
+		{
+			//and far enough away from the previous finish?
+			valid = abs(nX - fX) > 1 && abs(nY - fY) > 1 && (abs(nX - fX) + abs(nY - fY)) > (_width / 3);
+			if(_finishPos == -1)	//if no previous finish position any position is valid
+				valid = true;
+		}
+	}while(!valid);
 	
 	_finishPos = newPos;
 }
@@ -230,6 +255,17 @@ Cue* Paradigm::newCue(string type, string file)
 	else if(type == "End")
 	{
 		return new EndCue(file);
+	}
+	else if(type == "Start")
+	{
+		return new StartCue(file);
+	}
+	else if(type == "Auditory")
+	{
+		AuditoryCue* ac = new AuditoryCue(file);
+		_soundCues.push_back(ac);
+		
+		return ac;
 	}
 	else
 	{
@@ -255,9 +291,10 @@ vector<Cue*> Paradigm::getCues()
 
 void Paradigm::toggle(tuple<string, bool> t)
 {
-	cout << "Paradigm::toggle " << get<0>(t) << " " << get<1>(t) << endl;
-	Cue* c = NULL;
+	cout << "Toggling cue: " << get<0>(t) << " value: " << get<1>(t) << endl;
+	
 	//get the cue
+	Cue* c = NULL;
 	for(int i = 0; i < _cues.size(); ++i)
 	{
 		if(get<0>(t) == _cues[i]->getText())
@@ -267,8 +304,9 @@ void Paradigm::toggle(tuple<string, bool> t)
 		}
 	}
 	
-	if(c != NULL)
+	if(c != NULL)	//did we find that cue?
 	{
+		//then toggle it.	
 		c->toggle(get<1>(t));
 	}
 }
@@ -288,19 +326,8 @@ bool Paradigm::isColoredGrid()
 		}
 	}
 	
-	return true;
+	return false;
 }
-/*
-float Paradigm::getWidthGrid()
-{
-	return 
-}
-
-float Paradigm::getHeightGrid()
-{
-	
-}
-*/
 
 EndCue* Paradigm::getEnding()
 {
@@ -314,4 +341,88 @@ EndCue* Paradigm::getEnding()
 	return NULL;
 }
 
+StartCue* Paradigm::getStart()
+{
+	for(int i = 0; i < _cues.size(); ++i)
+	{
+		if(_cues[i]->getType() == "Start")
+		{
+			return dynamic_cast<StartCue*>(_cues[i]);
+		}
+	}
+	return NULL;
+}
+
+bool Paradigm::isTileCircle()
+{
+	for(int i = 0; i < _cues.size(); ++i)
+	{
+		if(_cues[i]->getType() == "Floor")
+		{
+			int num = (dynamic_cast<FloorCue*>(_cues[i]))->isTileCircle();
+			if(num > 0)
+				return num == 1;
+		}
+	}
+	
+	return false;
+}
+
+bool Paradigm::canEnd()
+{
+	int trialCount = _trials.size();
+	return trialCount >= _minTrials;
+}
+
+void Paradigm::playSuccess()
+{
+	for(int i = 0; i < _soundCues.size(); ++i)
+	{
+		if(_soundCues[i]->isSuccess())
+		{
+			_soundCues[i]->playSound();
+		}
+	}
+}
+
+void Paradigm::playFailure()
+{
+	for(int i = 0; i < _soundCues.size(); ++i)
+	{
+		if(_soundCues[i]->isFailure())
+		{
+			_soundCues[i]->playSound();
+		}
+	}
+}
+
+void Paradigm::playSoundCues(float time)
+{
+	for(int i = 0; i < _soundCues.size(); ++i)
+	{
+		if(_soundCues[i]->isContinuous() || _soundCues[i]->isPlayOnce())
+		{
+			_soundCues[i]->playSound(time);
+		}
+	}
+}
+
+void Paradigm::playSoundCues(Vec3 pos)
+{
+	for(int i = 0; i < _soundCues.size(); ++i)
+	{
+		if(_soundCues[i]->isMovement())
+		{
+			_soundCues[i]->playSound(pos);
+		}
+	}
+}
+
+void Paradigm::setSoundStartTimer(float time)
+{
+	for(int i = 0; i < _soundCues.size(); ++i)
+	{
+		_soundCues[i]->setStartTimer(time);
+	}
+}
 

@@ -15,7 +15,7 @@ Cue::~Cue()
 
 bool Cue::isRenderable()
 {
-	return _type == "Wall" && _toggleState;
+	return _canRender && _toggleState;
 }
 
 string Cue::toString()
