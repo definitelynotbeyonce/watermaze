@@ -10,8 +10,7 @@
 #include <osg/Geometry>
 #include <osg/Material>
 #include <osg/MatrixTransform>
-#include <osg/PositionAttitudeTransform>
-#include <osg/ShapeDrawable>
+
 #include <osg/Switch>
 #include <osg/Texture2D>
 #include <osgText/Text>

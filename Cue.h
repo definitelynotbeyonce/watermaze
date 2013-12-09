@@ -16,8 +16,14 @@
 #include <osg/Texture2D>
 #include <osgText/Text>
 #include <osgDB/ReadFile>
+#include <osg/PositionAttitudeTransform>
+#include <osg/ShapeDrawable>
+#include <osg/PolygonMode>
+
 #include <cvrKernel/PluginHelper.h>
 #include <cvrConfig/XMLReader.h>
+#include <cvrConfig/ConfigManager.h>
+
 
 //std libraries
 #include <string>
@@ -27,6 +33,7 @@
 
 using namespace std;
 using namespace cvr;
+using namespace osg;
 
 /**
  * Class used to describe a single cue.  
@@ -53,7 +60,10 @@ class Cue
 		* Pure virtual function used to add geometry to the scene corresponding to this cue.
 		*/
 		virtual void renderGeo(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts) = 0;
-		
+		/**
+		 * Renders the geometry of a wall cue from a model file.
+		 */ 
+		void renderCustom(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts);
 	//Modifier methods
 		/**
 		* @param state New state of this cue

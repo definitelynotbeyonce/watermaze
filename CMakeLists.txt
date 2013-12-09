@@ -37,6 +37,8 @@ ADD_LIBRARY(${LIB_NAME}
 	Cues/EndCue.cpp
 	Cues/StartCue.cpp
 	Cues/AuditoryCue.cpp
+
+	SyncedRandomNumber.cpp
 )
 
 INCLUDE_DIRECTORIES(${OSG_INCLUDE_DIR})

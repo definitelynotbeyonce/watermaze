@@ -686,6 +686,12 @@ osg/BoundingBox
 vector
 -
 
+/home/calvr/CalVR/extern_libs/include/osg/PolygonMode
+osg/StateAttribute
+-
+osg/GL
+-
+
 /home/calvr/CalVR/extern_libs/include/osg/Polytope
 osg/Plane
 -
@@ -2353,9 +2359,17 @@ osgText/Text
 -
 osgDB/ReadFile
 -
+osg/PositionAttitudeTransform
+-
+osg/ShapeDrawable
+-
+osg/PolygonMode
+-
 cvrKernel/PluginHelper.h
 -
 cvrConfig/XMLReader.h
+-
+cvrConfig/ConfigManager.h
 -
 string
 -
@@ -2481,9 +2495,17 @@ osgText/Text
 -
 osgDB/ReadFile
 -
+osg/PositionAttitudeTransform
+-
+osg/ShapeDrawable
+-
+osg/PolygonMode
+-
 cvrKernel/PluginHelper.h
 -
 cvrConfig/XMLReader.h
+-
+cvrConfig/ConfigManager.h
 -
 string
 -
@@ -2511,9 +2533,17 @@ osgText/Text
 -
 osgDB/ReadFile
 -
+osg/PositionAttitudeTransform
+-
+osg/ShapeDrawable
+-
+osg/PolygonMode
+-
 cvrKernel/PluginHelper.h
 -
 cvrConfig/XMLReader.h
+-
+cvrConfig/ConfigManager.h
 -
 string
 -
@@ -2591,10 +2621,6 @@ osg/Material
 -
 osg/MatrixTransform
 -
-osg/PositionAttitudeTransform
--
-osg/ShapeDrawable
--
 osg/Switch
 -
 osg/Texture2D
@@ -2667,6 +2693,8 @@ cvrConfig/ConfigManager.h
 -
 cvrConfig/XMLReader.h
 -
+cvrKernel/ComController.h
+-
 vector
 -
 iostream
@@ -2687,6 +2715,8 @@ Cues/StartCue.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/StartCue.h
 Cues/AuditoryCue.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Cues/AuditoryCue.h
+SyncedRandomNumber.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../SyncedRandomNumber.h
 
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Path.h
 osg/Geode
@@ -2762,6 +2792,12 @@ EyeData.h
 Controller/OutboundPackets/OutboundPacket.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Controller/OutboundPackets/OutboundPacket.h
 
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../SyncedRandomNumber.h
+cvrKernel/ComController.h
+-
+stdlib.h
+-
+
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../WaterMaze.h
 osg/Geode
 -
@@ -2800,6 +2836,8 @@ cvrKernel/PluginHelper.h
 cvrKernel/SceneManager.h
 -
 cvrKernel/SceneObject.h
+-
+cvrKernel/Navigation.h
 -
 cvrConfig/ConfigManager.h
 -
@@ -2924,6 +2962,14 @@ string
 InboundPacket.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/InboundPacket.h
 
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/../../Controller/OutboundPackets/TrialSetup.h
+string
+-
+iostream
+-
+OutboundPacket.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/../../Controller/OutboundPackets/OutboundPacket.h
+
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/../../Cue.h
 osg/Geode
 -
@@ -2945,14 +2991,26 @@ osgText/Text
 -
 osgDB/ReadFile
 -
+osg/PositionAttitudeTransform
+-
+osg/ShapeDrawable
+-
+osg/PolygonMode
+-
 cvrKernel/PluginHelper.h
 -
 cvrConfig/XMLReader.h
+-
+cvrConfig/ConfigManager.h
 -
 string
 -
 Controller/OutboundPackets/TrialSetup.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/../../Controller/OutboundPackets/TrialSetup.h
+
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/CueList.cpp
+CueList.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/CueList.h
 
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/CueList.h
 string
@@ -3083,9 +3141,17 @@ osgText/Text
 -
 osgDB/ReadFile
 -
+osg/PositionAttitudeTransform
+-
+osg/ShapeDrawable
+-
+osg/PolygonMode
+-
 cvrKernel/PluginHelper.h
 -
 cvrConfig/XMLReader.h
+-
+cvrConfig/ConfigManager.h
 -
 string
 -
@@ -3113,9 +3179,17 @@ osgText/Text
 -
 osgDB/ReadFile
 -
+osg/PositionAttitudeTransform
+-
+osg/ShapeDrawable
+-
+osg/PolygonMode
+-
 cvrKernel/PluginHelper.h
 -
 cvrConfig/XMLReader.h
+-
+cvrConfig/ConfigManager.h
 -
 string
 -
@@ -3193,10 +3267,6 @@ osg/Material
 -
 osg/MatrixTransform
 -
-osg/PositionAttitudeTransform
--
-osg/ShapeDrawable
--
 osg/Switch
 -
 osg/Texture2D
@@ -3273,6 +3343,8 @@ cvrConfig/ConfigManager.h
 -
 cvrConfig/XMLReader.h
 -
+cvrKernel/ComController.h
+-
 vector
 -
 iostream
@@ -3293,6 +3365,8 @@ Cues/StartCue.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/StartCue.h
 Cues/AuditoryCue.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Cues/AuditoryCue.h
+SyncedRandomNumber.h
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.h
 
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
 osg/Geode
@@ -3368,6 +3442,12 @@ EyeData.h
 Controller/OutboundPackets/OutboundPacket.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.h
 
+/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.h
+cvrKernel/ComController.h
+-
+stdlib.h
+-
+
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.cpp
 WaterMaze.h
 /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.h
@@ -3412,6 +3492,8 @@ cvrKernel/PluginHelper.h
 cvrKernel/SceneManager.h
 -
 cvrKernel/SceneObject.h
+-
+cvrKernel/Navigation.h
 -
 cvrConfig/ConfigManager.h
 -

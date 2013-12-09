@@ -27,6 +27,7 @@
 #include <cvrKernel/PluginHelper.h>
 #include <cvrKernel/SceneManager.h>
 #include <cvrKernel/SceneObject.h>
+#include <cvrKernel/Navigation.h>
 
 #include <cvrConfig/ConfigManager.h>
 
@@ -305,6 +306,12 @@ class WaterMaze: public cvr::CVRPlugin, public cvr::MenuCallback
 		osg::BlendColor* _filter;
 		osg::BlendFunc* _filterFunc;
 		float _filterA;
+		
+		//Sound data
+		float _masterVolume;
+		
+		//DEBUG
+		float maxVel;
 };
 
 };

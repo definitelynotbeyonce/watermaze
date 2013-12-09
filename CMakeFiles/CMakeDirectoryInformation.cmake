@@ -8,6 +8,15 @@ SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/srunyon/workStuff/CVRPlugins")
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)
 
+# The C and CXX include file search paths:
+SET(CMAKE_C_INCLUDE_PATH
+  "/home/calvr/CalVR/include"
+  "common"
+  "/home/calvr/CalVR/extern_libs/include"
+  "/usr/local/include/OAS"
+  )
+SET(CMAKE_CXX_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
+SET(CMAKE_Fortran_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
 
 # The C and CXX include file regular expressions for this directory.
 SET(CMAKE_C_INCLUDE_REGEX_SCAN "^.*$")

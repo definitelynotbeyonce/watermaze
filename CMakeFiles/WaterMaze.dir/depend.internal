@@ -161,6 +161,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
  /home/calvr/CalVR/extern_libs/include/osg/OperationThread
  /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
  /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
  /home/calvr/CalVR/extern_libs/include/osg/Polytope
  /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
  /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -269,6 +270,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
  /home/calvr/CalVR/extern_libs/include/osgViewer/Viewer
  /home/calvr/CalVR/extern_libs/include/osgViewer/ViewerBase
  /home/calvr/CalVR/include/cvrConfig/ConfigFileReader.h
+ /home/calvr/CalVR/include/cvrConfig/ConfigManager.h
  /home/calvr/CalVR/include/cvrConfig/Export.h
  /home/calvr/CalVR/include/cvrConfig/XMLReader.h
  /home/calvr/CalVR/include/cvrInput/Export.h
@@ -387,6 +389,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/OperationThread
  /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
  /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
  /home/calvr/CalVR/extern_libs/include/osg/Polytope
  /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
  /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -548,6 +551,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Paradigm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../Path.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../PathData.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../SyncedRandomNumber.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/../WaterMaze.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/ControllerQueue.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Controller/InboundPackets/Command.h
@@ -1696,6 +1700,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/OperationThread
  /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
  /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
  /home/calvr/CalVR/extern_libs/include/osg/Polytope
  /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
  /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -2041,6 +2046,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/OperationThread
  /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
  /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
  /home/calvr/CalVR/extern_libs/include/osg/Polytope
  /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
  /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -2188,6 +2194,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.h
  /usr/local/include/OAS/ClientInterface.h
  /usr/local/include/OAS/Listener.h
  /usr/local/include/OAS/OASClient.h
@@ -2610,6 +2617,23 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/EyeData.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Config
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Exports
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/Mutex
+ /home/calvr/CalVR/extern_libs/include/OpenThreads/ScopedLock
+ /home/calvr/CalVR/extern_libs/include/osg/ApplicationUsage
+ /home/calvr/CalVR/extern_libs/include/osg/ArgumentParser
+ /home/calvr/CalVR/extern_libs/include/osg/Config
+ /home/calvr/CalVR/extern_libs/include/osg/Export
+ /home/calvr/CalVR/extern_libs/include/osg/Referenced
+ /home/calvr/CalVR/extern_libs/include/osg/ref_ptr
+ /home/calvr/CalVR/include/cvrKernel/CalVR.h
+ /home/calvr/CalVR/include/cvrKernel/ComController.h
+ /home/calvr/CalVR/include/cvrKernel/Export.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.cpp
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
  /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
@@ -2685,6 +2709,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/OperationThread
  /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
  /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
  /home/calvr/CalVR/extern_libs/include/osg/Polytope
  /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
  /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -2856,6 +2881,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.cpp
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.h
  /usr/local/include/OAS/ClientInterface.h
@@ -2940,6 +2966,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/calvr/CalVR/extern_libs/include/osg/OperationThread
  /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
  /home/calvr/CalVR/extern_libs/include/osg/Plane
+ /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
  /home/calvr/CalVR/extern_libs/include/osg/Polytope
  /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
  /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -3111,6 +3138,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.h
+ /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.h
  /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMazeTakeAction.cpp
  /usr/local/include/OAS/ClientInterface.h

@@ -28,6 +28,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Paradigm.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/Path.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/PathData.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o"
+  "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMaze.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o"
   "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/WaterMazeTakeAction.cpp" "/home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o"
   )
@@ -36,14 +37,3 @@ SET(CMAKE_CXX_COMPILER_ID "GNU")
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
   )
-
-# The include file search paths:
-SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/calvr/CalVR/include"
-  "common"
-  "/home/calvr/CalVR/extern_libs/include"
-  "/usr/local/include/OAS"
-  )
-SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

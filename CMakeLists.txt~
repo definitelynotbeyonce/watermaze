@@ -36,6 +36,7 @@ ADD_LIBRARY(${LIB_NAME}
 	Cues/FloorCue.cpp
 	Cues/EndCue.cpp
 	Cues/StartCue.cpp
+	Cues/AuditoryCue.cpp
 )
 
 INCLUDE_DIRECTORIES(${OSG_INCLUDE_DIR})

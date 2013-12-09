@@ -160,6 +160,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/OperationThread
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Plane
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Polytope
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -268,6 +269,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osgViewer/Viewer
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/extern_libs/include/osgViewer/ViewerBase
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/include/cvrConfig/ConfigFileReader.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/include/cvrConfig/ConfigManager.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/include/cvrConfig/Export.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/include/cvrConfig/XMLReader.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: /home/calvr/CalVR/include/cvrInput/Export.h
@@ -386,6 +388,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/c
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/OperationThread
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Plane
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Polytope
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -547,6 +550,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Paradigm.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../Path.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../PathData.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../SyncedRandomNumber.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/../WaterMaze.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/ControllerQueue.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/InboundPackets/Command.h
@@ -1695,6 +1699,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/OperationThread
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Plane
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Polytope
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -2040,6 +2045,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/exte
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/OperationThread
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Plane
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Polytope
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -2187,6 +2193,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: calit2/WaterMaze/Parad
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: calit2/WaterMaze/Paradigm.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: calit2/WaterMaze/Path.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: calit2/WaterMaze/PathData.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: calit2/WaterMaze/SyncedRandomNumber.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /usr/local/include/OAS/ClientInterface.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /usr/local/include/OAS/Listener.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: /usr/local/include/OAS/OASClient.h
@@ -2610,6 +2617,23 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o: calit2/WaterMaze/EyeDa
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o: calit2/WaterMaze/PathData.cpp
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o: calit2/WaterMaze/PathData.h
 
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/Config
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/Exports
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/Mutex
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/ScopedLock
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/ApplicationUsage
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/ArgumentParser
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Config
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Export
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Referenced
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/ref_ptr
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/include/cvrKernel/CalVR.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/include/cvrKernel/ComController.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: /home/calvr/CalVR/include/cvrKernel/Export.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: calit2/WaterMaze/SyncedRandomNumber.cpp
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: calit2/WaterMaze/SyncedRandomNumber.h
+
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/Atomic
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/Barrier
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/OpenThreads/Block
@@ -2684,6 +2708,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/ext
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/OperationThread
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Plane
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Polytope
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -2855,6 +2880,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/EyeD
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Paradigm.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/Path.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/PathData.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/SyncedRandomNumber.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/WaterMaze.cpp
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: calit2/WaterMaze/WaterMaze.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o: /usr/local/include/OAS/ClientInterface.h
@@ -2939,6 +2965,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/OperationThread
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PagedLOD
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Plane
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PolygonMode
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/Polytope
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PositionAttitudeTransform
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /home/calvr/CalVR/extern_libs/include/osg/PrimitiveSet
@@ -3110,6 +3137,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/Wate
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Paradigm.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/Path.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/PathData.h
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/SyncedRandomNumber.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/WaterMaze.h
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/WaterMazeTakeAction.cpp
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: /usr/local/include/OAS/ClientInterface.h

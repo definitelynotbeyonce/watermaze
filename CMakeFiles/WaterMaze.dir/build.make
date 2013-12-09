@@ -4,7 +4,7 @@
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canonical targets will work.
+# Disable implicit rules so canoncical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -26,16 +26,13 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake28
+CMAKE_COMMAND = /home/calvr/CalVR/extern_libs/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake28 -E remove -f
-
-# Escaping for special characters.
-EQUALS = =
+RM = /home/calvr/CalVR/extern_libs/bin/cmake -E remove -f
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake28
+CMAKE_EDIT_COMMAND = /home/calvr/CalVR/extern_libs/bin/ccmake
 
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/srunyon/workStuff/CVRPlugins
@@ -74,6 +71,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o.provides: calit2/Water
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMaze.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o: calit2/WaterMaze/WaterMazeTakeAction.cpp
@@ -97,6 +95,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o.provides: ca
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/WaterMazeTakeAction.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o: calit2/WaterMaze/EyeData.cpp
@@ -120,6 +119,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o.provides: calit2/WaterMa
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/EyeData.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o: calit2/WaterMaze/Paradigm.cpp
@@ -143,6 +143,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o.provides: calit2/WaterM
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Paradigm.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o: calit2/WaterMaze/Path.cpp
@@ -166,6 +167,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o.provides: calit2/WaterMaze/
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Path.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o: calit2/WaterMaze/PathData.cpp
@@ -189,6 +191,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o.provides: calit2/WaterM
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/PathData.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o: calit2/WaterMaze/Controller/WMController.cpp
@@ -212,6 +215,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o.provides
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/WMController.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.o: calit2/WaterMaze/Controller/ControllerQueue.cpp
@@ -235,6 +239,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.o.provi
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/ControllerQueue.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/OutboundPacket.cpp
@@ -258,6 +263,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPac
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/OutboundPacket.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/TrialSetup.cpp
@@ -281,6 +287,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/TrialSetup.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/StateUpdate.cpp
@@ -304,6 +311,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/StateUpdate.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/CueList.cpp
@@ -327,6 +335,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/CueList.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o: calit2/WaterMaze/Controller/OutboundPackets/GeneralComm.cpp
@@ -350,6 +359,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/OutboundPackets/GeneralComm.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o: calit2/WaterMaze/Controller/InboundPackets/InboundPacket.cpp
@@ -373,6 +383,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacke
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/InboundPacket.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o: calit2/WaterMaze/Controller/InboundPackets/StateRequest.cpp
@@ -396,6 +407,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/StateRequest.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o: calit2/WaterMaze/Controller/InboundPackets/Command.cpp
@@ -419,6 +431,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/Command.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o: calit2/WaterMaze/Controller/InboundPackets/TrialSetupRequest.cpp
@@ -442,6 +455,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRe
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/TrialSetupRequest.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o: calit2/WaterMaze/Controller/InboundPackets/CueListRequest.cpp
@@ -465,6 +479,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListReque
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueListRequest.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o: calit2/WaterMaze/Controller/InboundPackets/CueToggle.cpp
@@ -488,6 +503,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cp
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/CueToggle.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o: calit2/WaterMaze/Controller/InboundPackets/NewSubject.cpp
@@ -511,6 +527,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.c
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Controller/InboundPackets/NewSubject.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o: calit2/WaterMaze/Cue.cpp
@@ -534,6 +551,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o.provides: calit2/WaterMaze/C
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cue.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o: calit2/WaterMaze/Cues/WallCue.cpp
@@ -557,6 +575,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o.provides: calit2/Wa
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/WallCue.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o: calit2/WaterMaze/Cues/FloorCue.cpp
@@ -580,6 +599,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o.provides: calit2/W
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o: calit2/WaterMaze/Cues/EndCue.cpp
@@ -603,6 +623,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o.provides: calit2/Wat
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o: calit2/WaterMaze/Cues/StartCue.cpp
@@ -626,6 +647,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o.provides: calit2/W
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o.provides.build
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o: calit2/WaterMaze/Cues/AuditoryCue.cpp
@@ -649,6 +671,31 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o.provides: calit
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o.provides
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o.provides.build
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/flags.make
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o: calit2/WaterMaze/SyncedRandomNumber.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/srunyon/workStuff/CVRPlugins/CMakeFiles $(CMAKE_PROGRESS_27)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o"
+	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o -c /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.cpp
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.i"
+	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.cpp > CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.i
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.s"
+	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze/SyncedRandomNumber.cpp -o CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.s
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.requires:
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.requires
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.provides: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.requires
+	$(MAKE) -f calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.provides.build
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.provides
+
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.provides.build: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o
+.PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.provides.build
 
 # Object files for target WaterMaze
 WaterMaze_OBJECTS = \
@@ -677,7 +724,8 @@ WaterMaze_OBJECTS = \
 "CMakeFiles/WaterMaze.dir/Cues/FloorCue.cpp.o" \
 "CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o" \
 "CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o" \
-"CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o"
+"CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o" \
+"CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o"
 
 # External object files for target WaterMaze
 WaterMaze_EXTERNAL_OBJECTS =
@@ -708,7 +756,7 @@ WaterMaze_EXTERNAL_OBJECTS =
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o
-/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make
+/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: /home/calvr/CalVR/extern_libs/lib64/libosgWidget.so
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: /home/calvr/CalVR/extern_libs/lib64/libosgVolume.so
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: /home/calvr/CalVR/extern_libs/lib64/libosgViewer.so
@@ -727,6 +775,7 @@ WaterMaze_EXTERNAL_OBJECTS =
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: /home/calvr/CalVR/extern_libs/lib64/libOpenThreads.so
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: /home/calvr/CalVR/extern_libs/lib64/libosg.so
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: /usr/local/lib64/liboasclient.so
+/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/build.make
 /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so"
 	cd /home/srunyon/workStuff/CVRPlugins/calit2/WaterMaze && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WaterMaze.dir/link.txt --verbose=$(VERBOSE)
@@ -761,6 +810,7 @@ calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o.requires
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o.requires
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o.requires
+calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires: calit2/WaterMaze/CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o.requires
 .PHONY : calit2/WaterMaze/CMakeFiles/WaterMaze.dir/requires
 
 calit2/WaterMaze/CMakeFiles/WaterMaze.dir/clean:

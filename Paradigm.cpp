@@ -68,7 +68,6 @@ Paradigm::Paradigm(string paradigmID, string file)
 		else
 		{
 			_startingPos = -1;
-			newStart();
 		}
 
 		//finish position
@@ -81,9 +80,7 @@ Paradigm::Paradigm(string paradigmID, string file)
 		else
 		{
 			_finishPos = -1;
-			newFinish();
 		}
-		
 	}
 }
 
@@ -106,18 +103,22 @@ void Paradigm::addTrial()
 }
 void Paradigm::setStartingPos()
 {
-	if (_startingPosType == Random)
+	if (_startingPosType == Random || (_startingPosType == Constant && _startingPos == -1))
 	{
+		ComController::instance()->sync();
 		newStart();
 	}
+	cout << "Start Position: " << _startingPos / _length << " " << _startingPos % _length << endl;
 }
 
 void Paradigm::setFinishPos()
 {
-	if (_finishPosType == Random)
+	if (_finishPosType == Random || (_finishPosType == Constant && _finishPos == -1))
 	{
+		ComController::instance()->sync();
 		newFinish();
 	}
+	cout << "Finish Position: " << _finishPos / _length << " " << _finishPos % _length << endl;
 }
 
 //access methods
@@ -180,24 +181,30 @@ void Paradigm::newStart()
 	int sY = _startingPos % _length;
 	int fX = _finishPos / _length;
 	int fY = _finishPos % _length;
-	
+	cout << "previous start: " << sX << " " << sY << endl;
 	bool valid = false;
 	do
 	{
-		//use random number generator to get a new position
-		newPos = rand() % (_width * _length);
+		//Get a Synchronized random int
+		cout << "Synced random Start" << endl;
+		
+		newPos = SyncedRandom::getSyncedRandomInt(_width * _length);
 		nX = newPos / _length;
 		nY = newPos % _length;
 		
 		//it is far enough away from the finish position?
-		valid = abs(nX - fX) > 1 && abs(nY - fY) > 1 && (abs(nX - fX) + abs(nY - fY)) > (_width / 3);
+		int dX = abs(nX - fX);
+		int dY = abs(nY - fY);
+		valid = dX > 1 && dY > 1 && (dX + dY) > (_width / 3);
 		if(_finishPos == -1)	//allow for any starting position from the start.
 			valid = true;
 			
 		if(valid)
 		{
 			//and far enough away from the previous start?
-			valid = abs(nX - sX) > 1 && abs(nY - sY) > 1 && (abs(nX - sX) + abs(nY - sY)) > (_width / 3);
+			dX = abs(nX - sX);
+			dY = abs(nY - sY);
+			valid = dX > 1 && dY > 1 && (dX + dY) > (_width / 3);
 			if(_startingPos == -1)	//if we didnt have a starting position before anything is valid
 				valid = true;
 		}
@@ -206,6 +213,7 @@ void Paradigm::newStart()
 	}while(!valid);
 	
 	_startingPos = newPos;
+	cout << "NEW START Position: " << _startingPos / _length << " " << _startingPos % _length << endl;
 }
 
 void Paradigm::newFinish()
@@ -216,29 +224,36 @@ void Paradigm::newFinish()
 	int sY = _startingPos % _length;
 	int fX = _finishPos / _length;
 	int fY = _finishPos % _length;
-	
+	cout << "previous finish: " << sX << " " << sY << endl;
 	bool valid = false;
 	do
 	{
-		newPos = rand() % (_width * _length);
+		//Get a Synchronized random int
+		cout << "Synched random Finish " << endl;
+		newPos = SyncedRandom::getSyncedRandomInt(_width * _length);
 		nX = newPos / _length;
 		nY = newPos % _length;
 		
 		//it is far enough away from the starting position?
-		valid = abs(nX - sX) > 1 && abs(nY - sY) > 1 && (abs(nX - sX) + abs(nY - sY)) > (_width / 3);
+		int dX = abs(nX - sX);
+		int dY = abs(nY - sY);
+		valid = dX > 1 && dY > 1 && (dX + dY) > (_width / 3);
 		if(_startingPos == -1)
 			valid = true;
 				
 		if(valid)
 		{
 			//and far enough away from the previous finish?
-			valid = abs(nX - fX) > 1 && abs(nY - fY) > 1 && (abs(nX - fX) + abs(nY - fY)) > (_width / 3);
+			dX = abs(nX - fX);
+			dY = abs(nY - fY);
+			valid = dX > 1 && dY > 1 && (dX + dY) > (_width / 3);
 			if(_finishPos == -1)	//if no previous finish position any position is valid
 				valid = true;
 		}
 	}while(!valid);
 	
 	_finishPos = newPos;
+	cout << "NEW FINISH Position: " << _finishPos / _length << " " << _finishPos % _length << endl;
 }
 
 Cue* Paradigm::newCue(string type, string file)
@@ -423,6 +438,14 @@ void Paradigm::setSoundStartTimer(float time)
 	for(int i = 0; i < _soundCues.size(); ++i)
 	{
 		_soundCues[i]->setStartTimer(time);
+	}
+}
+
+void Paradigm::setVolume(float vol)
+{
+	for(int i = 0; i < _soundCues.size(); ++i)
+	{
+		_soundCues[i]->setVolume(vol);
 	}
 }
 

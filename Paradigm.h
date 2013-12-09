@@ -21,6 +21,7 @@
 #include <cvrKernel/PluginHelper.h>
 #include <cvrConfig/ConfigManager.h>
 #include <cvrConfig/XMLReader.h>
+#include <cvrKernel/ComController.h>
 
 //std libraries
 #include <vector>
@@ -36,6 +37,8 @@
 #include "Cues/StartCue.h"
 #include "Cues/AuditoryCue.h"
 //#include "Controller/OutboundPackets/TrialSetup.h"
+
+#include "SyncedRandomNumber.h"
 
 using namespace std;
 using namespace cvr;
@@ -87,7 +90,10 @@ class Paradigm
 		* Toggle a cue belonging to this paradigm.
 		*/
 		void toggle(tuple<string, bool> t);
-
+		/**
+		 * Changes the master volume of all auditory cues
+		 */
+		void setVolume(float vol);
 	//Access Methods
 		/**
 		* Returns the starting position.

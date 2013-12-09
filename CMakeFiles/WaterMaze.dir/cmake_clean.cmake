@@ -25,6 +25,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/WaterMaze.dir/Cues/EndCue.cpp.o"
   "CMakeFiles/WaterMaze.dir/Cues/StartCue.cpp.o"
   "CMakeFiles/WaterMaze.dir/Cues/AuditoryCue.cpp.o"
+  "CMakeFiles/WaterMaze.dir/SyncedRandomNumber.cpp.o"
   "/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.pdb"
   "/home/calvr/CalVR/lib/calvr-plugins/libWaterMaze.so"
 )

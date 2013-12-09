@@ -35,6 +35,10 @@ FloorCue::~FloorCue()
 void FloorCue::renderGeo(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts)
 {
 	//do nothing this doesnt actually make any rendering happen.
+	if(_subType == "Custom Geo")
+	{
+		renderCustom(_geoRoot, ts);
+	}
 	if(_subType == "Geo")
 	{
 		MatrixTransform* cue = new MatrixTransform();

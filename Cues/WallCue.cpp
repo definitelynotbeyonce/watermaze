@@ -17,17 +17,22 @@ void WallCue::renderGeo(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup*
 	//route to proper rendering functon
 	if(_subType == "None")
 	{
-		renderWall(_geoRoot, ts);
+		//renderWall(_geoRoot, ts);
 	}
 	else if(_subType == "Hanging")
 	{
 		renderHanging(_geoRoot, ts);
+	}
+	else if(_subType == "Custom")
+	{
+		renderCustom(_geoRoot, ts);
 	}
 }
 
 void WallCue::renderWall(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts)
 {
 	//Wall texture
+	cout << "Render Wall" << endl;
 	std::string wallTex = ConfigManager::getEntry("Plugin.WaterMaze.Textures.Wall");
     osg::Texture2D* tex = new osg::Texture2D();
     osg::ref_ptr<osg::Image> img;
@@ -56,8 +61,8 @@ void WallCue::renderWall(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup
 		//get center
 		Vec3 vec = _reader.getVec3("Cue.Shapes." + shapes[i] + ".Pos");
 		//manip vector.
-		vec[0] = (vec[0] * ts->width * ts->gridSize) - ts->gridSize;
-		vec[1] = (vec[1] * ts->length * ts->gridSize) - ts->gridSize;
+		vec[0] = (vec[0] * ts->width * ts->gridSize) + ts->zero_zeroX;
+		vec[1] = (vec[1] * ts->length * ts->gridSize) + ts->zero_zeroY;
 		vec[2] = vec[2] * ts->wallHeight;
 		
 		//get color
@@ -89,6 +94,7 @@ void WallCue::renderWall(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup
 void WallCue::renderHanging(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSetup* ts)
 {
 	//Matrix transform for cue.	
+	cout << "Render Hanging" << endl;
 	MatrixTransform* cue = new MatrixTransform();
 	Geode* geode = new Geode();
 	cue->addChild(geode);
@@ -109,13 +115,13 @@ void WallCue::renderHanging(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSe
 	
 	//get type of shape.
 	string type = _reader.getEntry("Cue.Shapes.Shape0.Shape");
-	cout << "hanging type: " << type << endl;
 	
 	//position of shape.
 	Vec3 pos = _reader.getVec3("Cue.Shapes.Shape0.Pos"); 
 	Vec3 vec = _reader.getVec3("Cue.Shapes.Shape0.Pos");
-	vec[0] = (vec[0] * ts->width * ts->gridSize) - ts->gridSize;
-	vec[1] = (vec[1] * ts->length * ts->gridSize) - ts->gridSize;
+	cout << "Zero Zero " << ts->zero_zeroX << endl;
+	vec[0] = (vec[0] * ts->width * ts->gridSize) + ts->zero_zeroX;
+	vec[1] = (vec[1] * ts->length * ts->gridSize) + ts->zero_zeroY;
 	vec[2] = vec[2] * ts->wallHeight;
 	
 	//color of shape
@@ -235,3 +241,4 @@ void WallCue::renderHanging(osg::ref_ptr<osg::MatrixTransform> _geoRoot, TrialSe
 	//add cue to scene
 	_geoRoot->addChild(cue);
 }
+
